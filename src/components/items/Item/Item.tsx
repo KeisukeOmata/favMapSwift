@@ -19,7 +19,7 @@ export const Item: FC<Props> = ({ item, focused }) => {
     if (ref.current && focused) {
       ref.current.focus()
     }
-  }, [focused])
+  }, [])
 
   return (
     <>
@@ -27,7 +27,6 @@ export const Item: FC<Props> = ({ item, focused }) => {
         <Link key={`items-${id}`} href={`/items/${id}`} passHref>
           <button
             ref={ref}
-            tabIndex={-1}
             onClick={() => setFocusItemState(id)}
             aria-label={`${title}のページを表示する`}
             className={s.item__mainLink}
