@@ -25,6 +25,7 @@ export default function World() {
                 quality="85"
                 width={500}
                 height={500}
+                tabIndex={0}
               />
             </div>
             <div className={cn(s.item, s.order2)}>
@@ -44,6 +45,7 @@ export default function World() {
                 quality="85"
                 width={500}
                 height={500}
+                tabIndex={0}
               />
             </div>
             <div className={cn(s.item, s.order5)}>
@@ -53,6 +55,7 @@ export default function World() {
                 quality="85"
                 width={500}
                 height={500}
+                tabIndex={0}
               />
             </div>
             <div className={cn(s.item, s.order6)}>
