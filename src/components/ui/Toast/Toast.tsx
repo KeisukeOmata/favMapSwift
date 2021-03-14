@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { ToastContainer, Slide } from 'react-toastify'
+import { ToastContainer, Flip } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useTheme } from 'next-themes'
 import s from './Toast.module.css'
@@ -18,7 +18,7 @@ export const Toast: FC = () => {
       draggable={false}
       pauseOnHover={false}
       pauseOnFocusLoss={false}
-      transition={Slide}
+      transition={Flip}
     />
   )
 }
