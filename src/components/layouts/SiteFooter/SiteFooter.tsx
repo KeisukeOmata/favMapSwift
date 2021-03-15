@@ -9,7 +9,12 @@ export const SiteFooter: FC = () => (
     <ContentWrapper>
       <div className={s.siteFooter}>
         <div className={s.item}>
-          <a href={Config.siteURL.twitter} target="_blank" rel="noreferrer">
+          <a
+            href={Config.siteURL.twitter}
+            target="_blank"
+            rel="noreferrer"
+            tabIndex={-1}
+          >
             <button aria-label="Twitterへのリンク">
               <Twitter />
             </button>
@@ -19,12 +24,18 @@ export const SiteFooter: FC = () => (
             href={Config.siteURL.instagram}
             target="_blank"
             rel="noreferrer"
+            tabIndex={-1}
           >
             <button aria-label="Instagramへのリンク">
               <Instagram />
             </button>
           </a>
-          <a href={Config.siteURL.github} target="_blank" rel="noreferrer">
+          <a
+            href={Config.siteURL.github}
+            target="_blank"
+            rel="noreferrer"
+            tabIndex={-1}
+          >
             <button aria-label="Githubへのリンク">
               <Github />
             </button>
