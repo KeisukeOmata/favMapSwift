@@ -3,10 +3,12 @@ import { FC } from 'react'
 import { ContentWrapper } from 'components/layouts'
 import { DarkMode } from 'components/ui'
 import { useCart } from 'lib/hooks/useCart'
+import { useRecoil } from 'lib/hooks/useRecoil'
 import s from './SiteHeader.module.scss'
 
 export const SiteHeader: FC = () => {
   const { quantity } = useCart()
+  const { setFocusItemState } = useRecoil()
   return (
     <header className={s.siteHeader}>
       <ContentWrapper>
@@ -15,23 +17,39 @@ export const SiteHeader: FC = () => {
             <button
               aria-label="このサイトの名前"
               className={s.siteHeader__logoLink}
+              onClick={() => setFocusItemState(null)}
             >
               Brand
             </button>
           </Link>
           <div className={s.siteHeader__links}>
             <Link href={'/'} passHref>
-              <button aria-label="アイテム一覧を表示する">Items</button>
+              <button
+                aria-label="アイテム一覧を表示する"
+                onClick={() => setFocusItemState(null)}
+              >
+                Items
+              </button>
             </Link>
             <div className={s.slash}>/</div>
             <Link href={'/world'} passHref>
-              <button aria-label="about usを表示する">World</button>
+              <button
+                aria-label="about usを表示する"
+                onClick={() => setFocusItemState(null)}
+              >
+                World
+              </button>
             </Link>
             <div className={s.slash}>/</div>
             <DarkMode />
           </div>
           <Link href={'/cart'} passHref>
-            <button aria-label="カートを表示する">BAG({quantity})</button>
+            <button
+              aria-label="カートを表示する"
+              onClick={() => setFocusItemState(null)}
+            >
+              BAG({quantity})
+            </button>
           </Link>
         </div>
       </ContentWrapper>
