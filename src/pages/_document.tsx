@@ -5,7 +5,7 @@ export default class CustomDocument extends Document {
     return (
       <Html lang="ja">
         <Head />
-        <body>
+        <body className="loading">
           <Main />
           <NextScript />
         </body>

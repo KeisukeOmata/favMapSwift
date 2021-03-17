@@ -9,6 +9,7 @@ import { SiteHeader, SiteFooter, FixedFooter } from 'components/layouts'
 import { Config } from 'lib/site.config'
 import 'styles//main.css'
 import 'styles/globals.scss'
+import 'styles/chrome-bug.css'
 import 'keen-slider/keen-slider.min.css'
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
@@ -24,6 +25,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => router.events.off('routeChangeComplete', handleRouteChange)
   })
+
+  // Fix CSS issue from Chrome bug
+  useEffect(() => {
+    document.body.classList?.remove('loading')
+  }, [])
 
   return (
     <>
