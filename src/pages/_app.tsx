@@ -1,31 +1,19 @@
 import type { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
 import NextHead from 'next/head'
-import { useCallback, useEffect } from 'react'
+import { useEffect } from 'react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'next-themes'
 import { NextSeo } from 'next-seo'
 import { SiteHeader, SiteFooter, FixedFooter } from 'components/layouts'
 import { Config } from 'lib/site.config'
+import { useMainFocus } from 'lib/hooks/useMainFocus'
 import 'styles//main.css'
 import 'styles/globals.scss'
 import 'styles/chrome-bug.css'
 import 'keen-slider/keen-slider.min.css'
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  // Focus on main when the page transitions.
-  const router = useRouter()
-
-  const handleRouteChange = useCallback(() => {
-    const main = document.getElementById('main')
-    main?.focus({ preventScroll: true })
-  }, [])
-
-  useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => router.events.off('routeChangeComplete', handleRouteChange)
-  })
-
+export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  useMainFocus()
   // Fix CSS issue from Chrome bug
   useEffect(() => {
     document.body.classList?.remove('loading')
@@ -85,5 +73,3 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     </>
   )
 }
-
-export default MyApp
