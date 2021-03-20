@@ -4,8 +4,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Arial, sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
+  font-family: Arial, sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
 
 a {
@@ -25,7 +24,6 @@ footer {
 button {
   // 継承する
   font-family: inherit;
-  border: none;
   // リンクカーソル
   cursor: pointer;
   // デフォルトスタイルを無効にする
@@ -36,8 +34,6 @@ button {
   font-size: inherit;
   // 継承する
   font-weight: inherit;
-  // 継承する
-  font-family: inherit;
   // 0.25秒
   transition: 0.25s;
   padding: 0;
