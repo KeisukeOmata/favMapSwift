@@ -1,5 +1,6 @@
 export { ContentWrapper, UndoWrapForScroll } from './ContentWrapper'
 export { FixedFooter } from './FixedFooter'
 export { PageSEO } from './PageSEO'
+export { Maintenance } from './Maintenance'
 export { SiteFooter } from './SiteFooter'
 export { SiteHeader } from './SiteHeader'

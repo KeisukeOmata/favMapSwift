@@ -4,7 +4,12 @@ import { useEffect } from 'react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'next-themes'
 import { NextSeo } from 'next-seo'
-import { SiteHeader, SiteFooter, FixedFooter } from 'components/layouts'
+import {
+  SiteHeader,
+  SiteFooter,
+  FixedFooter,
+  Maintenance,
+} from 'components/layouts'
 import { Config } from 'lib/site.config'
 import { useMainFocus } from 'lib/hooks/useMainFocus'
 import 'styles//main.css'
@@ -64,7 +69,11 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           <RecoilRoot>
             <SiteHeader />
             <main id="main" tabIndex={-1} aria-label="メイン">
-              <Component {...pageProps} />
+              {process.env.NEXT_PUBLIC_MAINTENANCE_MODE === '1' ? (
+                <Maintenance />
+              ) : (
+                <Component {...pageProps} />
+              )}
             </main>
             <SiteFooter />
           </RecoilRoot>
