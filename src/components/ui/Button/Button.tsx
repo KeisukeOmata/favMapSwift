@@ -5,9 +5,10 @@ import s from './Button.module.css'
 type props = {
   color?: string
   shape: 'square' | 'circle'
+  choose?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-export const Button: FC<props> = ({ color, shape, ...rest }) => {
+export const Button: FC<props> = ({ color, shape, choose, ...rest }) => {
   let colorClass: string
   switch (color) {
     case 'Black':
@@ -83,7 +84,11 @@ export const Button: FC<props> = ({ color, shape, ...rest }) => {
 
   return (
     <button
-      className={cn(colorClass, shape == 'square' ? s.square : s.circle)}
+      className={cn(
+        colorClass,
+        shape == 'square' ? s.square : s.circle,
+        choose ? s.choose : s.notChoose
+      )}
       {...rest}
     ></button>
   )

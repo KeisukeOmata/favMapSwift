@@ -1,8 +1,9 @@
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { toast } from 'react-toastify'
+import { ColorAndSize } from 'components/items'
 import { Button, Slider, Toast } from 'components/ui'
-import { TypeItem } from 'lib/Type'
+import { TypeItem, Sku } from 'lib/Type'
 import { useCart } from 'lib/hooks/useCart'
 import s from './ItemDetail.module.scss'
 
@@ -11,6 +12,7 @@ type Props = {
 }
 
 export const ItemDetail: FC<Props> = ({ detail }) => {
+  const [itemIdState, setItemIdState] = useState<string | null>(null)
   const { addItem } = useCart()
   const addToCart = async (skuId: string | number) => {
     await addItem(skuId)
@@ -48,6 +50,11 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
           <p>{detail.title}</p>
           <p>¥{detail.variants[0].price}</p>
           <br />
+          <ColorAndSize
+            detail={detail}
+            variants={detail.variants as Sku[]}
+            setItemIdState={setItemIdState}
+          />
           <article
             className={s.item__description}
             dangerouslySetInnerHTML={{
@@ -58,7 +65,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             shape="square"
             type="button"
             aria-label="BAGに入れる"
-            onClick={() => addToCart(detail.variants[0].id)}
+            onClick={() => addToCart(itemIdState as string)}
           >
             BAGに入れる
           </Button>
