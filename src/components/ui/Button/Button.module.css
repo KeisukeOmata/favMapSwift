@@ -1,5 +1,5 @@
 .square {
-  @apply text-accents-1 cursor-pointer inline-flex px-10 rounded-sm leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center uppercase py-2 border border-transparent items-center;
+  @apply text-accents-1 cursor-pointer inline-flex px-10 rounded-sm leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center py-2 border border-transparent items-center;
 }
 
 @screen md {
@@ -17,7 +17,16 @@
 }
 
 .circle {
-  @apply text-accents-1 cursor-pointer inline-flex px-10 rounded-sm leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center uppercase py-2 border border-transparent items-center;
+  @apply rounded-full h-15 w-15 flex items-center justify-center border border-secondary text-secondary;
+}
+
+.circle:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.choose {
+  @apply border-4 border-blue;
 }
 
 .default {

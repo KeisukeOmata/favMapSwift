@@ -1,0 +1,17 @@
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-base-text-lighter);
+  border-top: solid 1px rgba(212, 231, 241, 0.6);
+}
+
+.item {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  background: var(--color-base-background-lighter);
+  margin: 0 0.3rem 0.3rem 0;
+}
