@@ -34,9 +34,9 @@ export default function DetailPage({
   errors,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const router = useRouter()
-  const { fetchCart } = useCart()
+  const { FetchCart } = useCart()
   if (errors) return <div>error</div>
-  fetchCart()
+  FetchCart()
   if (router.isFallback) {
     return <div>loading...</div>
   }

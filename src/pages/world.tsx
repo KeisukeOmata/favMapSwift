@@ -7,8 +7,8 @@ import { Config } from 'lib/site.config'
 import s from 'styles/pages/world.module.scss'
 
 export default function World() {
-  const { fetchCart } = useCart()
-  fetchCart()
+  const { FetchCart } = useCart()
+  FetchCart()
   return (
     <>
       <PageSEO title="World" path="/world" ogImageUrl={Config.defaultOGImage} />

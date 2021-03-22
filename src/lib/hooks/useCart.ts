@@ -10,7 +10,7 @@ type useCartType = {
   changeQuantity: (skuId: string, quantity: string) => void
   removeItem: (productId: string) => void
   addItem: (skuId: string | number) => Promise<void>
-  fetchCart: () => void
+  FetchCart: () => void
 }
 
 const cartState = atom<Cart | null>({
@@ -72,7 +72,7 @@ export const useCart = (): useCartType => {
       .then((cart) => setCart(cart as Cart))
   }
 
-  const fetchCart = () => {
+  const FetchCart = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       const checkoutId = getCheckoutId()
@@ -87,6 +87,6 @@ export const useCart = (): useCartType => {
     changeQuantity,
     removeItem,
     addItem,
-    fetchCart,
+    FetchCart,
   }
 }
