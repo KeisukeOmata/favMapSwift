@@ -5,12 +5,12 @@ import s from './Slider.module.css'
 
 export const Slider: FC = ({ children }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [isMounted, setIsMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   const [ref, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slidesPerView: 1,
-    mounted: () => setIsMounted(true),
+    mounted: () => setMounted(true),
     slideChanged(s) {
       setCurrentSlide(s.details().relativeSlide)
     },
@@ -31,10 +31,9 @@ export const Slider: FC = ({ children }) => {
       <div
         ref={ref}
         className="keen-slider h-full transition-opacity duration-150"
-        style={{ opacity: isMounted ? 1 : 0 }}
+        style={{ opacity: mounted ? 1 : 0 }}
       >
         {Children.map(children, (child) => {
-          // keen-slider__slideクラスをchildに追加
           if (isValidElement(child)) {
             return {
               ...child,

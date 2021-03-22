@@ -1,5 +1,6 @@
 .root {
   @apply relative w-full h-full;
+
   overflow-y: hidden;
 }
 
@@ -10,21 +11,18 @@
 
 .leftControl:hover,
 .rightControl:hover {
-  @apply bg-hover-2;
-}
-
-.leftControl:hover,
-.rightControl:hover {
-  @apply outline-none shadow-outline-blue;
+  @apply bg-hover-2 outline-none shadow-outline-blue;
 }
 
 .leftControl {
   @apply bg-cover left-2;
+
   background-image: url('/cursor-left.png');
 }
 
 .rightControl {
   @apply bg-cover right-2;
+
   background-image: url('/cursor-right.png');
 }
 
@@ -38,6 +36,7 @@
 
 .positionIndicatorsContainer {
   @apply block absolute bottom-6 left-1/2;
+
   transform: translateX(-50%);
 }
 
