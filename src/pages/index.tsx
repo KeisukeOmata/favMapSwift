@@ -20,8 +20,8 @@ export async function getStaticProps() {
 export default function Home({
   items,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { fetchCart } = useCart()
-  fetchCart()
+  const { FetchCart } = useCart()
+  FetchCart()
   return (
     <>
       <PageSEO

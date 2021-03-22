@@ -6,8 +6,8 @@ import { Config } from 'lib/site.config'
 import s from 'styles/pages/cart/index.module.scss'
 
 export default function Cart() {
-  const { cart, fetchCart } = useCart()
-  fetchCart()
+  const { cart, FetchCart } = useCart()
+  FetchCart()
   return (
     <>
       <PageSEO title="Cart" path="/cart" ogImageUrl={Config.defaultOGImage} />
