@@ -3,12 +3,12 @@ import { FC } from 'react'
 import { ContentWrapper } from 'components/layouts'
 import { DarkMode } from 'components/ui'
 import { useCart } from 'lib/hooks/useCart'
-import { useRecoil } from 'lib/hooks/useRecoil'
+import { useRecoilFocusItem } from 'lib/hooks/useRecoilFocusItem'
 import s from './SiteHeader.module.scss'
 
 export const SiteHeader: FC = () => {
   const { quantity } = useCart()
-  const { setFocusItemState } = useRecoil()
+  const { setFocusItemState } = useRecoilFocusItem()
   return (
     <header className={s.siteHeader}>
       <ContentWrapper>

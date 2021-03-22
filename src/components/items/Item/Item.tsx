@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FC, useEffect, useRef } from 'react'
 import { TypeItem } from 'lib/Type'
-import { useRecoil } from 'lib/hooks/useRecoil'
+import { useRecoilFocusItem } from 'lib/hooks/useRecoilFocusItem'
 import s from './Item.module.scss'
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 export const Item: FC<Props> = ({ item, focused }) => {
   const { id, images, title, variants } = item
   const ref = useRef<HTMLButtonElement | null>(null)
-  const { setFocusItemState } = useRecoil()
+  const { setFocusItemState } = useRecoilFocusItem()
 
   useEffect(() => {
     if (ref.current && focused) {
