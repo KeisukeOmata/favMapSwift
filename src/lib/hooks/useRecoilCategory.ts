@@ -1,6 +1,6 @@
 import { atom, useRecoilValue, useSetRecoilState } from 'recoil'
 
-type useRecoilType = {
+type useRecoilCategoryType = {
   getCategoryState: () => string
   setCategoryState: (categoryState: string) => void
 }
@@ -10,7 +10,7 @@ const categoryAtom = atom<string>({
   default: '新着',
 })
 
-export const useRecoilCategory = (): useRecoilType => {
+export const useRecoilCategory = (): useRecoilCategoryType => {
   const categoryState = useRecoilValue(categoryAtom)
   const setCategoryStateToRecoil = useSetRecoilState(categoryAtom)
 
