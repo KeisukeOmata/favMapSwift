@@ -1,6 +1,6 @@
 import { atom, useRecoilValue, useSetRecoilState } from 'recoil'
 
-type useRecoilType = {
+type useRecoilFocusItemType = {
   getFocusItemState: () => string | null
   setFocusItemState: (focusItemState: string | null) => void
 }
@@ -10,7 +10,7 @@ const focusItemAtom = atom<string | null>({
   default: null,
 })
 
-export const useRecoilFocusItem = (): useRecoilType => {
+export const useRecoilFocusItem = (): useRecoilFocusItemType => {
   const focusItemState = useRecoilValue(focusItemAtom)
   const setFocusItemStateToRecoil = useSetRecoilState(focusItemAtom)
 
