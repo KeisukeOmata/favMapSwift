@@ -1,21 +1,16 @@
 import { FC } from 'react'
 import { CartItemImage, CartItemDetail } from 'components/cart'
-import { Sku } from 'lib/Type'
+import { LineItem } from 'lib/Type'
 import s from './CartItem.module.scss'
 
 type Props = {
-  item: {
-    title: string
-    variant: Sku
-    quantity: number
-    id: string
-  }
+  item: LineItem
 }
 
 export const CartItem: FC<Props> = ({ item }) => {
   return (
     <>
-      <div className={s.items} key={item.id}>
+      <div className={s.items}>
         <div className={s.item}>
           <CartItemImage cartItem={item} />
         </div>

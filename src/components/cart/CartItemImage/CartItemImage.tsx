@@ -1,16 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
-import { Sku } from 'lib/Type'
+import { LineItem } from 'lib/Type'
 // import s from './CartItemImage.module.scss'
 
 type Props = {
-  cartItem: {
-    title: string
-    variant: Sku
-    quantity: number
-    id: string
-  }
+  cartItem: LineItem
 }
 
 export const CartItemImage: FC<Props> = ({ cartItem }) => {
