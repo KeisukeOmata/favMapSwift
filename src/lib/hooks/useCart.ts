@@ -8,26 +8,26 @@ type useCartType = {
   cart: Cart | null
   quantity: number
   changeQuantity: (skuId: string, quantity: string) => void
-  removeItem: (productId: string) => void
-  addItem: (skuId: string | number) => Promise<void>
+  removeItem: (cartItemId: string) => void
+  addItem: (skuId: string | number) => void
   FetchCart: () => void
 }
 
-const cartState = atom<Cart | null>({
-  key: 'cartStateKey',
+const cartAtom = atom<Cart | null>({
+  key: 'cartAtomKey',
   default: null,
 })
 const quantityState = selector({
   key: 'quantityStateKey',
   get: ({ get }) =>
-    get(cartState)?.lineItems.reduce(
+    get(cartAtom)?.lineItems.reduce(
       (accumulator, currentValue) => accumulator + currentValue.quantity,
       0
     ) ?? 0,
 })
 
 export const useCart = (): useCartType => {
-  const [cart, setCart] = useRecoilState(cartState)
+  const [cart, setCart] = useRecoilState(cartAtom)
   const quantity = useRecoilValue(quantityState)
 
   const InitializeCart = () => {
@@ -43,37 +43,32 @@ export const useCart = (): useCartType => {
 
   InitializeCart()
 
-  const changeQuantity = (skuId: string, quantity: string): void => {
+  const changeQuantity = (cartItemId: string, quantity: string) => {
     if (!cart) return
     shopify.checkout
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      .updateLineItems(cart.id, [{ id: skuId, quantity: parseInt(quantity) }])
-      .then((cart: Cart) => {
-        setCart(cart as Cart)
-      })
-  }
-
-  const removeItem = (productId: string): void => {
-    if (!cart) return
-    shopify.checkout.removeLineItems(cart.id, [productId]).then((cart) => {
-      setCart(cart as Cart)
-    })
-  }
-
-  const addItem = (skuId: string | number): Promise<void> => {
-    return shopify.checkout
-      .addLineItems(getCheckoutId(), [
-        {
-          variantId: skuId,
-          quantity: 1,
-        },
+      .updateLineItems(cart.id, [
+        { id: cartItemId, quantity: parseInt(quantity) },
       ])
+      .then((cart: Cart) => setCart(cart))
+  }
+
+  const removeItem = (cartItemId: string): void => {
+    if (!cart) return
+    shopify.checkout
+      .removeLineItems(cart.id, [cartItemId])
+      .then((cart) => setCart(cart as Cart))
+  }
+
+  const addItem = (itemIdState: string | number) => {
+    if (!cart) return
+    shopify.checkout
+      .addLineItems(cart.id, [{ variantId: itemIdState, quantity: 1 }])
       .then((cart) => setCart(cart as Cart))
   }
 
   const FetchCart = () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       const checkoutId = getCheckoutId()
       if (!checkoutId) return

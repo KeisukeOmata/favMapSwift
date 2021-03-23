@@ -14,8 +14,8 @@ type Props = {
 export const ItemDetail: FC<Props> = ({ detail }) => {
   const [itemIdState, setItemIdState] = useState<string | null>(null)
   const { addItem } = useCart()
-  const addToCart = async (skuId: string | number) => {
-    await addItem(skuId)
+  const addToCart = (itemIdState: string | number): void => {
+    addItem(itemIdState)
     // Show toast
     toast('BAGに追加しました')
   }
