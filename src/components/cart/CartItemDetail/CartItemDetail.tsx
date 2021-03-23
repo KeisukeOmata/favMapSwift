@@ -2,16 +2,11 @@ import { FC } from 'react'
 import { Button } from 'components/ui'
 import { useCart } from 'lib/hooks/useCart'
 import { getColorAndSize } from 'lib/helpers'
-import { Sku } from 'lib/Type'
+import { LineItem } from 'lib/Type'
 // import s from './CartItemDetail.module.scss'
 
 type Props = {
-  cartItem: {
-    title: string
-    variant: Sku
-    quantity: number
-    id: string
-  }
+  cartItem: LineItem
 }
 
 export const CartItemDetail: FC<Props> = ({ cartItem }) => {
@@ -19,20 +14,16 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
 
   return (
     <>
+      <p>{cartItem.title}</p>
       <div>
-        <p>{cartItem.title}</p>
-        <div>
-          {/* Color:{' '} */}
-          {getColorAndSize(cartItem.variant.selectedOptions, 'Color')}
-        </div>
-        <div>
-          {/* Size:{' '} */}
-          {getColorAndSize(cartItem.variant.selectedOptions, 'Size')}
-        </div>
+        {/* Color:{' '} */}
+        {getColorAndSize(cartItem.variant.selectedOptions, 'Color')}
       </div>
       <div>
-        <p>¥{cartItem.variant.price}</p>
+        {/* Size:{' '} */}
+        {getColorAndSize(cartItem.variant.selectedOptions, 'Size')}
       </div>
+      <p>¥{cartItem.variant.price}</p>
       <div>
         個数：
         {/* eslint-disable-next-line jsx-a11y/no-onchange */}
@@ -51,9 +42,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
           })}
         </select>
       </div>
-      <div>
-        <p>小計： ¥{parseInt(cartItem.variant.price) * cartItem.quantity}</p>
-      </div>
+      <p>小計： ¥{parseInt(cartItem.variant.price) * cartItem.quantity}</p>
       <br></br>
       <div>
         <Button

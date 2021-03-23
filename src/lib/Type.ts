@@ -29,7 +29,7 @@ export type TypeItem = {
   descriptionHtml: string
 } & SdkProduct
 
-type lineItem = {
+export type LineItem = {
   id: string
   title: string
   quantity: number
@@ -37,6 +37,6 @@ type lineItem = {
 }
 
 export type Cart = {
-  lineItems: lineItem[]
+  lineItems: LineItem[]
   webUrl: string
 } & SdkCart
