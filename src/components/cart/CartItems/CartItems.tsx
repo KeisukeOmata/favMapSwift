@@ -2,13 +2,14 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { CartItem } from 'components/cart'
 import { Button } from 'components/ui'
-import { useCart } from 'lib/hooks/useCart'
+import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
 import { resetCheckoutId } from 'lib/helpers'
 import { Cart } from 'lib/Type'
 import s from './CartItems.module.scss'
 
 export const CartItems: FC = () => {
-  const { cart } = useCart()
+  const { getCartState } = useRecoilCart()
+  const cart = getCartState()
   const moveToShopify = (cart: Cart): void => {
     // Move to Shopify
     window.open(cart.webUrl)

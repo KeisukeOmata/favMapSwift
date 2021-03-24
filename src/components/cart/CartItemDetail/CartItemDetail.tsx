@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Button } from 'components/ui'
-import { useCart } from 'lib/hooks/useCart'
+import { useChangeQuantity, useRemoveItem } from 'lib/hooks/cart'
 import { getColorAndSize } from 'lib/helpers'
 import { LineItem } from 'lib/Type'
 // import s from './CartItemDetail.module.scss'
@@ -10,7 +10,12 @@ type Props = {
 }
 
 export const CartItemDetail: FC<Props> = ({ cartItem }) => {
-  const { changeQuantity, removeItem } = useCart()
+  const ChangeQuantity = (cartItemId: string, quantity: string) => {
+    useChangeQuantity(cartItemId, quantity)
+  }
+  const RemoveItem = (cartItemId: string) => {
+    useRemoveItem(cartItemId)
+  }
 
   return (
     <>
@@ -30,7 +35,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
         <select
           className="text-black"
           defaultValue={cartItem.quantity}
-          onChange={(e) => changeQuantity(cartItem.id, e.target.value)}
+          onChange={(e) => ChangeQuantity(cartItem.id, e.target.value)}
         >
           {[...Array(10).keys()].map((number) => {
             const value = number + 1
@@ -49,7 +54,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
           shape="square"
           type="button"
           aria-label="カートから商品を削除する"
-          onClick={() => removeItem(cartItem.id)}
+          onClick={() => RemoveItem(cartItem.id)}
         >
           削除
         </Button>

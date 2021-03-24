@@ -2,13 +2,13 @@
 import Image from 'next/image'
 import cn from 'classnames'
 import { PageSEO, ContentWrapper } from 'components/layouts'
-import { useCart } from 'lib/hooks/useCart'
+import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
 import { Config } from 'lib/site.config'
 import s from 'styles/pages/world.module.scss'
 
 export default function World() {
-  const { FetchCart } = useCart()
-  FetchCart()
+  useInitializeCart()
+  useFetchCart()
   return (
     <>
       <PageSEO title="World" path="/world" ogImageUrl={Config.defaultOGImage} />
