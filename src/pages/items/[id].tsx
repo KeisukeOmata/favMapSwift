@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { ItemDetail } from 'components/items'
 import { ContentWrapper, PageSEO } from 'components/layouts'
 import { shopify } from 'lib/shopify'
-import { useCart } from 'lib/hooks/useCart'
+import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
 import { getItemPath } from 'lib/helpers'
 import s from 'styles/pages/items/[id].module.scss'
 
@@ -33,10 +33,10 @@ export default function DetailPage({
   detail,
   errors,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  useInitializeCart()
+  useFetchCart()
   const router = useRouter()
-  const { FetchCart } = useCart()
   if (errors) return <div>error</div>
-  FetchCart()
   if (router.isFallback) {
     return <div>loading...</div>
   }

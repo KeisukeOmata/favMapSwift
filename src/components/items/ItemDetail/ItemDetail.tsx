@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import { ColorAndSize } from 'components/items'
 import { Button, Slider, Toast } from 'components/ui'
 import { TypeItem, Sku } from 'lib/Type'
-import { useCart } from 'lib/hooks/useCart'
+import { useAddItem } from 'lib/hooks/cart'
 import s from './ItemDetail.module.scss'
 
 type Props = {
@@ -13,9 +13,8 @@ type Props = {
 
 export const ItemDetail: FC<Props> = ({ detail }) => {
   const [itemIdState, setItemIdState] = useState<string | null>(null)
-  const { addItem } = useCart()
-  const addToCart = (itemIdState: string | number) => {
-    addItem(itemIdState)
+  const AddToCart = (itemIdState: string | number) => {
+    useAddItem(itemIdState)
     // Show toast
     toast('BAGに追加しました')
   }
@@ -65,7 +64,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             shape="square"
             type="button"
             aria-label="BAGに入れる"
-            onClick={() => addToCart(itemIdState as string)}
+            onClick={() => AddToCart(itemIdState as string)}
           >
             BAGに入れる
           </Button>
