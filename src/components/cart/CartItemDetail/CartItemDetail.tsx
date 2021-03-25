@@ -10,12 +10,8 @@ type Props = {
 }
 
 export const CartItemDetail: FC<Props> = ({ cartItem }) => {
-  const ChangeQuantity = (cartItemId: string, quantity: string) => {
-    useChangeQuantity(cartItemId, quantity)
-  }
-  const RemoveItem = (cartItemId: string) => {
-    useRemoveItem(cartItemId)
-  }
+  const { ChangeQuantity } = useChangeQuantity()
+  const { RemoveItem } = useRemoveItem()
 
   return (
     <>

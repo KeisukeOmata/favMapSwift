@@ -3,20 +3,22 @@ import { shopify } from 'lib/shopify'
 import { Cart } from 'lib/Type'
 
 type useAddItemType = {
-  useAddItem: (itemIdState: string | number) => void
+  AddItem: (itemIdState: string | number) => void
 }
 
-export const useAddItem = (itemIdState: string | number): useAddItemType => {
+export const useAddItem = (): useAddItemType => {
   const { setCartState, getCartState } = useRecoilCart()
   const cartState = getCartState()
 
-  if (cartState) {
-    shopify.checkout
-      .addLineItems(cartState.id, [{ variantId: itemIdState, quantity: 1 }])
-      .then((cart) => setCartState(cart as Cart))
+  const AddItem = (itemIdState: string | number): void => {
+    if (cartState) {
+      shopify.checkout
+        .addLineItems(cartState.id, [{ variantId: itemIdState, quantity: 1 }])
+        .then((cart) => setCartState(cart as Cart))
+    }
   }
 
   return {
-    useAddItem,
+    AddItem,
   }
 }
