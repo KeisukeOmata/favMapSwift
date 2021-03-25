@@ -13,5 +13,5 @@ export const useFetchCart = (): void => {
     shopify.checkout
       .fetch(checkoutId)
       .then((cart) => setCartState(cart as Cart))
-  }, [setCartState])
+  }, [])
 }
