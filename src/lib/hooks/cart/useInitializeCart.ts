@@ -14,5 +14,5 @@ export const useInitializeCart = (): void => {
       setCartState(cart as Cart)
       setCheckoutId(cart.id)
     })
-  }, [setCartState])
+  }, [])
 }
