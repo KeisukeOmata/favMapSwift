@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FC, useEffect, useRef } from 'react'
 import { TypeItem } from 'lib/Type'
-import { useRecoilFocusItem } from 'lib/hooks/useRecoilFocusItem'
+import { useRecoilFocusItem } from 'lib/hooks/state'
 import s from './Item.module.scss'
 
 type Props = {

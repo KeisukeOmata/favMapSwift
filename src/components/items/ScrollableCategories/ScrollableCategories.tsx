@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import cn from 'classnames'
 import { categories } from 'lib/categories'
-import { useRecoilCategory } from 'lib/hooks/useRecoilCategory'
+import { useRecoilCategory } from 'lib/hooks/state'
 import s from './ScrollableCategories.module.scss'
 
 export const ScrollableCategories: FC = () => {

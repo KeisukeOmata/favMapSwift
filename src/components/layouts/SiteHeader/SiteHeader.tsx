@@ -2,8 +2,7 @@ import Link from 'next/link'
 import { FC } from 'react'
 import { ContentWrapper } from 'components/layouts'
 import { DarkMode } from 'components/ui'
-import { useRecoilQuantity } from 'lib/hooks/state/useRecoilQuantity'
-import { useRecoilFocusItem } from 'lib/hooks/useRecoilFocusItem'
+import { useRecoilQuantity, useRecoilFocusItem } from 'lib/hooks/state'
 import s from './SiteHeader.module.scss'
 
 export const SiteHeader: FC = () => {

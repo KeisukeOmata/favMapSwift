@@ -1,8 +1,7 @@
 import { FC, useState, useEffect, useRef } from 'react'
 import { Item } from 'components/items'
 import { TypeItem } from 'lib/Type'
-import { useRecoilCategory } from 'lib/hooks/useRecoilCategory'
-import { useRecoilFocusItem } from 'lib/hooks/useRecoilFocusItem'
+import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
 import s from './ItemsByCategory.module.scss'
 
 type Props = {
