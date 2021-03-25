@@ -4,11 +4,7 @@ import { shopify } from 'lib/shopify'
 import { getCheckoutId } from 'lib/helpers'
 import { Cart } from 'lib/Type'
 
-type useFetchCartType = {
-  useFetchCart: () => void
-}
-
-export const useFetchCart = (): useFetchCartType => {
+export const useFetchCart = (): void => {
   const { setCartState } = useRecoilCart()
 
   useEffect(() => {
@@ -17,9 +13,5 @@ export const useFetchCart = (): useFetchCartType => {
     shopify.checkout
       .fetch(checkoutId)
       .then((cart) => setCartState(cart as Cart))
-  }, [])
-
-  return {
-    useFetchCart,
-  }
+  }, [setCartState])
 }

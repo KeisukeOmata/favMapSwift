@@ -3,20 +3,22 @@ import { shopify } from 'lib/shopify'
 import { Cart } from 'lib/Type'
 
 type useRemoveItemType = {
-  useRemoveItem: (cartItemId: string) => void
+  RemoveItem: (cartItemId: string) => void
 }
 
-export const useRemoveItem = (cartItemId: string): useRemoveItemType => {
+export const useRemoveItem = (): useRemoveItemType => {
   const { setCartState, getCartState } = useRecoilCart()
   const cartState = getCartState()
 
-  if (cartState) {
-    shopify.checkout
-      .removeLineItems(cartState.id, [cartItemId])
-      .then((cart) => setCartState(cart as Cart))
+  const RemoveItem = (cartItemId: string) => {
+    if (cartState) {
+      shopify.checkout
+        .removeLineItems(cartState.id, [cartItemId])
+        .then((cart) => setCartState(cart as Cart))
+    }
   }
 
   return {
-    useRemoveItem,
+    RemoveItem,
   }
 }
