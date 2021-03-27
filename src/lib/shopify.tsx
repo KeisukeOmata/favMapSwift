@@ -1,7 +1,7 @@
 import Client from 'shopify-buy'
 
 export const shopify = Client.buildClient({
-  domain: `${process.env.SHOPIFY_STORE_ID}.myshopify.com`,
-  storefrontAccessToken: process.env.SHOPIFY_API_TOKEN as string,
+  storefrontAccessToken: 'dd4d4dc146542ba7763305d71d1b3d38',
+  domain: 'graphql.myshopify.com',
   language: 'ja-JP',
 })
