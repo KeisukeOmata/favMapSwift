@@ -3,12 +3,19 @@ import cn from 'classnames'
 import s from './Button.module.css'
 
 type props = {
+  className?: string
   color?: string
   shape: 'square' | 'circle'
   choose?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-export const Button: FC<props> = ({ color, shape, choose, ...rest }) => {
+export const Button: FC<props> = ({
+  className,
+  color,
+  shape,
+  choose,
+  ...rest
+}) => {
   let colorClass: string
   switch (color) {
     case 'Black':
@@ -85,6 +92,7 @@ export const Button: FC<props> = ({ color, shape, choose, ...rest }) => {
   return (
     <button
       className={cn(
+        className,
         colorClass,
         shape == 'square' ? s.square : s.circle,
         choose ? s.choose : s.notChoose
