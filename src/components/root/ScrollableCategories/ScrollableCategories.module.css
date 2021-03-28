@@ -1,0 +1,49 @@
+.categories {
+  @apply flex pl-6 items-start overflow-x-scroll pb-8;
+
+  /* smooth scrolling */
+  scroll-behavior: smooth;
+
+  /* Scrolling becomes inertial */
+  -webkit-overflow-scrolling: touch;
+
+  /* Fixed to x-axis */
+  scroll-snap-type: x mandatory;
+
+  /* Margins on the right of the category */
+  &::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    /* Protrude from the flex container */
+    flex-shrink: 0;
+  }
+
+  /* Hide the scroll bars. */
+  &::-webkit-scrollbar {
+    display: none;
+    -webkit-appearance: none;
+  }
+}
+
+.category {
+  @apply block flex-shrink-0 w-auto mr-10	leading-normal;
+
+  scroll-snap-align: center;
+}
+
+.chosen {
+  @apply relative inline-block no-underline;
+}
+
+.chosen::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: var(--secondary);
+}
