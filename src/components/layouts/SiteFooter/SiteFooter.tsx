@@ -2,13 +2,12 @@ import { FC } from 'react'
 import { Twitter, Instagram, Github } from 'components/icons'
 import { ContentWrapper } from 'components/layouts'
 import { Config } from 'lib/site.config'
-import s from './SiteFooter.module.scss'
 
 export const SiteFooter: FC = () => (
   <footer>
     <ContentWrapper>
-      <div className={s.siteFooter}>
-        <div className={s.item}>
+      <div className="py-6 text-center text-sm flex justify-between flex-wrap upper-line">
+        <div className="w-1/2 my-4 sm:w-full">
           <a
             href={Config.siteURL.twitter}
             target="_blank"
@@ -41,7 +40,7 @@ export const SiteFooter: FC = () => (
             </button>
           </a>
         </div>
-        <div className={s.item}>
+        <div className="w-1/2 my-4 sm:w-full">
           <p>© {Config.copyright}</p>
         </div>
       </div>

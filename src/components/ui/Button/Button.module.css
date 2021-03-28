@@ -1,5 +1,5 @@
 .square {
-  @apply text-accents-1 cursor-pointer inline-flex px-10 rounded-sm leading-6  transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center py-2 border border-transparent items-center;
+  @apply text-accents-1 cursor-pointer inline-flex px-10 rounded-sm leading-6 transition ease-in-out duration-150 shadow-sm font-semibold text-center justify-center py-2 border border-transparent items-center;
 }
 
 @screen md {
@@ -10,10 +10,6 @@
 
 .square:active {
   @apply bg-accents-0 text-primary border border-secondary outline-black;
-}
-
-.square[data-active] {
-  @apply bg-gray-600;
 }
 
 .circle {

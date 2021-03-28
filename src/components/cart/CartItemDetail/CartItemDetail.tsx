@@ -3,7 +3,6 @@ import { Button } from 'components/ui'
 import { useChangeQuantity, useRemoveItem } from 'lib/hooks/cart'
 import { getColorAndSize } from 'lib/helpers'
 import { LineItem } from 'lib/Type'
-// import s from './CartItemDetail.module.scss'
 
 type Props = {
   cartItem: LineItem

@@ -6,7 +6,6 @@ import { ContentWrapper, PageSEO } from 'components/layouts'
 import { shopify } from 'lib/shopify'
 import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
 import { getItemPath } from 'lib/helpers'
-import s from 'styles/pages/items/[id].module.scss'
 
 export async function getStaticPaths() {
   return {
@@ -48,11 +47,11 @@ export default function DetailPage({
         description={detail.description}
         ogImageUrl={detail.images[0].src}
       />
-      <section className={s.itemCategories}>
+      <div className="pt-2 pb-12">
         <ContentWrapper>
           <ItemDetail detail={detail} />
         </ContentWrapper>
-      </section>
+      </div>
     </>
   )
 }

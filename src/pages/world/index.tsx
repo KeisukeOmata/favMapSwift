@@ -12,7 +12,7 @@ export default function World() {
       <PageSEO title="World" path="/world" ogImageUrl={Config.defaultOGImage} />
       <div className="pt-2 pb-12">
         <ContentWrapper>
-          <div className="under-line py-1.5">
+          <div className="under-line flex py-1.5">
             <h2>World</h2>
           </div>
           <WorldDescription />

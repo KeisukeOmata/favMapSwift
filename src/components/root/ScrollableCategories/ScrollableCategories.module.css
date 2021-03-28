@@ -29,7 +29,7 @@
 }
 
 .category {
-  @apply block flex-shrink-0 w-auto mr-10	leading-normal;
+  @apply block flex-shrink-0 w-auto mr-10 leading-normal;
 
   scroll-snap-align: center;
 }

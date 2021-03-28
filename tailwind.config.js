@@ -10,8 +10,8 @@ module.exports = {
   },
   theme: {
     screens: {
-      sm: { max: '640px' },
-      md: { min: '641px' },
+      sm: { max: '500px' },
+      md: { min: '501px' },
       lg: { min: '1024px', max: '1279px' },
       xl: { min: '1280px', max: '1535px' },
       '2xl': { min: '1536px' },
@@ -19,6 +19,9 @@ module.exports = {
     extend: {
       maxWidth: {
         '8xl': '1920px',
+      },
+      width: {
+        '1/2': '47.5%',
       },
       colors: {
         primary: 'var(--primary)',
@@ -31,13 +34,6 @@ module.exports = {
         'accents-0': 'var(--accents-0)',
         'accents-1': 'var(--accents-1)',
         'accents-2': 'var(--accents-2)',
-        'accents-3': 'var(--accents-3)',
-        'accents-4': 'var(--accents-4)',
-        'accents-5': 'var(--accents-5)',
-        'accents-6': 'var(--accents-6)',
-        'accents-7': 'var(--accents-7)',
-        'accents-8': 'var(--accents-8)',
-        'accents-9': 'var(--accents-9)',
         violet: 'var(--violet)',
         'violet-light': 'var(--violet-light)',
         pink: 'var(--pink)',
