@@ -7,7 +7,7 @@ export default function Custom404() {
   return (
     <>
       <PageSEO title="404 not found" />
-      <div className="text-center	py-12">
+      <div className="text-center py-12">
         <ContentWrapper>
           <p className="leading-tight font-bold text-9xl">404</p>
           <h1>Page not found...</h1>
