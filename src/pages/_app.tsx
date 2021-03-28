@@ -10,12 +10,12 @@ import {
   Maintenance,
 } from 'components/layouts'
 import { Config } from 'lib/site.config'
-import { useMainFocus } from 'lib/hooks/useMainFocus'
+import { useFocusHeading } from 'lib/hooks/useFocusHeading'
 import 'styles//main.css'
 import 'keen-slider/keen-slider.min.css'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  useMainFocus()
+  useFocusHeading()
 
   return (
     <>
@@ -61,7 +61,7 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <FixedFooter>
           <RecoilRoot>
             <SiteHeader />
-            <main id="main" tabIndex={-1} aria-label="メイン">
+            <main aria-label="メイン">
               {process.env.NEXT_PUBLIC_MAINTENANCE_MODE === '1' ? (
                 <Maintenance />
               ) : (
