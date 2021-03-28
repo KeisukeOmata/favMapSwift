@@ -5,7 +5,6 @@ import { ColorAndSize } from 'components/items'
 import { Button, Slider, Toast } from 'components/ui'
 import { TypeItem, Sku } from 'lib/Type'
 import { useAddItem } from 'lib/hooks/cart'
-import s from './ItemDetail.module.scss'
 
 type Props = {
   detail: TypeItem
@@ -23,12 +22,12 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
   return (
     <>
       <Toast />
-      <div className={s.itemSectionTitleContainer}>
+      <div className="under-line flex py-1.5">
         <h2>{detail.title}</h2>
       </div>
-      <div className={s.items}>
-        <div className={s.item}>
-          <div className={s.item__left}>
+      <div className="flex justify-between flex-wrap">
+        <div className="w-1/2 mt-5 flex flex-col sm:w-full">
+          <div>
             <Slider>
               {detail.images.map((image, i) => (
                 <div key={image.src}>
@@ -45,7 +44,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             </Slider>
           </div>
         </div>
-        <div className={s.item}>
+        <div className="w-1/2 mt-5 flex flex-col sm:w-full">
           <p>{detail.vendor}</p>
           <p>{detail.title}</p>
           <p>¥{detail.variants[0].price}</p>
@@ -55,13 +54,13 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             variants={detail.variants as Sku[]}
             setItemIdState={setItemIdState}
           />
-          <article
-            className={s.item__description}
+          <p
             dangerouslySetInnerHTML={{
               __html: `${detail.descriptionHtml}`,
             }}
           />
           <Button
+            className="mt-5"
             shape="square"
             type="button"
             aria-label="BAGに入れる"
