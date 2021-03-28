@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { CartItemImage, CartItemDetail } from 'components/cart'
 import { LineItem } from 'lib/Type'
-import s from './CartItem.module.scss'
 
 type Props = {
   item: LineItem
@@ -10,11 +9,11 @@ type Props = {
 export const CartItem: FC<Props> = ({ item }) => {
   return (
     <>
-      <div className={s.items}>
-        <div className={s.item}>
+      <div className="flex justify-between flex-wrap">
+        <div className="w-1/2 mt-5 flex flex-col justify-center sm:w-full">
           <CartItemImage cartItem={item} />
         </div>
-        <div className={s.item}>
+        <div className="w-1/2 mt-5 flex flex-col justify-center sm:w-full">
           <CartItemDetail cartItem={item} />
         </div>
       </div>
