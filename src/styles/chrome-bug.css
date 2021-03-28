@@ -1,8 +1,0 @@
-/*
-To prevent a "pop" of content, you have to disable all transitions until the page is done loading.
-https://lab.laukstein.com/bug/input
-*/
-
-body.loading * {
-  transition: none !important;
-}

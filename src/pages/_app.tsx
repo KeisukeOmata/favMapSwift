@@ -1,6 +1,5 @@
 import type { AppProps } from 'next/app'
 import NextHead from 'next/head'
-import { useEffect } from 'react'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'next-themes'
 import { NextSeo } from 'next-seo'
@@ -13,16 +12,10 @@ import {
 import { Config } from 'lib/site.config'
 import { useMainFocus } from 'lib/hooks/useMainFocus'
 import 'styles//main.css'
-import 'styles/globals.scss'
-import 'styles/chrome-bug.css'
 import 'keen-slider/keen-slider.min.css'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   useMainFocus()
-  // Fix CSS issue from Chrome bug
-  useEffect(() => {
-    document.body.classList?.remove('loading')
-  }, [])
 
   return (
     <>
