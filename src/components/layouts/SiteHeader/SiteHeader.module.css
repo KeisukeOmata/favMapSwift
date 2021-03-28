@@ -1,0 +1,5 @@
+.siteHeader {
+  @apply py-5 sticky top-0 z-50;
+
+  background-color: var(--primary);
+}

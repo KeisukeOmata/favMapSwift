@@ -3,7 +3,7 @@ import { FC } from 'react'
 import { ContentWrapper } from 'components/layouts'
 import { DarkMode } from 'components/ui'
 import { useRecoilQuantity, useRecoilFocusItem } from 'lib/hooks/state'
-import s from './SiteHeader.module.scss'
+import s from './SiteHeader.module.css'
 
 export const SiteHeader: FC = () => {
   const { getQuantityState } = useRecoilQuantity()
@@ -13,17 +13,16 @@ export const SiteHeader: FC = () => {
   return (
     <header className={s.siteHeader}>
       <ContentWrapper>
-        <div className={s.siteHeader__inner}>
+        <div className="flex justify-between">
           <Link href="/" passHref>
             <button
               aria-label="このサイトの名前"
-              className={s.siteHeader__logoLink}
               onClick={() => setFocusItemState(null)}
             >
               Brand
             </button>
           </Link>
-          <div className={s.siteHeader__links}>
+          <div className="flex">
             <Link href={'/'} passHref>
               <button
                 aria-label="アイテム一覧を表示する"
@@ -32,7 +31,7 @@ export const SiteHeader: FC = () => {
                 Items
               </button>
             </Link>
-            <div className={s.slash}>/</div>
+            <div className="mx-2">/</div>
             <Link href={'/world'} passHref>
               <button
                 aria-label="about usを表示する"
@@ -41,7 +40,7 @@ export const SiteHeader: FC = () => {
                 World
               </button>
             </Link>
-            <div className={s.slash}>/</div>
+            <div className="mx-2">/</div>
             <DarkMode />
           </div>
           <Link href={'/cart'} passHref>

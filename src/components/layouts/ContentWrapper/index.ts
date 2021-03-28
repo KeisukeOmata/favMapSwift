@@ -1,1 +1,1 @@
-export { ContentWrapper, UndoWrapForScroll } from './ContentWrapper'
+export { ContentWrapper } from './ContentWrapper'

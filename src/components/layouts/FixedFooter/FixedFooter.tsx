@@ -1,6 +1,5 @@
 import { FC } from 'react'
-import s from './FixedFooter.module.scss'
 
 export const FixedFooter: FC = ({ children }) => (
-  <div className={s.fixedFooter}>{children}</div>
+  <div className="min-h-screen flex-col flex">{children}</div>
 )
