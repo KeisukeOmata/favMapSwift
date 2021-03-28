@@ -1,8 +1,7 @@
 import { FC, useState, useEffect, useRef } from 'react'
-import { Item } from 'components/items'
+import { Item } from 'components/root'
 import { TypeItem } from 'lib/Type'
 import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
-import s from './ItemsByCategory.module.scss'
 
 type Props = {
   items: TypeItem[]
@@ -29,12 +28,12 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
   if (categoryState == 'ALL') {
     return (
       <>
-        <div className={s.categorySectionTitleContainer}>
+        <div className="under-line flex py-1.5">
           <h2 ref={ref} tabIndex={-1}>
             ALL
           </h2>
         </div>
-        <div className={s.items}>
+        <div className="flex justify-between flex-wrap">
           {items
             .slice(0)
             .reverse()
@@ -51,12 +50,12 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
   } else if (categoryState === '新着') {
     return (
       <>
-        <div className={s.categorySectionTitleContainer}>
+        <div className="under-line flex py-1.5">
           <h2 ref={ref} tabIndex={-1}>
             新着
           </h2>
         </div>
-        <div className={s.items}>
+        <div className="flex justify-between flex-wrap">
           {items
             .slice(-10)
             .reverse()
@@ -73,12 +72,12 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
   } else {
     return (
       <>
-        <div className={s.categorySectionTitleContainer}>
-          <h2 ref={ref} tabIndex={-1} className={s.homeSectionTitle}>
+        <div className="under-line flex py-1.5">
+          <h2 ref={ref} tabIndex={-1}>
             {categoryState}
           </h2>
         </div>
-        <div className={s.items}>
+        <div className="flex justify-between flex-wrap">
           {items
             .slice(0)
             .reverse()

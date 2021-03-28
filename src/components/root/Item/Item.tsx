@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { FC, useEffect, useRef } from 'react'
 import { TypeItem } from 'lib/Type'
 import { useRecoilFocusItem } from 'lib/hooks/state'
-import s from './Item.module.scss'
 
 type Props = {
   item: TypeItem
@@ -23,13 +22,12 @@ export const Item: FC<Props> = ({ item, focused }) => {
 
   return (
     <>
-      <div className={s.item}>
+      <div className="w-1/2 mt-5 p-4 sm:w-full">
         <Link key={`items-${id}`} href={`/items/${id}`} passHref>
           <button
             ref={ref}
             onClick={() => setFocusItemState(id)}
             aria-label={`${title}のページを表示する`}
-            className={s.item__mainLink}
           >
             <Image
               src={images[0].src}
@@ -38,7 +36,7 @@ export const Item: FC<Props> = ({ item, focused }) => {
               height={500}
               quality="85"
             />
-            <div className={s.item__date}>
+            <div className="text-left">
               <p>{title}</p>
               <p>¥{variants[0].price}</p>
             </div>
