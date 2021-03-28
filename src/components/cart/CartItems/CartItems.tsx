@@ -21,12 +21,16 @@ export const CartItems: FC = () => {
       <>
         {cart.lineItems.length === 0 ? (
           <div className="under-line flex py-1.5">
-            <h2>BAGが空です</h2>
+            <h2 id="heading" tabIndex={-1}>
+              BAGが空です
+            </h2>
           </div>
         ) : (
           <>
             <div className="under-line flex py-1.5">
-              <h2>BAG</h2>
+              <h2 id="heading" tabIndex={-1}>
+                BAG
+              </h2>
             </div>
             {cart.lineItems.map((item, i) => (
               <CartItem item={item} key={i} />

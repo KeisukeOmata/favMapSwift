@@ -23,7 +23,9 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
     <>
       <Toast />
       <div className="under-line flex py-1.5">
-        <h2>{detail.title}</h2>
+        <h2 id="heading" tabIndex={-1}>
+          {detail.title}
+        </h2>
       </div>
       <div className="flex justify-between flex-wrap">
         <div className="w-1/2 mt-5 flex flex-col sm:w-full">

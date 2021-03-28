@@ -13,7 +13,9 @@ export default function World() {
       <div className="pt-2 pb-12">
         <ContentWrapper>
           <div className="under-line flex py-1.5">
-            <h2>World</h2>
+            <h2 id="heading" tabIndex={-1}>
+              World
+            </h2>
           </div>
           <WorldDescription />
         </ContentWrapper>

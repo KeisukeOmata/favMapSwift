@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
 import { useEffect, useCallback } from 'react'
 
-export const useMainFocus = (): void => {
+export const useFocusHeading = (): void => {
   const router = useRouter()
   const handleRouteChange = useCallback(() => {
-    const main = document.getElementById('main')
+    const main = document.getElementById('heading')
     main?.focus({ preventScroll: true })
   }, [])
 
