@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { InferGetStaticPropsType } from 'next'
-import { PageSEO, ContentWrapper, UndoWrapForScroll } from 'components/layouts'
-import { ScrollableCategories, ItemsByCategory } from 'components/items'
+import { PageSEO, ContentWrapper } from 'components/layouts'
+import { ScrollableCategories, ItemsByCategory } from 'components/root'
 import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
 import { Config } from 'lib/site.config'
-import s from 'styles/pages/index.module.scss'
 
 export async function getStaticProps() {
   const items = await shopify.product.fetchAll()
@@ -30,19 +29,17 @@ export default function Home({
         description={Config.description}
         ogImageUrl={Config.defaultOGImage}
       />
-      <section className={s.homeCategories}>
+      <div className="pt-2 pb-12">
         <ContentWrapper>
-          <div className={s.homeSectionTitleContainer}>
-            <h2 className={s.homeSectionTitle}>Items</h2>
+          <div className="under-line flex py-1.5">
+            <h2>Items</h2>
           </div>
-          <div className={s.homeCategoriesContainer}>
-            <UndoWrapForScroll>
-              <ScrollableCategories />
-            </UndoWrapForScroll>
+          <div className="mt-5">
+            <ScrollableCategories />
           </div>
           <ItemsByCategory items={items} />
         </ContentWrapper>
-      </section>
+      </div>
     </>
   )
 }
