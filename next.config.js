@@ -11,4 +11,8 @@ module.exports = withPWA({
   images: {
     domains: ['cdn.shopify.com'],
   },
+  future: {
+    webpack5: true,
+    strictPostcssConfiguration: true,
+  },
 })

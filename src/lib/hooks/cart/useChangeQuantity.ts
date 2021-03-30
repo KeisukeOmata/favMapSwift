@@ -13,10 +13,8 @@ export const useChangeQuantity = (): useChangeQuantityType => {
   const ChangeQuantity = (cartItemId: string, quantity: number): void => {
     if (cartState) {
       shopify.checkout
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         .updateLineItems(cartState.id, [{ id: cartItemId, quantity: quantity }])
-        .then((cart: Cart) => setCartState(cart))
+        .then((cart) => setCartState(cart as Cart))
     }
   }
 
