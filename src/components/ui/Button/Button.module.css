@@ -21,8 +21,8 @@
   box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
 
-.choose {
-  @apply border-4 border-blue;
+.notChoose {
+  @apply opacity-50;
 }
 
 .default {
