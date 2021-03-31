@@ -89,13 +89,26 @@ export const Button: FC<props> = ({
       break
   }
 
+  let chooseClass: string
+  switch (choose) {
+    case true:
+      chooseClass = s.choose
+      break
+    case false:
+      chooseClass = s.notChoose
+      break
+    default:
+      chooseClass = s.choose
+      break
+  }
+
   return (
     <button
       className={cn(
         className,
         colorClass,
         shape == 'square' ? s.square : s.circle,
-        choose ? s.choose : s.notChoose
+        chooseClass
       )}
       {...rest}
     ></button>

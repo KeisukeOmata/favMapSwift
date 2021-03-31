@@ -33,7 +33,7 @@ export const ColorAndSize: FC<props> = ({
             className="mb-1.5 mr-1.5"
             color={color.value}
             shape="circle"
-            choose={colorState == color.value ? true : false}
+            choose={colorState === color.value ? true : false}
             type="button"
             aria-label={`${color.value}色を選択する`}
             onClick={() => setColorState(color.value)}
@@ -48,7 +48,7 @@ export const ColorAndSize: FC<props> = ({
             className="mb-1.5 mr-1.5"
             shape="circle"
             type="button"
-            choose={sizeState == size.value ? true : false}
+            choose={sizeState === size.value ? true : false}
             aria-label={`${size}サイズを選択する`}
             onClick={() => setSizeState(size.value)}
           >
