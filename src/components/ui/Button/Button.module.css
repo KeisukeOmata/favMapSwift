@@ -18,11 +18,11 @@
 
 .circle:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 0.3rem var(--outline-1);
 }
 
 .notChoose {
-  @apply opacity-50;
+  @apply opacity-40;
 }
 
 .default {

@@ -30,6 +30,11 @@
   @apply transition duration-150;
 }
 
+.control:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+}
+
 .root:hover .control {
   @apply opacity-100;
 }

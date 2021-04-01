@@ -42,6 +42,7 @@
   --accents-0: #f8f9fa;
   --accents-1: #f1f3f5;
   --accents-2: #e9ecef;
+  --outline-1: rgba(0, 123, 255, 0.25);
 }
 
 [data-theme='dark'] {
@@ -58,6 +59,7 @@
   --accents-0: #212529;
   --accents-1: #343a40;
   --accents-2: #495057;
+  --outline-1: rgba(0, 123, 255, 0.75);
 }
 
 *,
