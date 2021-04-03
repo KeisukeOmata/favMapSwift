@@ -7,12 +7,14 @@ type props = {
   detail: TypeItem
   variants: Sku[]
   setItemIdState: (itemIdState: string | null) => void
+  setAvailableState: (availableState: boolean) => void
 }
 
 export const ColorAndSize: FC<props> = ({
   detail,
   variants,
   setItemIdState,
+  setAvailableState,
 }) => {
   const {
     colors,
@@ -21,7 +23,7 @@ export const ColorAndSize: FC<props> = ({
     sizeState,
     setColorState,
     setSizeState,
-  } = useGetColorAndSize(detail, variants, setItemIdState)
+  } = useGetColorAndSize(detail, variants, setItemIdState, setAvailableState)
 
   return (
     <>
