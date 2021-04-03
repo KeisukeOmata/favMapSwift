@@ -12,6 +12,7 @@ type Props = {
 
 export const ItemDetail: FC<Props> = ({ detail }) => {
   const [itemIdState, setItemIdState] = useState<string | null>(null)
+  const [availableState, setAvailableState] = useState<boolean>(true)
   const { AddItem } = useAddItem()
   const AddToCart = (itemIdState: string | number) => {
     AddItem(itemIdState)
@@ -55,21 +56,33 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             detail={detail}
             variants={detail.variants as Sku[]}
             setItemIdState={setItemIdState}
+            setAvailableState={setAvailableState}
           />
           <p
             dangerouslySetInnerHTML={{
               __html: `${detail.descriptionHtml}`,
             }}
           />
-          <Button
-            className="mt-5"
-            shape="square"
-            type="button"
-            aria-label="BAGに入れる"
-            onClick={() => AddToCart(itemIdState as string)}
-          >
-            BAGに入れる
-          </Button>
+          {availableState ? (
+            <Button
+              className="mt-5"
+              shape="square"
+              type="button"
+              aria-label="BAGに入れる"
+              onClick={() => AddToCart(itemIdState as string)}
+            >
+              BAGに入れる
+            </Button>
+          ) : (
+            <Button
+              className="mt-5"
+              shape="square"
+              type="button"
+              aria-label="この組み合わせは売り切れです"
+            >
+              この組み合わせは売り切れです
+            </Button>
+          )}
         </div>
       </div>
     </>
