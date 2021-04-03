@@ -33,6 +33,10 @@
   @apply bg-black;
 }
 
+.white {
+  @apply bg-white;
+}
+
 .brown {
   @apply bg-brown;
 }

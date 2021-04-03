@@ -21,6 +21,9 @@ export const Button: FC<props> = ({
     case 'Black':
       colorClass = s.black
       break
+    case 'White':
+      colorClass = s.white
+      break
     case 'Brown':
       colorClass = s.brown
       break
