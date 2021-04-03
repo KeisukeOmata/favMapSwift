@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Button } from 'components/ui'
+import { CheckMark } from 'components/icons'
 import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
 import { TypeItem, Sku } from 'lib/Type'
 
@@ -39,7 +40,11 @@ export const ColorAndSize: FC<props> = ({
             type="button"
             aria-label={`${color.value}色を選択する`}
             onClick={() => setColorState(color.value)}
-          ></Button>
+          >
+            {colorState === color.value ? (
+              <CheckMark colorState={colorState} />
+            ) : null}
+          </Button>
         ))}
       </div>
       <div>Size</div>
