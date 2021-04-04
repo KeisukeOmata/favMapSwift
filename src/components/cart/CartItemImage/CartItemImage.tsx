@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
 import { LineItem } from 'lib/Type'
+import { resetCheckoutId } from 'lib/helpers'
 
 type Props = {
   cartItem: LineItem
@@ -10,17 +11,21 @@ type Props = {
 export const CartItemImage: FC<Props> = ({ cartItem }) => {
   return (
     <>
-      <Link href={`/items/${cartItem.variant.product.id}`}>
-        <button aria-label={`${cartItem.title}のページを表示する`}>
-          <Image
-            src={cartItem.variant.image.src}
-            alt={cartItem.variant.image.altText || 'Item Image'}
-            width={500}
-            height={500}
-            quality="85"
-          />
-        </button>
-      </Link>
+      {cartItem.variant ? (
+        <Link href={`/items/${cartItem.variant.product.id}`}>
+          <button aria-label={`${cartItem.title}のページを表示する`}>
+            <Image
+              src={cartItem.variant.image.src}
+              alt={cartItem.variant.image.altText || 'Item Image'}
+              width={500}
+              height={500}
+              quality="85"
+            />
+          </button>
+        </Link>
+      ) : (
+        resetCheckoutId()
+      )}
     </>
   )
 }
