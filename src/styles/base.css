@@ -39,6 +39,7 @@
   --tempestBlue: #79839b;
   --oliveGreen: #b2b266;
   --putty: #cdae70;
+  --ivory: #fffff0;
   --accents-0: #f8f9fa;
   --accents-1: #f1f3f5;
   --accents-2: #e9ecef;
@@ -51,8 +52,8 @@
   --secondary: #fff;
   --secondary-2: #f1f3f5;
   --hover: rgba(255, 255, 255, 0.075);
-  --hover-1: rgba(255, 255, 255, 0.15);
-  --hover-2: rgba(255, 255, 255, 0.25);
+  --hover-1: rgba(0, 0, 0, 0.15);
+  --hover-2: rgba(0, 0, 0, 0.25);
   --text-base: white;
   --text-primary: white;
   --text-secondary: black;

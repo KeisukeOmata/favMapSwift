@@ -63,6 +63,7 @@ module.exports = {
         tempestBlue: 'var(--tempestBlue)',
         oliveGreen: 'var(--oliveGreen)',
         putty: 'var(--putty)',
+        ivory: 'var(--ivory)',
       },
       textColor: {
         base: 'var(--text-base)',

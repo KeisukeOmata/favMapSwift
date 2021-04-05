@@ -20,7 +20,7 @@ export const CheckMark: FC<props> = ({ colorState }) => {
       color = 'currentColor'
     }
   } else {
-    if (colorState === 'White') {
+    if (colorState === 'White' || colorState === 'Ivory') {
       color = 'black'
     } else {
       color = 'currentColor'
