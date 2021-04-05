@@ -16,7 +16,7 @@ export const ScrollableCategories: FC = () => {
             <button
               aria-label={`${category.name}を表示する`}
               className={cn(
-                'block mt-2 text-base whitespace-nowrap',
+                'block mt-2 text-sm whitespace-nowrap',
                 categoryState === category.name ? s.chosen : s.notChoose
               )}
               onClick={() => setCategoryState(category.name)}

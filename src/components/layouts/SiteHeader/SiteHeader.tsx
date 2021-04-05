@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { ContentWrapper } from 'components/layouts'
 import { DarkMode } from 'components/ui'
 import { useRecoilQuantity, useRecoilFocusItem } from 'lib/hooks/state'
+import { Config } from 'lib/site.config'
 import s from './SiteHeader.module.css'
 
 export const SiteHeader: FC = () => {
@@ -19,7 +20,7 @@ export const SiteHeader: FC = () => {
               aria-label="このサイトの名前"
               onClick={() => setFocusItemState(null)}
             >
-              Brand
+              {Config.brandName}
             </button>
           </Link>
           <div className="flex">

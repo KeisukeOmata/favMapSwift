@@ -1,14 +1,11 @@
 .categories {
-  @apply flex pl-6 items-start overflow-x-scroll pb-8;
+  @apply flex pl-6 items-start overflow-x-scroll pb-6;
 
   /* smooth scrolling */
   scroll-behavior: smooth;
 
   /* Scrolling becomes inertial */
   -webkit-overflow-scrolling: touch;
-
-  /* Fixed to x-axis */
-  scroll-snap-type: x mandatory;
 
   /* Margins on the right of the category */
   &::after {
@@ -29,7 +26,7 @@
 }
 
 .category {
-  @apply block flex-shrink-0 w-auto mr-10 leading-normal;
+  @apply block flex-shrink-0 w-auto mr-8 leading-normal;
 
   scroll-snap-align: center;
 }

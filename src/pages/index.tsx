@@ -31,10 +31,11 @@ export default function Home({
       />
       <div className="pt-2 pb-12">
         <ContentWrapper>
-          <div className="under-line flex py-1.5">
+          <div className="under-line flex py-1.5 justify-between">
             <h2 id="heading" tabIndex={-1}>
               Items
             </h2>
+            <h2>Scroll→</h2>
           </div>
           <div className="mt-5">
             <ScrollableCategories />

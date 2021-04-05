@@ -47,12 +47,12 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
         </div>
       </>
     )
-  } else if (categoryState === '新着') {
+  } else if (categoryState === 'NEW ARRIVAL') {
     return (
       <>
         <div className="under-line flex py-1.5">
           <h2 ref={ref} tabIndex={-1}>
-            新着
+            NEW ARRIVAL
           </h2>
         </div>
         <div className="flex justify-between flex-wrap">

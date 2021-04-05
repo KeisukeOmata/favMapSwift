@@ -38,7 +38,7 @@ export const Item: FC<Props> = ({ item, focused }) => {
             />
             <div className="text-left">
               <p>{title}</p>
-              <p>¥{variants[0].price}</p>
+              <p>{variants[0].price}円</p>
             </div>
           </button>
         </Link>
