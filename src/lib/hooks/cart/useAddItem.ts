@@ -1,11 +1,7 @@
 import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
 import { shopify } from 'lib/shopify'
 import { Cart } from 'lib/Type'
-import {
-  presenceCheck,
-  getPresenceCartItemId,
-  getPresenceQuantity,
-} from 'lib/helpers'
+import { presenceCheck, getCartItemId, getCurrentQuantity } from 'lib/helpers'
 
 type useAddItemType = {
   AddItem: (itemIdState: string | number, addTime: string) => void
@@ -31,11 +27,11 @@ export const useAddItem = (): useAddItemType => {
           .addLineItems(cartState.id, lineItemsToAdd)
           .then((cart) => setCartState(cart as Cart))
       } else {
-        const presenceCartItemId = getPresenceCartItemId(cartState, itemIdState)
-        const presenceQuantity = getPresenceQuantity(cartState, itemIdState)
+        const cartItemId = getCartItemId(cartState, itemIdState)
+        const currentQuantity = getCurrentQuantity(cartState, itemIdState)
         shopify.checkout
           .updateLineItems(cartState.id, [
-            { id: presenceCartItemId, quantity: presenceQuantity + 1 },
+            { id: cartItemId, quantity: currentQuantity + 1 },
           ])
           .then((cart) => setCartState(cart as Cart))
       }

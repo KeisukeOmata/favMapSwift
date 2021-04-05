@@ -30,7 +30,7 @@ export function presenceCheck(
   )
 }
 
-export function getPresenceCartItemId(
+export function getCartItemId(
   cartState: Cart,
   itemIdState: string | number
 ): string {
@@ -40,7 +40,7 @@ export function getPresenceCartItemId(
   )
 }
 
-export function getPresenceQuantity(
+export function getCurrentQuantity(
   cartState: Cart,
   itemIdState: string | number
 ): number {
