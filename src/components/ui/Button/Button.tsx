@@ -87,6 +87,15 @@ export const Button: FC<props> = ({
     case 'Putty':
       colorClass = s.putty
       break
+    case 'Ivory':
+      colorClass = s.ivory
+      break
+    case 'Red':
+      colorClass = s.red
+      break
+    case 'Green':
+      colorClass = s.green
+      break
     default:
       colorClass = s.default
       break

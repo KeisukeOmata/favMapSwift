@@ -124,3 +124,11 @@
 .putty {
   @apply bg-putty;
 }
+
+.ivory {
+  @apply bg-ivory;
+}
+
+.green {
+  @apply bg-green;
+}
