@@ -3,6 +3,7 @@ import {
   ProductVariant as SdkProductVariant,
   Product as SdkProduct,
   Cart as SdkCart,
+  CustomAttribute,
 } from 'shopify-buy'
 
 export type SelectedOption = {
@@ -34,6 +35,7 @@ export type LineItem = {
   title: string
   quantity: number
   variant: Sku
+  customAttributes: CustomAttribute[]
 }
 
 export type Cart = {
