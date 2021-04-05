@@ -4,18 +4,30 @@ type Category = {
 
 export const categories: Category[] = [
   {
-    name: '新着',
+    name: 'NEW ARRIVAL',
   },
   {
-    name: 'Shirts',
+    name: 'DRESS',
   },
   {
-    name: 'Knitwear',
+    name: 'SKIRT/PANTS',
   },
   {
-    name: 'T-Shirts',
+    name: 'SHIRT/BLOUSE',
   },
   {
-    name: 'Boots',
+    name: 'CUTSEW',
+  },
+  {
+    name: 'JACKET/OUTERWEAR',
+  },
+  {
+    name: 'BAG/POUCH',
+  },
+  {
+    name: 'ACCESSORY',
+  },
+  {
+    name: 'COSMETIC',
   },
 ]

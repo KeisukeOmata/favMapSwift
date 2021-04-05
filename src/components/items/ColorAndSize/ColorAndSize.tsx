@@ -36,7 +36,6 @@ export const ColorAndSize: FC<props> = ({
             className="mb-1.5 mr-1.5"
             color={color.value}
             shape="circle"
-            choose={colorState === color.value ? true : false}
             type="button"
             aria-label={`${color.value}色を選択する`}
             onClick={() => setColorState(color.value)}

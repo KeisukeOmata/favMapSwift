@@ -7,7 +7,7 @@ type useRecoilCategoryType = {
 
 const categoryAtom = atom<string>({
   key: 'categoryAtomKey',
-  default: '新着',
+  default: 'NEW ARRIVAL',
 })
 
 export const useRecoilCategory = (): useRecoilCategoryType => {

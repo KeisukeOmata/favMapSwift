@@ -50,7 +50,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
         <div className="w-1/2 mt-5 flex flex-col sm:w-full">
           <p>{detail.vendor}</p>
           <p>{detail.title}</p>
-          <p>¥{detail.variants[0].price}</p>
+          <p>{detail.variants[0].price}円</p>
           <br />
           <ColorAndSize
             detail={detail}
