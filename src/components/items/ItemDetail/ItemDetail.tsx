@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import { FC, useState } from 'react'
 import { toast } from 'react-toastify'
+import dayjs from 'dayjs'
+import ja from 'dayjs/locale/ja'
 import { ColorAndSize } from 'components/items'
 import { Button, Slider, Toast } from 'components/ui'
 import { TypeItem, Sku } from 'lib/Type'
 import { useAddItem } from 'lib/hooks/cart'
+dayjs.locale(ja)
 
 type Props = {
   detail: TypeItem
@@ -14,8 +17,10 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
   const [itemIdState, setItemIdState] = useState<string | null>(null)
   const [availableState, setAvailableState] = useState<boolean>(true)
   const { AddItem } = useAddItem()
+
   const AddToCart = (itemIdState: string | number) => {
-    AddItem(itemIdState)
+    const nowTime = dayjs().toDate().toString()
+    AddItem(itemIdState, nowTime)
     // Show toast
     toast('BAGに追加しました')
   }
