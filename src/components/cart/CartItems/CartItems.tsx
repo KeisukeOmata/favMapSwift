@@ -32,12 +32,9 @@ export const CartItems: FC = () => {
                 BAG
               </h2>
             </div>
-            {cart.lineItems
-              .slice(0)
-              .reverse()
-              .map((item, i) => (
-                <CartItem item={item} key={i} />
-              ))}
+            {cart.lineItems.map((item, i) => (
+              <CartItem item={item} key={i} />
+            ))}
             <p className="mt-5 flex flex-col justify-center text-center">
               合計: {cart.subtotalPrice}円
             </p>
