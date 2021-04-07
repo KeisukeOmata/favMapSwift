@@ -20,6 +20,18 @@ export const useRecoilCart = (): useRecoilCartType => {
   }
 
   const setCartState = (cart: Cart | null): void => {
+    // Sort by time added to cart
+    cart?.lineItems.sort((a, b) => {
+      const aDate = new Date(a.customAttributes[0].value)
+      const bDate = new Date(b.customAttributes[0].value)
+      if (aDate < bDate) {
+        return 1
+      }
+      if (aDate > bDate) {
+        return -1
+      }
+      return 0
+    })
     setCartStateToRecoil(cart)
   }
 
