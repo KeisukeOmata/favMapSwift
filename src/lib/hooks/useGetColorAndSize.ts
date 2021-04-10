@@ -39,6 +39,7 @@ export const useGetColorAndSize = (
         setAvailableState(variant.available)
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [colorState, sizeState])
 
   return {

@@ -9,7 +9,7 @@ export const Toast: FC = () => {
 
   return (
     <ToastContainer
-      toastClassName={theme == 'dark' ? s.dark : s.light}
+      toastClassName={theme === 'dark' ? s.dark : s.light}
       bodyClassName={'text-sm font-med block p-3'}
       autoClose={3000}
       position="top-center"

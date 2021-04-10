@@ -16,16 +16,17 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
   const focusItemState = getFocusItemState()
 
   useEffect(() => {
-    if (count == 0) {
+    if (count === 0) {
       // Focus on main when the parent component is rendered.
       setCount(1)
     } else {
       // Focus on heading element when the child component is rendered.
       ref.current?.focus()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryState])
 
-  if (categoryState == 'ALL') {
+  if (categoryState === 'ALL') {
     return (
       <>
         <div className="under-line flex py-1.5">
@@ -41,7 +42,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               <Item
                 key={`post-item-${i}`}
                 item={item}
-                focused={focusItemState == item.id}
+                focused={focusItemState === item.id}
               />
             ))}
         </div>
@@ -63,7 +64,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               <Item
                 key={`post-item-${i}`}
                 item={item}
-                focused={focusItemState == item.id}
+                focused={focusItemState === item.id}
               />
             ))}
         </div>
@@ -83,11 +84,11 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
             .reverse()
             .map(
               (item, i) =>
-                item.productType == categoryState && (
+                item.productType === categoryState && (
                   <Item
                     key={`post-item-${i}`}
                     item={item}
-                    focused={focusItemState == item.id}
+                    focused={focusItemState === item.id}
                   />
                 )
             )}

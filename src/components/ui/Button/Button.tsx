@@ -119,7 +119,7 @@ export const Button: FC<props> = ({
       className={cn(
         className,
         colorClass,
-        shape == 'square' ? s.square : s.circle,
+        shape === 'square' ? s.square : s.circle,
         chooseClass
       )}
       {...rest}

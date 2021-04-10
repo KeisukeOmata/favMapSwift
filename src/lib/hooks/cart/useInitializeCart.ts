@@ -14,5 +14,6 @@ export const useInitializeCart = (): void => {
       setCartState(cart as Cart)
       setCheckoutId(cart.id)
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 }
