@@ -35,6 +35,8 @@ export default function DetailPage({
   useInitializeCart()
   useFetchCart()
   const router = useRouter()
+  const placeholderImg = '/product-img-placeholder.svg'
+
   if (errors) return <div>error</div>
   if (router.isFallback) {
     return <div>loading...</div>
@@ -45,7 +47,7 @@ export default function DetailPage({
         title={detail.title}
         path={getItemPath(detail.id)}
         description={detail.description}
-        ogImageUrl={detail.images[0].src}
+        ogImageUrl={detail.images[0]?.src || placeholderImg}
       />
       <div className="pt-2 pb-12">
         <ContentWrapper>

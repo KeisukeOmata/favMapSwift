@@ -10,35 +10,36 @@ type Props = {
 }
 
 export const Item: FC<Props> = ({ item, focused }) => {
-  const { id, images, title, variants } = item
   const ref = useRef<HTMLButtonElement | null>(null)
   const { setFocusItemState } = useRecoilFocusItem()
+  const placeholderImg = '/product-img-placeholder.svg'
 
   useEffect(() => {
     if (ref.current && focused) {
       ref.current.focus()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <>
       <div className="w-1/2 mt-5 p-4 sm:w-full">
-        <Link key={`items-${id}`} href={`/items/${id}`} passHref>
+        <Link key={`items-${item.id}`} href={`/items/${item.id}`} passHref>
           <button
             ref={ref}
-            onClick={() => setFocusItemState(id)}
-            aria-label={`${title}のページを表示する`}
+            onClick={() => setFocusItemState(item.id)}
+            aria-label={`${item.title}のページを表示する`}
           >
             <Image
-              src={images[0].src}
-              alt={title || 'Item Image'}
+              src={item.images[0]?.src || placeholderImg}
+              alt={item.title || 'Item Image'}
               width={500}
               height={500}
               quality="85"
             />
             <div className="text-left">
-              <p>{title}</p>
-              <p>{variants[0].price}円</p>
+              <p>{item.title}</p>
+              <p>{item.variants[0].price}円</p>
             </div>
           </button>
         </Link>
