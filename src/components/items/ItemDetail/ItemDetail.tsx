@@ -17,6 +17,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
   const [itemIdState, setItemIdState] = useState<string | null>(null)
   const [availableState, setAvailableState] = useState<boolean>(true)
   const { AddItem } = useAddItem()
+  const placeholderImg = '/product-img-placeholder.svg'
 
   const AddToCart = (itemIdState: string | number) => {
     const nowTime = dayjs().toDate().toString()
@@ -38,9 +39,9 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
           <div>
             <Slider>
               {detail.images.map((image, i) => (
-                <div key={image.src}>
+                <div key={image?.src || i}>
                   <Image
-                    src={image.src}
+                    src={image?.src || placeholderImg}
                     alt={detail.title || 'Item Image'}
                     width={500}
                     height={500}
