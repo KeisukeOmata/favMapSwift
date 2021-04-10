@@ -39,7 +39,7 @@ export const Config = {
       : 'http://localhost:3000/brand1.webp',
   siteURL: {
     twitter: 'https://twitter.com/mete0la',
-    instagram: 'https://twitter.com/mete0la',
+    instagram: 'https://www.instagram.com/mete0la/',
     github: 'https://github.com/KeisukeOmata/next_e-commerce',
   },
   brandName: 'SKPISM',

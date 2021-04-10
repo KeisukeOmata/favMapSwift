@@ -13,5 +13,6 @@ export const useFetchCart = (): void => {
     shopify.checkout
       .fetch(checkoutId)
       .then((cart) => setCartState(cart as Cart))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 }

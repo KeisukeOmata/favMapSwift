@@ -19,7 +19,7 @@ export const DarkMode: FC = () => {
             theme === 'dark' ? setTheme('light') : setTheme('dark')
           }}
         >
-          <div>{theme == 'dark' ? <Moon /> : <Sun />}</div>
+          <div>{theme === 'dark' ? <Moon /> : <Sun />}</div>
         </button>
       ) : (
         <Skeleton width="24px" height="24px" />
