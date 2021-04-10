@@ -57,7 +57,7 @@ export const SiteFooter: FC = () => (
           </Link>
         </div>
       </div>
-      <div className="pb-6 w-full text-center text-sm">
+      <div className="mb-6 w-full text-center text-sm">
         © {Config.copyright}
       </div>
     </ContentWrapper>
