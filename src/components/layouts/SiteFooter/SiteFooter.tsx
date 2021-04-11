@@ -3,9 +3,10 @@ import { FC } from 'react'
 import { Twitter, Instagram, Github } from 'components/icons'
 import { ContentWrapper } from 'components/layouts'
 import { Config } from 'lib/site.config'
+import s from './SiteFooter.module.css'
 
 export const SiteFooter: FC = () => (
-  <footer className="pb-5">
+  <footer className={s.siteFooter}>
     <ContentWrapper>
       <div className="py-5 text-center text-sm flex justify-between flex-wrap upper-line">
         <div className="flex items-center justify-center w-1/2 my-4 sm:w-full">
