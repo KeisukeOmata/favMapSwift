@@ -13,7 +13,7 @@ export default function Privacy() {
         path="/privacy"
         ogImageUrl={Config.defaultOGImage}
       />
-      <div className="pt-2 pb-12">
+      <div className="pt-2">
         <ContentWrapper>
           <div className="under-line flex py-1.5">
             <h2 id="heading" tabIndex={-1}>

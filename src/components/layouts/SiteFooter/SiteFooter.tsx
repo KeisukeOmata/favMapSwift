@@ -9,7 +9,7 @@ export const SiteFooter: FC = () => (
   <footer className={s.siteFooter}>
     <ContentWrapper>
       <div className="text-center text-sm flex justify-between flex-wrap upper-line">
-        <div className="flex items-center justify-center w-1/2 pt-6 sm:w-full">
+        <div className="flex items-center justify-center w-1/2 py-6 sm:w-full sm:pt-6 sm:pb-0">
           <a
             href={Config.siteURL.twitter}
             target="_blank"
