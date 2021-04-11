@@ -8,8 +8,8 @@ export const Maintenance: FC = () => {
     <>
       <div className="text-center py-12">
         <ContentWrapper>
-          <p className="leading-tight font-bold text-9xl">メンテナンス中</p>
-          <h1>詳細はTwitterをご確認ください。</h1>
+          <p className="leading-tight font-bold text-8xl">メンテナンス中</p>
+          <h1 className="pb-12">詳細はTwitterをご確認ください。</h1>
           <a
             href={Config.siteURL.twitter}
             target="_blank"
@@ -17,7 +17,6 @@ export const Maintenance: FC = () => {
             tabIndex={-1}
           >
             <Button
-              className="mt-12"
               shape="square"
               type="button"
               aria-label="ツイッターへのリンク"

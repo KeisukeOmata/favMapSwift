@@ -3,12 +3,13 @@ import { FC } from 'react'
 import { Twitter, Instagram, Github } from 'components/icons'
 import { ContentWrapper } from 'components/layouts'
 import { Config } from 'lib/site.config'
+import s from './SiteFooter.module.css'
 
 export const SiteFooter: FC = () => (
-  <footer>
+  <footer className={s.siteFooter}>
     <ContentWrapper>
-      <div className="py-6 text-center text-sm flex justify-between flex-wrap upper-line">
-        <div className="flex items-center justify-center w-1/2 my-4 sm:w-full">
+      <div className="text-center text-sm flex justify-between flex-wrap upper-line">
+        <div className="flex items-center justify-center w-1/2 pt-6 sm:w-full">
           <a
             href={Config.siteURL.twitter}
             target="_blank"
@@ -20,7 +21,7 @@ export const SiteFooter: FC = () => (
             </button>
           </a>
           <a
-            className="mr-3 ml-3"
+            className="px-3"
             href={Config.siteURL.instagram}
             target="_blank"
             rel="noreferrer"
@@ -41,7 +42,7 @@ export const SiteFooter: FC = () => (
             </button>
           </a>
         </div>
-        <div className="flex flex-col w-1/2 my-4 sm:w-full">
+        <div className="flex flex-col w-1/2 py-6 sm:w-full">
           <Link href={'/terms'} passHref>
             <button aria-label="利用規約を表示する">利用規約</button>
           </Link>
@@ -57,8 +58,8 @@ export const SiteFooter: FC = () => (
           </Link>
         </div>
       </div>
-      <div className="pb-6 w-full text-center text-sm">
-        © {Config.copyright}
+      <div className="w-full text-center text-sm">
+        <p>© {Config.copyright}</p>
       </div>
     </ContentWrapper>
   </footer>

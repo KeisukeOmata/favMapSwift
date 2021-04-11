@@ -33,7 +33,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
         >
           <Minus />
         </button>
-        <div className="mx-3">{cartItem.quantity}</div>
+        <div className="px-3">{cartItem.quantity}</div>
         <button
           aria-label="個数を1つ増やす"
           onClick={() => ChangeQuantity(cartItem.id, cartItem.quantity + 1)}

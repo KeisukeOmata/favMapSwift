@@ -37,7 +37,7 @@ export default function Home({
             </h2>
             <h2>Scroll→</h2>
           </div>
-          <div className="mt-5">
+          <div className="pt-4">
             <ScrollableCategories />
           </div>
           <ItemsByCategory items={items} />

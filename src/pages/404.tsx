@@ -10,14 +10,9 @@ export default function Custom404() {
       <div className="text-center py-12">
         <ContentWrapper>
           <p className="leading-tight font-bold text-9xl">404</p>
-          <h1>Page not found...</h1>
+          <h1 className="pb-12">Page not found...</h1>
           <Link href="/" passHref>
-            <Button
-              className="mt-12"
-              shape="square"
-              type="button"
-              aria-label="Topページに戻る"
-            >
+            <Button shape="square" type="button" aria-label="Topページに戻る">
               Topへ
             </Button>
           </Link>

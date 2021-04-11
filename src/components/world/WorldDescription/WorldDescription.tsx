@@ -6,7 +6,7 @@ export const WorldDescription: FC = () => {
   return (
     <>
       <div className="flex justify-between flex-wrap">
-        <div className="w-1/2 mt-5 flex flex-col justify-center sm:w-full sm:order-1">
+        <div className="w-1/2 pt-6 flex flex-col justify-center sm:w-full sm:order-1">
           <Image
             src="/brand1.jpg"
             alt="Brandの画像1"
@@ -17,18 +17,18 @@ export const WorldDescription: FC = () => {
           />
         </div>
         <p
-          className="w-1/2 mt-5 flex flex-col justify-center sm:w-full sm:order-6"
+          className="w-1/2 pt-6 flex flex-col justify-center sm:w-full sm:order-2"
           dangerouslySetInnerHTML={{
             __html: `${Config.description1}`,
           }}
         ></p>
         <p
-          className="w-1/2 mt-5 flex flex-col justify-center sm:w-full sm:order-6"
+          className="w-1/2 pt-6 flex flex-col justify-center sm:w-full sm:order-4"
           dangerouslySetInnerHTML={{
             __html: `${Config.description2}`,
           }}
         ></p>
-        <div className="w-1/2 mt-5 flex flex-col justify-center sm:w-full sm:order-3">
+        <div className="w-1/2 pt-6 flex flex-col justify-center sm:w-full sm:order-3">
           <Image
             src="/brand2.jpg"
             alt="Brandの画像2"
@@ -38,7 +38,7 @@ export const WorldDescription: FC = () => {
             tabIndex={0}
           />
         </div>
-        <div className="w-1/2 mt-5 flex flex-col justify-center sm:w-full sm:order-5">
+        <div className="w-1/2 pt-6 flex flex-col justify-center sm:w-full sm:order-5">
           <Image
             src="/brand3.jpg"
             alt="Brandの画像3"
@@ -49,7 +49,7 @@ export const WorldDescription: FC = () => {
           />
         </div>
         <p
-          className="w-1/2 mt-5 flex flex-col justify-center sm:w-full sm:order-6"
+          className="w-1/2 pt-6 flex flex-col justify-center sm:w-full sm:order-6"
           dangerouslySetInnerHTML={{
             __html: `${Config.description3}`,
           }}

@@ -16,7 +16,7 @@ export default function Terms() {
               利用規約
             </h2>
           </div>
-          <div className="mt-5">
+          <div className="pt-5">
             <p>第1章 総則</p>
             <br></br>
             <p>第1条【定義】</p>
