@@ -16,14 +16,23 @@ type Props = {
 export const ItemDetail: FC<Props> = ({ detail }) => {
   const [itemIdState, setItemIdState] = useState<string | null>(null)
   const [availableState, setAvailableState] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(false)
   const { AddItem } = useAddItem()
   const placeholderImg = '/product-img-placeholder.svg'
 
-  const AddToCart = (itemIdState: string | number) => {
+  const AddToCart = async (itemIdState: string | number) => {
+    setLoading(true)
     const nowTime = dayjs().toDate().toString()
-    AddItem(itemIdState, nowTime)
-    // Show toast
-    toast('BAGに追加しました')
+    try {
+      await AddItem(itemIdState, nowTime)
+      // Show toast
+      toast('BAGに追加しました')
+      window.setTimeout(() => {
+        setLoading(false)
+      }, 3000)
+    } catch (err) {
+      setLoading(false)
+    }
   }
 
   return (
@@ -75,6 +84,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
               shape="square"
               type="button"
               aria-label="BAGに入れる"
+              loading={loading}
               onClick={() => AddToCart(itemIdState as string)}
             >
               BAGに入れる

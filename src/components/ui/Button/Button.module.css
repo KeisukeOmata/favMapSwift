@@ -25,6 +25,10 @@
   @apply opacity-50;
 }
 
+.loading {
+  @apply cursor-not-allowed;
+}
+
 .default {
   @apply bg-secondary;
 }

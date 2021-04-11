@@ -7,6 +7,7 @@ type props = {
   color?: string
   shape: 'square' | 'circle'
   choose?: boolean
+  loading?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: FC<props> = ({
@@ -14,6 +15,7 @@ export const Button: FC<props> = ({
   color,
   shape,
   choose,
+  loading,
   ...rest
 }) => {
   let colorClass: string
@@ -120,8 +122,10 @@ export const Button: FC<props> = ({
         className,
         colorClass,
         shape === 'square' ? s.square : s.circle,
-        chooseClass
+        chooseClass,
+        loading && s.loading
       )}
+      disabled={loading}
       {...rest}
     ></button>
   )
