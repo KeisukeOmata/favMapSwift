@@ -5,9 +5,9 @@ import { ContentWrapper } from 'components/layouts'
 import { Config } from 'lib/site.config'
 
 export const SiteFooter: FC = () => (
-  <footer>
+  <footer className="pb-5">
     <ContentWrapper>
-      <div className="py-6 text-center text-sm flex justify-between flex-wrap upper-line">
+      <div className="py-5 text-center text-sm flex justify-between flex-wrap upper-line">
         <div className="flex items-center justify-center w-1/2 my-4 sm:w-full">
           <a
             href={Config.siteURL.twitter}
@@ -57,8 +57,8 @@ export const SiteFooter: FC = () => (
           </Link>
         </div>
       </div>
-      <div className="mb-6 w-full text-center text-sm">
-        © {Config.copyright}
+      <div className="w-full text-center text-sm">
+        <p>© {Config.copyright}</p>
       </div>
     </ContentWrapper>
   </footer>
