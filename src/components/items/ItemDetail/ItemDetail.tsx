@@ -35,7 +35,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
         </h2>
       </div>
       <div className="flex justify-between flex-wrap">
-        <div className="w-1/2 mt-5 flex flex-col sm:w-full">
+        <div className="w-1/2 pt-5 flex flex-col sm:w-full">
           <div>
             <Slider>
               {detail.images.map((image, i) => (
@@ -53,7 +53,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             </Slider>
           </div>
         </div>
-        <div className="w-1/2 mt-5 flex flex-col sm:w-full">
+        <div className="w-1/2 pt-5 flex flex-col sm:w-full">
           <p>{detail.vendor}</p>
           <p>{detail.title}</p>
           <p>{detail.variants[0].price}円</p>

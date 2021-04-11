@@ -13,10 +13,10 @@ export const CartItem: FC<Props> = ({ item }) => {
       {item.variant ? (
         <>
           <div className="flex justify-between flex-wrap">
-            <div className="w-1/2 mt-5 flex flex-col justify-center sm:w-full">
+            <div className="w-1/2 pt-5 flex flex-col justify-center sm:w-full">
               <CartItemImage cartItem={item} />
             </div>
-            <div className="w-1/2 mt-5 flex flex-col justify-center sm:w-full">
+            <div className="w-1/2 pt-5 flex flex-col justify-center sm:w-full">
               <CartItemDetail cartItem={item} />
             </div>
           </div>

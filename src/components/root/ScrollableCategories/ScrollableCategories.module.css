@@ -7,17 +7,6 @@
   /* Scrolling becomes inertial */
   -webkit-overflow-scrolling: touch;
 
-  /* Margins on the right of the category */
-  &::after {
-    content: '';
-    display: block;
-    width: 20px;
-    height: 20px;
-
-    /* Protrude from the flex container */
-    flex-shrink: 0;
-  }
-
   /* Hide the scroll bars. */
   &::-webkit-scrollbar {
     display: none;
@@ -26,7 +15,7 @@
 }
 
 .category {
-  @apply block flex-shrink-0 w-auto mr-8 leading-normal;
+  @apply block flex-shrink-0 w-auto pr-8 leading-normal;
 
   scroll-snap-align: center;
 }

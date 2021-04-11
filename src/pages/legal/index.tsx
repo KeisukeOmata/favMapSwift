@@ -16,7 +16,7 @@ export default function Legal() {
               特定商取引法に基づく表示
             </h2>
           </div>
-          <div className="mt-5">
+          <div className="pt-5">
             <p>・販売者の名称</p>
             <p>{Config.name}</p>
             <br></br>

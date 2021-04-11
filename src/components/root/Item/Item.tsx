@@ -23,7 +23,7 @@ export const Item: FC<Props> = ({ item, focused }) => {
 
   return (
     <>
-      <div className="w-1/2 mt-5 p-4 sm:w-full">
+      <div className="w-1/2 p-4 sm:w-full">
         <Link key={`items-${item.id}`} href={`/items/${item.id}`} passHref>
           <button
             ref={ref}

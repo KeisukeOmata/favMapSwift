@@ -34,7 +34,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
             ALL
           </h2>
         </div>
-        <div className="flex justify-between flex-wrap">
+        <div className="pt-4 flex justify-between flex-wrap">
           {items
             .slice(0)
             .reverse()
@@ -56,7 +56,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
             NEW ARRIVAL
           </h2>
         </div>
-        <div className="flex justify-between flex-wrap">
+        <div className="pt-4 flex justify-between flex-wrap">
           {items
             .slice(-10)
             .reverse()
@@ -78,7 +78,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
             {categoryState}
           </h2>
         </div>
-        <div className="flex justify-between flex-wrap">
+        <div className="pt-4 flex justify-between flex-wrap">
           {items
             .slice(0)
             .reverse()

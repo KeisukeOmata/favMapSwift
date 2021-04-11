@@ -35,10 +35,10 @@ export const CartItems: FC = () => {
             {cart.lineItems.map((item, i) => (
               <CartItem item={item} key={i} />
             ))}
-            <p className="mt-5 flex flex-col justify-center text-center">
+            <p className="pt-5 flex flex-col justify-center text-center">
               合計: {cart.subtotalPrice}円
             </p>
-            <div className="mt-5 flex flex-col justify-center">
+            <div className="pt-5 flex flex-col justify-center">
               <Link href={`/`}>
                 <Button
                   shape="square"

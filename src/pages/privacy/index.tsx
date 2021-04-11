@@ -20,7 +20,7 @@ export default function Privacy() {
               プライバシーポリシー
             </h2>
           </div>
-          <div className="mt-5">
+          <div className="pt-5">
             <p
               dangerouslySetInnerHTML={{
                 __html:
