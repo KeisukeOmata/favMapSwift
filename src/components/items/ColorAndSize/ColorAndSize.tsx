@@ -40,9 +40,9 @@ export const ColorAndSize: FC<props> = ({
             aria-label={`${color.value}色を選択する`}
             onClick={() => setColorState(color.value)}
           >
-            {colorState === color.value ? (
+            {colorState === color.value && (
               <CheckMark colorState={colorState} />
-            ) : null}
+            )}
           </Button>
         ))}
       </div>

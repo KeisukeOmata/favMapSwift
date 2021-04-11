@@ -29,7 +29,7 @@ export const CheckMark: FC<props> = ({ colorState }) => {
 
   return (
     <>
-      {mounted ? (
+      {mounted && (
         <svg
           width="24"
           height="24"
@@ -44,7 +44,7 @@ export const CheckMark: FC<props> = ({ colorState }) => {
             strokeLinejoin="round"
           />
         </svg>
-      ) : null}
+      )}
     </>
   )
 }
