@@ -21,7 +21,7 @@ export const SiteFooter: FC = () => (
             </button>
           </a>
           <a
-            className="px-3"
+            className={s.icon}
             href={Config.siteURL.instagram}
             target="_blank"
             rel="noreferrer"

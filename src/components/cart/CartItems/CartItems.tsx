@@ -5,6 +5,7 @@ import { Button } from 'components/ui'
 import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
 import { resetCheckoutId } from 'lib/helpers'
 import { Cart } from 'lib/Type'
+import s from './CartItems.module.css'
 
 export const CartItems: FC = () => {
   const { getCartState } = useRecoilCart()
@@ -35,10 +36,8 @@ export const CartItems: FC = () => {
             {cart.lineItems.map((item, i) => (
               <CartItem item={item} key={i} />
             ))}
-            <p className="pt-5 flex flex-col justify-center text-center">
-              合計: {cart.subtotalPrice}円
-            </p>
-            <div className="pt-5 flex flex-col justify-center">
+            <p className={s.total}>合計: {cart.subtotalPrice}円</p>
+            <div className="flex flex-col justify-center">
               <Link href={`/`}>
                 <Button
                   shape="square"

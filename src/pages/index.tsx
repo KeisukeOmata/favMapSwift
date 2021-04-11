@@ -37,9 +37,7 @@ export default function Home({
             </h2>
             <h2>Scroll→</h2>
           </div>
-          <div className="pt-4">
-            <ScrollableCategories />
-          </div>
+          <ScrollableCategories />
           <ItemsByCategory items={items} />
         </ContentWrapper>
       </div>

@@ -1,3 +1,7 @@
 .siteFooter {
   @apply py-6;
 }
+
+.icon {
+  @apply px-3;
+}
