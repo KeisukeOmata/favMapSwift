@@ -1,3 +1,3 @@
 .items {
-  @apply pt-4 flex justify-between flex-wrap;
+  @apply pt-1 flex justify-between flex-wrap;
 }

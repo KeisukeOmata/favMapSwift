@@ -35,7 +35,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
             ALL
           </h2>
         </div>
-        <div className="pt-4 flex justify-between flex-wrap">
+        <div className={s.items}>
           {items
             .slice(0)
             .reverse()
@@ -57,7 +57,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
             NEW ARRIVAL
           </h2>
         </div>
-        <div className="pt-4 flex justify-between flex-wrap">
+        <div className={s.items}>
           {items
             .slice(-10)
             .reverse()
