@@ -29,7 +29,7 @@ export default function Home({
         description={Config.description}
         ogImageUrl={Config.defaultOGImage}
       />
-      <div className="pt-2 pb-12">
+      <div className="pt-2">
         <ContentWrapper>
           <div className="under-line flex py-1.5 justify-between">
             <h2 id="heading" tabIndex={-1}>
@@ -37,9 +37,7 @@ export default function Home({
             </h2>
             <h2>Scroll→</h2>
           </div>
-          <div className="pt-4">
-            <ScrollableCategories />
-          </div>
+          <ScrollableCategories />
           <ItemsByCategory items={items} />
         </ContentWrapper>
       </div>

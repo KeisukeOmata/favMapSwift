@@ -32,7 +32,7 @@ export const SiteHeader: FC = () => {
                 Items
               </button>
             </Link>
-            <div className="px-2">/</div>
+            <div className={s.slash}>/</div>
             <Link href={'/world'} passHref>
               <button
                 aria-label="about usを表示する"
@@ -41,7 +41,7 @@ export const SiteHeader: FC = () => {
                 World
               </button>
             </Link>
-            <div className="px-2">/</div>
+            <div className={s.slash}>/</div>
             <DarkMode />
           </div>
           <Link href={'/cart'} passHref>

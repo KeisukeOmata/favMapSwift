@@ -49,7 +49,7 @@ export default function DetailPage({
         description={detail.description}
         ogImageUrl={detail.images[0]?.src || placeholderImg}
       />
-      <div className="pt-2 pb-12">
+      <div className="pt-2">
         <ContentWrapper>
           <ItemDetail detail={detail} />
         </ContentWrapper>

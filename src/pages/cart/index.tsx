@@ -14,7 +14,7 @@ export default function Cart() {
   return (
     <>
       <PageSEO title="Cart" path="/cart" ogImageUrl={Config.defaultOGImage} />
-      <div className="pt-2 pb-12">
+      <div className="pt-2">
         <ContentWrapper>
           {cartState === null ? <div>loading...</div> : <CartItems />}
         </ContentWrapper>

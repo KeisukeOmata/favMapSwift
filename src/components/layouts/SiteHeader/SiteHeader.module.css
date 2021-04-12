@@ -3,3 +3,7 @@
 
   background-color: var(--primary);
 }
+
+.slash {
+  @apply px-2;
+}

@@ -1,5 +1,5 @@
 .categories {
-  @apply flex pl-6 items-start overflow-x-scroll pb-6;
+  @apply flex pt-4 pb-6 pl-6 items-start overflow-x-scroll;
 
   /* smooth scrolling */
   scroll-behavior: smooth;

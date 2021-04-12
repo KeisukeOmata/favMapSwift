@@ -4,6 +4,7 @@ import { Minus, Plus } from 'components/icons'
 import { useChangeQuantity, useRemoveItem } from 'lib/hooks/cart'
 import { getColorAndSize } from 'lib/helpers'
 import { LineItem } from 'lib/Type'
+import s from './CartItemDetail.module.css'
 
 type Props = {
   cartItem: LineItem
@@ -33,7 +34,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
         >
           <Minus />
         </button>
-        <div className="px-3">{cartItem.quantity}</div>
+        <div className={s.quantity}>{cartItem.quantity}</div>
         <button
           aria-label="個数を1つ増やす"
           onClick={() => ChangeQuantity(cartItem.id, cartItem.quantity + 1)}

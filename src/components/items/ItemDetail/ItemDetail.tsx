@@ -7,6 +7,7 @@ import { ColorAndSize } from 'components/items'
 import { Button, Slider, Toast } from 'components/ui'
 import { TypeItem, Sku } from 'lib/Type'
 import { useAddItem } from 'lib/hooks/cart'
+import s from './ItemDetail.module.css'
 dayjs.locale(ja)
 
 type Props = {
@@ -44,7 +45,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
         </h2>
       </div>
       <div className="flex justify-between flex-wrap">
-        <div className="w-1/2 pt-5 flex flex-col sm:w-full">
+        <div className={s.item}>
           <div>
             <Slider>
               {detail.images.map((image, i) => (
@@ -62,7 +63,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             </Slider>
           </div>
         </div>
-        <div className="w-1/2 pt-5 flex flex-col sm:w-full">
+        <div className={s.item}>
           <p>{detail.vendor}</p>
           <p>{detail.title}</p>
           <p>{detail.variants[0].price}円</p>
