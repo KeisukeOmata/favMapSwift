@@ -2,6 +2,14 @@
   @apply py-6;
 }
 
+.icons {
+  @apply flex items-center justify-center w-1/2 py-6 sm:w-full sm:pt-6 sm:pb-0;
+}
+
 .icon {
   @apply px-3;
+}
+
+.menus {
+  @apply flex flex-col w-1/2 py-6 sm:w-full;
 }

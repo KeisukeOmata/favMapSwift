@@ -9,7 +9,7 @@ export const SiteFooter: FC = () => (
   <footer className={s.siteFooter}>
     <ContentWrapper>
       <div className="text-center text-sm flex justify-between flex-wrap upper-line">
-        <div className="flex items-center justify-center w-1/2 py-6 sm:w-full sm:pt-6 sm:pb-0">
+        <div className={s.icons}>
           <a
             href={Config.siteURL.twitter}
             target="_blank"
@@ -42,7 +42,7 @@ export const SiteFooter: FC = () => (
             </button>
           </a>
         </div>
-        <div className="flex flex-col w-1/2 py-6 sm:w-full">
+        <div className={s.menus}>
           <Link href={'/terms'} passHref>
             <button aria-label="利用規約を表示する">利用規約</button>
           </Link>
