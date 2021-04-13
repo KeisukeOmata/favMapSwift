@@ -18,103 +18,77 @@ export const Button: FC<props> = ({
   loading,
   ...rest
 }) => {
-  let colorClass: string
-  switch (color) {
-    case 'Black':
-      colorClass = s.black
-      break
-    case 'White':
-      colorClass = s.white
-      break
-    case 'Brown':
-      colorClass = s.brown
-      break
-    case 'Charcoal':
-      colorClass = s.charcoal
-      break
-    case 'Chocolate':
-      colorClass = s.chocolate
-      break
-    case 'Grey':
-      colorClass = s.grey
-      break
-    case 'Light Grey':
-      colorClass = s.lightGrey
-      break
-    case 'Taupe Marl':
-      colorClass = s.taupeMarl
-      break
-    case 'Ink':
-      colorClass = s.ink
-      break
-    case 'Light Grey Marl':
-      colorClass = s.lightGreyMarl
-      break
-    case 'Cadet Green':
-      colorClass = s.cadetGreen
-      break
-    case 'Cinder Marl':
-      colorClass = s.cinderMarl
-      break
-    case 'Taupe':
-      colorClass = s.taupe
-      break
-    case 'Military':
-      colorClass = s.military
-      break
-    case 'Grey Marl':
-      colorClass = s.greyMarl
-      break
-    case 'Deep Ocean':
-      colorClass = s.deepOcean
-      break
-    case 'Vintage Black':
-      colorClass = s.vintageBlack
-      break
-    case 'Chalk White':
-      colorClass = s.chalkWhite
-      break
-    case 'Nights':
-      colorClass = s.nights
-      break
-    case 'Optic White':
-      colorClass = s.opticWhite
-      break
-    case 'Tempest Blue':
-      colorClass = s.tempestBlue
-      break
-    case 'Olive Green':
-      colorClass = s.oliveGreen
-      break
-    case 'Putty':
-      colorClass = s.putty
-      break
-    case 'Ivory':
-      colorClass = s.ivory
-      break
-    case 'Red':
-      colorClass = s.red
-      break
-    case 'Green':
-      colorClass = s.green
-      break
-    default:
-      colorClass = s.default
-      break
+  const getColorClass = (color: string | undefined): string => {
+    switch (color) {
+      case 'Black':
+        return s.black
+      case 'White':
+        return s.white
+      case 'Brown':
+        return s.brown
+      case 'Charcoal':
+        return s.charcoal
+      case 'Chocolate':
+        return s.chocolate
+      case 'Grey':
+        return s.grey
+      case 'Light Grey':
+        return s.lightGrey
+      case 'Taupe Marl':
+        return s.taupeMarl
+      case 'Ink':
+        return s.ink
+      case 'Light Grey Marl':
+        return s.lightGreyMarl
+      case 'Cadet Green':
+        return s.cadetGreen
+      case 'Cinder Marl':
+        return s.cinderMarl
+      case 'Taupe':
+        return s.taupe
+      case 'Military':
+        return s.military
+      case 'Grey Marl':
+        return s.greyMarl
+      case 'Deep Ocean':
+        return s.deepOcean
+      case 'Vintage Black':
+        return s.vintageBlack
+      case 'Chalk White':
+        return s.chalkWhite
+      case 'Nights':
+        return s.nights
+      case 'Optic White':
+        return s.opticWhite
+      case 'Tempest Blue':
+        return s.tempestBlue
+      case 'Olive Green':
+        return s.oliveGreen
+      case 'Putty':
+        return s.putty
+      case 'Ivory':
+        return s.ivory
+      case 'Red':
+        return s.red
+      case 'Green':
+        return s.green
+      default:
+        return s.default
+    }
+  }
+  const getChooseClass = (choose: boolean | undefined): string => {
+    switch (choose) {
+      case true:
+        return s.choose
+      case false:
+        return s.notChoose
+      default:
+        return s.choose
+    }
   }
 
-  let chooseClass: string
-  switch (choose) {
-    case true:
-      chooseClass = s.choose
-      break
-    case false:
-      chooseClass = s.notChoose
-      break
-    default:
-      chooseClass = s.choose
-      break
-  }
+  const colorClass = getColorClass(color)
+  const chooseClass = getChooseClass(choose)
 
   return (
     <button

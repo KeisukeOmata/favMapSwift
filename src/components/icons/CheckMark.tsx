@@ -12,20 +12,26 @@ export const CheckMark: FC<props> = ({ colorState }) => {
   // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
 
-  let color
-  if (theme === 'dark') {
-    if (colorState === 'Black') {
-      color = 'white'
+  const getColor = (
+    theme: string | undefined,
+    colorState: string | null
+  ): string => {
+    if (theme === 'dark') {
+      if (colorState === 'Black') {
+        return 'white'
+      } else {
+        return 'currentColor'
+      }
     } else {
-      color = 'currentColor'
-    }
-  } else {
-    if (colorState === 'White' || colorState === 'Ivory') {
-      color = 'black'
-    } else {
-      color = 'currentColor'
+      if (colorState === 'White' || colorState === 'Ivory') {
+        return 'black'
+      } else {
+        return 'currentColor'
+      }
     }
   }
+
+  const color = getColor(theme, colorState)
 
   return (
     <>
