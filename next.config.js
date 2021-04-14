@@ -31,7 +31,7 @@ module.exports = withPWA({
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src-elem https://unpkg.com/pwacompat;
+  script-src-elem <https://unpkg.com/pwacompat>;
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.instagram.com *.shopify.com;
   worker-src 'self' 'unsafe-eval' 'unsafe-inline';
   child-src *.youtube.com *.google.com *.twitter.com *.instagram.com *.shopify.com;
