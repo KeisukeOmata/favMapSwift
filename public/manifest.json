@@ -8,6 +8,13 @@
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "id": "com.google.samples.apps.iosched"
+    }
+  ],
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
