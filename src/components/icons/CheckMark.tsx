@@ -1,11 +1,11 @@
 import { FC, useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
-type props = {
+type Props = {
   colorState: string | null
 }
 
-export const CheckMark: FC<props> = ({ colorState }) => {
+export const CheckMark: FC<Props> = ({ colorState }) => {
   const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
 

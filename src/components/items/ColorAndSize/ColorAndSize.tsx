@@ -4,14 +4,14 @@ import { CheckMark } from 'components/icons'
 import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
 import { TypeItem, Sku } from 'lib/Type'
 
-type props = {
+type Props = {
   detail: TypeItem
   variants: Sku[]
   setItemIdState: (itemIdState: string | null) => void
   setAvailableState: (availableState: boolean) => void
 }
 
-export const ColorAndSize: FC<props> = ({
+export const ColorAndSize: FC<Props> = ({
   detail,
   variants,
   setItemIdState,
