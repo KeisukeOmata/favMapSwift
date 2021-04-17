@@ -20,7 +20,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn lint --fix"
+      "yarn lint --fix && yarn test"
     ]
   },
   "dependencies": {
@@ -58,6 +58,8 @@
     "@babel/core": "^7.12.10",
     "@storybook/react": "^6.1.11",
     "@tailwindcss/ui": "^0.7.2",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react-hooks": "^5.1.1",
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.10",
