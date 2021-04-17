@@ -2,7 +2,7 @@ import { FC, ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
 import s from './Button.module.css'
 
-type props = {
+type Props = {
   className?: string
   color?: string
   shape: 'square' | 'circle'
@@ -10,7 +10,7 @@ type props = {
   loading?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-export const Button: FC<props> = ({
+export const Button: FC<Props> = ({
   className,
   color,
   shape,
