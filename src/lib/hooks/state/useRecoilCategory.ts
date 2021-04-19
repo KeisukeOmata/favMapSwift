@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { atom, useRecoilValue, useSetRecoilState } from 'recoil'
 
 type useRecoilCategoryType = {
@@ -14,13 +15,16 @@ export const useRecoilCategory = (): useRecoilCategoryType => {
   const categoryState = useRecoilValue(categoryAtom)
   const setCategoryStateToRecoil = useSetRecoilState(categoryAtom)
 
-  const getCategoryState = (): string => {
+  const getCategoryState = useCallback((): string => {
     return categoryState
-  }
+  }, [categoryState])
 
-  const setCategoryState = (categoryState: string): void => {
-    setCategoryStateToRecoil(categoryState)
-  }
+  const setCategoryState = useCallback(
+    (categoryState: string): void => {
+      setCategoryStateToRecoil(categoryState)
+    },
+    [setCategoryStateToRecoil]
+  )
 
   return {
     getCategoryState,
