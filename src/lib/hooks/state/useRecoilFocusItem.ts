@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { atom, useRecoilValue, useSetRecoilState } from 'recoil'
 
 type useRecoilFocusItemType = {
@@ -14,13 +15,16 @@ export const useRecoilFocusItem = (): useRecoilFocusItemType => {
   const focusItemState = useRecoilValue(focusItemAtom)
   const setFocusItemStateToRecoil = useSetRecoilState(focusItemAtom)
 
-  const getFocusItemState = (): string | null => {
+  const getFocusItemState = useCallback((): string | null => {
     return focusItemState
-  }
+  }, [focusItemState])
 
-  const setFocusItemState = (focusItemState: string | null): void => {
-    setFocusItemStateToRecoil(focusItemState)
-  }
+  const setFocusItemState = useCallback(
+    (focusItemState: string | null): void => {
+      setFocusItemStateToRecoil(focusItemState)
+    },
+    [setFocusItemStateToRecoil]
+  )
 
   return {
     getFocusItemState,

@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { atom, useRecoilValue, useSetRecoilState } from 'recoil'
 import { Cart } from 'lib/Type'
 
@@ -15,25 +16,28 @@ export const useRecoilCart = (): useRecoilCartType => {
   const cartState = useRecoilValue(cartAtom)
   const setCartStateToRecoil = useSetRecoilState(cartAtom)
 
-  const getCartState = (): Cart | null => {
+  const getCartState = useCallback((): Cart | null => {
     return cartState
-  }
+  }, [cartState])
 
-  const setCartState = (cart: Cart | null): void => {
-    // Sort by time added to cart
-    cart?.lineItems.sort((a, b) => {
-      const aDate = new Date(a.customAttributes[0].value)
-      const bDate = new Date(b.customAttributes[0].value)
-      if (aDate < bDate) {
-        return 1
-      }
-      if (aDate > bDate) {
-        return -1
-      }
-      return 0
-    })
-    setCartStateToRecoil(cart)
-  }
+  const setCartState = useCallback(
+    (cart: Cart | null): void => {
+      // Sort by time added to cart
+      cart?.lineItems.sort((a, b) => {
+        const aDate = new Date(a.customAttributes[0].value)
+        const bDate = new Date(b.customAttributes[0].value)
+        if (aDate < bDate) {
+          return 1
+        }
+        if (aDate > bDate) {
+          return -1
+        }
+        return 0
+      })
+      setCartStateToRecoil(cart)
+    },
+    [setCartStateToRecoil]
+  )
 
   return {
     getCartState,
