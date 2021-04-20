@@ -11,7 +11,7 @@ import {
 } from 'components/layouts'
 import { Config } from 'lib/site.config'
 import { useFocusHeading } from 'lib/hooks/useFocusHeading'
-import 'styles//main.css'
+import 'styles/main.css'
 import 'keen-slider/keen-slider.min.css'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
