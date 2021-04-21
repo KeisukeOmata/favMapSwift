@@ -74,7 +74,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
             setItemIdState={setItemIdState}
             setAvailableState={setAvailableState}
           />
-          <p
+          <div
             dangerouslySetInnerHTML={{
               __html: `${detail.descriptionHtml}`,
             }}
