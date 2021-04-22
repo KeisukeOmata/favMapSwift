@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useRef, forwardRef, ButtonHTMLAttributes } from 'react'
 import { CartItem } from 'components/cart'
 import { Button } from 'components/ui'
 import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
@@ -7,7 +7,23 @@ import { resetCheckoutId } from 'lib/helpers'
 import { Cart } from 'lib/Type'
 import s from './CartItems.module.css'
 
+type RefProps = {
+  className?: string
+  color?: string
+  shape: 'square' | 'circle'
+  choose?: boolean
+  loading?: boolean
+} & ButtonHTMLAttributes<HTMLButtonElement>
+
+// eslint-disable-next-line react/display-name
+const RefButton = forwardRef<HTMLButtonElement, RefProps>(
+  ({ ...props }, ref) => {
+    return <Button {...props} forwardRef={ref} />
+  }
+)
+
 export const CartItems: FC = () => {
+  const ref = useRef<HTMLButtonElement>(null)
   const { getCartState } = useRecoilCart()
   const cart = getCartState()
   const moveToShopify = (cart: Cart): void => {
@@ -38,15 +54,16 @@ export const CartItems: FC = () => {
             ))}
             <p className={s.total}>合計: {cart.subtotalPrice}円</p>
             <div className="flex flex-col justify-center">
-              <Link href={`/`}>
-                <Button
+              <Link href="/" passHref>
+                <RefButton
+                  ref={ref}
                   shape="square"
                   type="button"
                   aria-label="お会計に進む"
                   onClick={() => moveToShopify(cart)}
                 >
                   購入する
-                </Button>
+                </RefButton>
               </Link>
             </div>
           </>
