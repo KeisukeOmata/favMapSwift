@@ -1,8 +1,9 @@
-import { FC, ButtonHTMLAttributes } from 'react'
+import { FC, ButtonHTMLAttributes, Ref } from 'react'
 import cn from 'classnames'
 import s from './Button.module.css'
 
 type Props = {
+  forwardRef?: Ref<HTMLButtonElement>
   className?: string
   color?: string
   shape: 'square' | 'circle'
@@ -11,6 +12,7 @@ type Props = {
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 export const Button: FC<Props> = ({
+  forwardRef,
   className,
   color,
   shape,
@@ -92,6 +94,7 @@ export const Button: FC<Props> = ({
 
   return (
     <button
+      ref={forwardRef}
       className={cn(
         className,
         colorClass,
