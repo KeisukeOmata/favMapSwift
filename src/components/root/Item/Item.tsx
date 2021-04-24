@@ -18,8 +18,7 @@ export const Item: FC<Props> = ({ item, focused }) => {
     if (ref.current && focused) {
       ref.current.focus()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [focused])
 
   return (
     <>
