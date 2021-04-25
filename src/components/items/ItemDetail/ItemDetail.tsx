@@ -28,9 +28,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
       await AddItem(itemIdState, nowTime)
       // Show toast
       toast('BAGに追加しました')
-      window.setTimeout(() => {
-        setLoading(false)
-      }, 3000)
+      setLoading(false)
     } catch (err) {
       setLoading(false)
     }
