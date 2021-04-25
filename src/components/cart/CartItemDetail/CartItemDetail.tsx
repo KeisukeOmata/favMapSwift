@@ -19,6 +19,9 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
     setLoading(true)
     try {
       await RemoveItem(cartItemId)
+      window.setTimeout(() => {
+        setLoading(false)
+      }, 1000)
     } catch (err) {
       setLoading(false)
     }
