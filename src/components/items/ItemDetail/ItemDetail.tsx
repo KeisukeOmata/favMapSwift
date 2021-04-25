@@ -21,7 +21,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
   const { AddItem } = useAddItem()
   const placeholderImg = '/product-img-placeholder.svg'
 
-  const AddToCart = async (itemIdState: string | number) => {
+  const handleAddItem = async (itemIdState: string | number) => {
     setLoading(true)
     const nowTime = dayjs().toDate().toString()
     try {
@@ -86,7 +86,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
               type="button"
               aria-label="BAGに入れる"
               loading={loading}
-              onClick={() => AddToCart(itemIdState as string)}
+              onClick={() => handleAddItem(itemIdState as string)}
             >
               BAGに入れる
             </Button>

@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { Button } from 'components/ui'
 import { Minus, Plus } from 'components/icons'
 import { useChangeQuantity, useRemoveItem } from 'lib/hooks/cart'
@@ -13,6 +13,16 @@ type Props = {
 export const CartItemDetail: FC<Props> = ({ cartItem }) => {
   const { ChangeQuantity } = useChangeQuantity()
   const { RemoveItem } = useRemoveItem()
+  const [loading, setLoading] = useState<boolean>(false)
+
+  const handleRemoveItem = async (cartItemId: string) => {
+    setLoading(true)
+    try {
+      await RemoveItem(cartItemId)
+    } catch (err) {
+      setLoading(false)
+    }
+  }
 
   return (
     <>
@@ -49,7 +59,8 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
           shape="square"
           type="button"
           aria-label="カートから商品を削除する"
-          onClick={() => RemoveItem(cartItem.id)}
+          loading={loading}
+          onClick={() => handleRemoveItem(cartItem.id)}
         >
           削除
         </Button>
