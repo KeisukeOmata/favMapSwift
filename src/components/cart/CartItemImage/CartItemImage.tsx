@@ -10,7 +10,7 @@ type Props = {
 export const CartItemImage: FC<Props> = ({ cartItem }) => {
   const placeholderImg = '/product-img-placeholder.svg'
   return (
-    <Link href={`/items/${cartItem.variant.product.id}`}>
+    <Link href={`/items/${cartItem.variant.product.id}`} passHref>
       <button aria-label={`${cartItem.title}のページを表示する`}>
         <Image
           src={cartItem.variant.image?.src || placeholderImg}
