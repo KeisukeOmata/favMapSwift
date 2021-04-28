@@ -20,7 +20,7 @@ export const Config = {
         url: process.env.NEXT_PUBLIC_OPENGRAPH_IMAGE_PATH as string,
         width: 500,
         height: 500,
-        alt: 'Brand logo.',
+        alt: 'Brand logo',
       },
     ],
   },
