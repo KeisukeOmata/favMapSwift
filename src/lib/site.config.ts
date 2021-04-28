@@ -1,10 +1,10 @@
 export const Config = {
-  title: process.env.NEXT_PUBLIC_TITLE,
+  title: process.env.NEXT_PUBLIC_TITLE as string,
   titleTemplate: process.env.NEXT_PUBLIC_TITLETEMPLATE,
-  description: process.env.NEXT_PUBLIC_DESCRIPTION,
+  description: process.env.NEXT_PUBLIC_DESCRIPTION as string,
   canonical:
     process.env.NEXT_PUBLIC_NODE_ENV === 'production'
-      ? process.env.NEXT_PUBLIC_URL
+      ? (process.env.NEXT_PUBLIC_URL as string)
       : 'http://localhost:3000',
   copyright: process.env.NEXT_PUBLIC_COPYRIGHT,
   openGraph: {
@@ -12,12 +12,12 @@ export const Config = {
     locale: 'ja',
     url:
       process.env.NEXT_PUBLIC_NODE_ENV === 'production'
-        ? process.env.NEXT_PUBLIC_URL
+        ? (process.env.NEXT_PUBLIC_URL as string)
         : 'http://localhost:3000',
-    site_name: process.env.NEXT_PUBLIC_TITLE,
+    site_name: process.env.NEXT_PUBLIC_TITLE as string,
     images: [
       {
-        url: process.env.NEXT_PUBLIC_OPENGRAPH_IMAGE_PATH,
+        url: process.env.NEXT_PUBLIC_OPENGRAPH_IMAGE_PATH as string,
         width: 500,
         height: 500,
         alt: 'Brand logo.',
@@ -25,13 +25,13 @@ export const Config = {
     ],
   },
   twitter: {
-    handle: process.env.NEXT_PUBLIC_TWITTER_ACCOUNT,
-    site: process.env.NEXT_PUBLIC_TWITTER_ACCOUNT,
+    handle: process.env.NEXT_PUBLIC_TWITTER_ACCOUNT as string,
+    site: process.env.NEXT_PUBLIC_TWITTER_ACCOUNT as string,
     cardType: 'summary_large_image',
   },
   siteRoot:
     process.env.NEXT_PUBLIC_NODE_ENV === 'production'
-      ? process.env.NEXT_PUBLIC_URL
+      ? (process.env.NEXT_PUBLIC_URL as string)
       : 'http://localhost:3000',
   defaultOGImage:
     process.env.NEXT_PUBLIC_NODE_ENV === 'production'
