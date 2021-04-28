@@ -1,23 +1,23 @@
 export const Config = {
-  title: 'e-commerce',
-  titleTemplate: '%s - e-commerce Storefront',
-  description: 'e-commerce using ISR(Incremental Static Regeneration).',
+  title: process.env.NEXT_PUBLIC_TITLE,
+  titleTemplate: process.env.NEXT_PUBLIC_TITLETEMPLATE,
+  description: process.env.NEXT_PUBLIC_DESCRIPTION,
   canonical:
-    process.env.NODE_ENV === 'production'
-      ? 'https://e-commerce.keisukeomata.vercel.app'
+    process.env.NEXT_PUBLIC_NODE_ENV === 'production'
+      ? process.env.NEXT_PUBLIC_URL
       : 'http://localhost:3000',
-  copyright: 'Keisuke Omata',
+  copyright: process.env.NEXT_PUBLIC_COPYRIGHT,
   openGraph: {
     type: 'website',
     locale: 'ja',
     url:
-      process.env.NODE_ENV === 'production'
-        ? 'https://e-commerce.keisukeomata.vercel.app'
+      process.env.NEXT_PUBLIC_NODE_ENV === 'production'
+        ? process.env.NEXT_PUBLIC_URL
         : 'http://localhost:3000',
-    site_name: 'e-commerce',
+    site_name: process.env.NEXT_PUBLIC_TITLE,
     images: [
       {
-        url: '/brand1.webp',
+        url: process.env.NEXT_PUBLIC_OPENGRAPH_IMAGE_PATH,
         width: 500,
         height: 500,
         alt: 'Brand logo.',
@@ -25,31 +25,28 @@ export const Config = {
     ],
   },
   twitter: {
-    handle: '@mete0la',
-    site: '@mete0la',
+    handle: process.env.NEXT_PUBLIC_TWITTER_ACCOUNT,
+    site: process.env.NEXT_PUBLIC_TWITTER_ACCOUNT,
     cardType: 'summary_large_image',
   },
   siteRoot:
-    process.env.NODE_ENV === 'production'
-      ? 'https://e-commerce.keisukeomata.vercel.app'
+    process.env.NEXT_PUBLIC_NODE_ENV === 'production'
+      ? process.env.NEXT_PUBLIC_URL
       : 'http://localhost:3000',
   defaultOGImage:
-    process.env.NODE_ENV === 'production'
-      ? 'https://e-commerce.keisukeomata.vercel.app/brand1.webp'
-      : 'http://localhost:3000/brand1.webp',
+    process.env.NEXT_PUBLIC_NODE_ENV === 'production'
+      ? process.env.NEXT_PUBLIC_OGIMAGE_PATH
+      : 'http://localhost:3000/brand1.jpg',
   siteURL: {
-    twitter: 'https://twitter.com/mete0la',
-    instagram: 'https://www.instagram.com/mete0la/',
-    github: 'https://github.com/KeisukeOmata/next_e-commerce',
+    twitter: process.env.NEXT_PUBLIC_TWITTER_URL,
+    instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+    github: process.env.NEXT_PUBLIC_GITHUB_URL,
   },
-  brandName: 'SKPISM',
-  description1:
-    'あらゆるものに縛られ、抑圧される社会と一線を画し、自分自身を取り戻すための服。<br>その人自身のアイデンティティからなる白昼夢のように、持つ人の個性に合わせて表情が変化するアイテムを展開。',
-  description2:
-    '国内外から厳選されたヴィンテージアイテムと、再構築され新たなアイテムとして生まれ変わった一点物を取り扱うVintage Select Bland',
-  description3:
-    '10年後も美しいBAGを目指して使い込むほどに艶を増す上質な本革を使用。<br>MADE IN JAPANにこだわり、優れた職人によって作られたシンプルで長く寄り添う小物を展開。',
-  name: '小俣圭佑',
-  emailAddress: 'omatakeisuke.work@gmail.com',
-  responsibleParty: '小俣圭佑',
+  brandName: process.env.NEXT_PUBLIC_BRANDNAME,
+  description1: process.env.NEXT_PUBLIC_DESCRIPTION1,
+  description2: process.env.NEXT_PUBLIC_DESCRIPTION2,
+  description3: process.env.NEXT_PUBLIC_DESCRIPTION3,
+  name: process.env.NEXT_PUBLIC_NAME,
+  emailAddress: process.env.NEXT_PUBLIC_EMAIL_ADDRESS,
+  responsibleParty: process.env.NEXT_PUBLIC_RESPONSIBLE_PARTY,
 }
