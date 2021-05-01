@@ -17,7 +17,7 @@ https://e-commerce-keisukeomata.vercel.app/
    yarn install
    ```
 3. Copy `.env.example` to `.env`
-4. Configure environment variables in the .env file.
+4. Configure environment variables in the .env file
 5. Configure site settings in src/lib/site.config.ts
 6. Configure product categories in src/lib/categories.ts
 7. Run (in development mode)
@@ -29,7 +29,7 @@ https://e-commerce-keisukeomata.vercel.app/
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
-- [Tailwind](https://tailwindcss.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
 - [Shopify JavaScript Buy SDK](https://shopify.github.io/js-buy-sdk/)
 
 ## Licence
