@@ -3,12 +3,7 @@ import NextHead from 'next/head'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'next-themes'
 import { NextSeo } from 'next-seo'
-import {
-  SiteHeader,
-  SiteFooter,
-  FixedFooter,
-  Maintenance,
-} from 'components/layouts'
+import { SiteHeader, SiteFooter, Maintenance } from 'components/layouts'
 import { Config } from 'lib/site.config'
 import { useFocusHeading } from 'lib/hooks/useFocusHeading'
 import 'styles/main.css'
@@ -58,7 +53,7 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <meta name="theme-color" content="#ffffff" />
       </NextHead>
       <ThemeProvider>
-        <FixedFooter>
+        <div className="min-h-screen flex-col flex">
           <RecoilRoot>
             <SiteHeader />
             <main aria-label="メイン">
@@ -70,7 +65,7 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             </main>
             <SiteFooter />
           </RecoilRoot>
-        </FixedFooter>
+        </div>
       </ThemeProvider>
     </>
   )
