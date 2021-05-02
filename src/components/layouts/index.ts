@@ -1,5 +1,4 @@
 export { ContentWrapper } from './ContentWrapper'
-export { FixedFooter } from './FixedFooter'
 export { PageSEO } from './PageSEO'
 export { Maintenance } from './Maintenance'
 export { SiteFooter } from './SiteFooter'
