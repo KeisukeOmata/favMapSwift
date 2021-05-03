@@ -1,9 +1,14 @@
 import Link from 'next/link'
-import { FC, useRef, forwardRef, ButtonHTMLAttributes } from 'react'
+import {
+  FC,
+  useRef,
+  useCallback,
+  forwardRef,
+  ButtonHTMLAttributes,
+} from 'react'
 import { CartItem } from 'components/cart'
 import { Button } from 'components/ui'
 import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
-import { resetCheckoutId } from 'lib/helpers'
 import { Cart } from 'lib/Type'
 import s from './CartItems.module.css'
 
@@ -26,12 +31,13 @@ export const CartItems: FC = () => {
   const ref = useRef<HTMLButtonElement>(null)
   const { getCartState } = useRecoilCart()
   const cart = getCartState()
-  const moveToShopify = (cart: Cart): void => {
+
+  const moveToShopify = useCallback((cart: Cart): void => {
     // Move to Shopify
     window.open(cart.webUrl)
     // Delete checkoutId from local storage
-    resetCheckoutId()
-  }
+    localStorage.removeItem('checkoutId')
+  }, [])
 
   return (
     cart && (

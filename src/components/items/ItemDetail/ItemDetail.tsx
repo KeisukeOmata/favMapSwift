@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FC, useState } from 'react'
+import { FC, useState, useCallback } from 'react'
 import { toast } from 'react-toastify'
 import dayjs from 'dayjs'
 import ja from 'dayjs/locale/ja'
@@ -21,20 +21,23 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
   const { AddItem } = useAddItem()
   const placeholderImg = '/product-img-placeholder.svg'
 
-  const handleAddItem = async (itemIdState: string | number) => {
-    setLoading(true)
-    const nowTime = dayjs().toDate().toString()
-    try {
-      await AddItem(itemIdState, nowTime)
-      // Show toast
-      toast('BAGに追加しました')
-      window.setTimeout(() => {
+  const handleAddItem = useCallback(
+    async (itemIdState: string | number) => {
+      setLoading(true)
+      const nowTime = dayjs().toDate().toString()
+      try {
+        await AddItem(itemIdState, nowTime)
+        // Show toast
+        toast('BAGに追加しました')
+        window.setTimeout(() => {
+          setLoading(false)
+        }, 3000)
+      } catch (err) {
         setLoading(false)
-      }, 3000)
-    } catch (err) {
-      setLoading(false)
-    }
-  }
+      }
+    },
+    [AddItem]
+  )
 
   return (
     <>

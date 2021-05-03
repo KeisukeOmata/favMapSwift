@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { CartItemImage, CartItemDetail } from 'components/cart'
 import { LineItem } from 'lib/Type'
-import { resetCheckoutId } from 'lib/helpers'
 import s from './CartItem.module.css'
 
 type Props = {
@@ -24,7 +23,7 @@ export const CartItem: FC<Props> = ({ item }) => {
         </>
       ) : (
         // Reset cart because product information is outdated
-        resetCheckoutId()
+        localStorage.removeItem('checkoutId')
       )}
     </>
   )
