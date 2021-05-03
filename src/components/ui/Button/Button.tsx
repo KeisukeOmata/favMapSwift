@@ -1,4 +1,4 @@
-import { FC, ButtonHTMLAttributes, Ref } from 'react'
+import { FC, useCallback, ButtonHTMLAttributes, Ref } from 'react'
 import cn from 'classnames'
 import s from './Button.module.css'
 
@@ -20,7 +20,7 @@ export const Button: FC<Props> = ({
   loading,
   ...rest
 }) => {
-  const getColorClass = (color: string | undefined): string => {
+  const getColorClass = useCallback((color: string | undefined): string => {
     switch (color) {
       case 'Black':
         return s.black
@@ -77,8 +77,9 @@ export const Button: FC<Props> = ({
       default:
         return s.default
     }
-  }
-  const getChooseClass = (choose: boolean | undefined): string => {
+  }, [])
+
+  const getChooseClass = useCallback((choose: boolean | undefined): string => {
     switch (choose) {
       case true:
         return s.choose
@@ -87,7 +88,7 @@ export const Button: FC<Props> = ({
       default:
         return s.choose
     }
-  }
+  }, [])
 
   const colorClass = getColorClass(color)
   const chooseClass = getChooseClass(choose)

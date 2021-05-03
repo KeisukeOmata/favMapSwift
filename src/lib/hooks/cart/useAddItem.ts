@@ -2,7 +2,6 @@ import { useCallback } from 'react'
 import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
 import { shopify } from 'lib/shopify'
 import { Cart } from 'lib/Type'
-import { presenceCheck, getCartItemId, getCurrentQuantity } from 'lib/helpers'
 
 type useAddItemType = {
   AddItem: (itemIdState: string | number, addTime: string) => void
@@ -11,6 +10,39 @@ type useAddItemType = {
 export const useAddItem = (): useAddItemType => {
   const { setCartState, getCartState } = useRecoilCart()
   const cartState = getCartState()
+
+  const presenceCheck = useCallback(
+    (cartState: Cart, itemIdState: string | number): string => {
+      return (
+        cartState.lineItems.find(
+          (lineItem) => lineItem.variant.id === itemIdState
+        )?.variant.id ?? ''
+      )
+    },
+    []
+  )
+
+  const getCartItemId = useCallback(
+    (cartState: Cart, itemIdState: string | number): string => {
+      return (
+        cartState.lineItems.find(
+          (lineItem) => lineItem.variant.id === itemIdState
+        )?.id ?? ''
+      )
+    },
+    []
+  )
+
+  const getCurrentQuantity = useCallback(
+    (cartState: Cart, itemIdState: string | number): number => {
+      return (
+        cartState.lineItems.find(
+          (lineItem) => lineItem.variant.id === itemIdState
+        )?.quantity ?? 0
+      )
+    },
+    []
+  )
 
   const AddItem = useCallback(
     (itemIdState: string | number, addTime: string): void => {
@@ -39,7 +71,7 @@ export const useAddItem = (): useAddItemType => {
         }
       }
     },
-    [cartState, setCartState]
+    [cartState, getCartItemId, getCurrentQuantity, presenceCheck, setCartState]
   )
 
   return {

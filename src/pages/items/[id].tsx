@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { InferGetStaticPropsType, GetStaticPropsContext } from 'next'
 import { useRouter } from 'next/router'
+import { useCallback } from 'react'
 import { ItemDetail } from 'components/items'
 import { ContentWrapper, PageSEO } from 'components/layouts'
 import { shopify } from 'lib/shopify'
 import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
-import { getItemPath } from 'lib/helpers'
 
 export async function getStaticPaths() {
   return {
@@ -36,6 +36,10 @@ export default function DetailPage({
   useFetchCart()
   const router = useRouter()
   const placeholderImg = '/product-img-placeholder.svg'
+
+  const getItemPath = useCallback((id: string): string => {
+    return `/items/${encodeURIComponent(id)}`
+  }, [])
 
   if (errors) return <div>error</div>
   if (router.isFallback) {
