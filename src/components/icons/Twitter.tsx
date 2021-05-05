@@ -4,8 +4,8 @@ export const Twitter: FC = () => (
   <svg
     role="button"
     aria-label="Twitterのアイコン"
-    width="24"
-    height="24"
+    width="36"
+    height="36"
     viewBox="328 355 335 276"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

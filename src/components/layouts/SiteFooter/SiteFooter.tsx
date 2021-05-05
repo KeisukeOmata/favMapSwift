@@ -44,15 +44,23 @@ export const SiteFooter: FC = () => (
         </div>
         <div className={s.menus}>
           <Link href={'/terms'} passHref>
-            <button aria-label="利用規約を表示する">利用規約</button>
+            <button className={s.menu} aria-label="利用規約を表示する">
+              利用規約
+            </button>
           </Link>
           <Link href={'/privacy'} passHref>
-            <button aria-label="プライバシーポリシーを表示する">
+            <button
+              className={s.menu}
+              aria-label="プライバシーポリシーを表示する"
+            >
               プライバシーポリシー
             </button>
           </Link>
           <Link href={'/legal'} passHref>
-            <button aria-label="特定商取引法に基づく表示を表示する">
+            <button
+              className={s.menu}
+              aria-label="特定商取引法に基づく表示を表示する"
+            >
               特定商取引法に基づく表示
             </button>
           </Link>
