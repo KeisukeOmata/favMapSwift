@@ -3,7 +3,7 @@
 }
 
 .icons {
-  @apply flex items-center justify-center w-1/2 py-6 sm:w-full sm:pt-6 sm:pb-0;
+  @apply flex items-center justify-center w-1/2 py-6 sm:w-full sm:pt-8 sm:pb-0;
 }
 
 .icon {
