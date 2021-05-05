@@ -13,3 +13,7 @@
 .menus {
   @apply flex flex-col w-1/2 py-6 sm:w-full;
 }
+
+.menu {
+  @apply p-2;
+}
