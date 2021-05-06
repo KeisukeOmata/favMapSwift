@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
+    "@next/bundle-analyzer": "^10.2.0",
     "@storybook/react": "^6.1.11",
     "@tailwindcss/ui": "^0.7.2",
     "@testing-library/dom": "^7.30.3",
