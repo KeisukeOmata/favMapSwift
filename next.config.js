@@ -2,32 +2,39 @@
   @typescript-eslint/no-var-requires
 */
 const withPWA = require('next-pwa')
-
-module.exports = withPWA({
-  pwa: {
-    dest: 'public',
-  },
-  // next/image
-  images: {
-    domains: ['cdn.shopify.com'],
-  },
-  future: {
-    webpack5: true,
-    strictPostcssConfiguration: true,
-  },
-  async headers() {
-    return [
-      {
-        source: '/',
-        headers: securityHeaders,
-      },
-      {
-        source: '/:path*',
-        headers: securityHeaders,
-      },
-    ]
-  },
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
 })
+
+// If you need more plugins, use next-compose-plugin
+// ANALYZE=true yarn build
+module.exports = withBundleAnalyzer(
+  withPWA({
+    pwa: {
+      dest: 'public',
+    },
+    // next/image
+    images: {
+      domains: ['cdn.shopify.com'],
+    },
+    future: {
+      webpack5: true,
+      strictPostcssConfiguration: true,
+    },
+    async headers() {
+      return [
+        {
+          source: '/',
+          headers: securityHeaders,
+        },
+        {
+          source: '/:path*',
+          headers: securityHeaders,
+        },
+      ]
+    },
+  })
+)
 
 const ContentSecurityPolicy = `
   default-src 'self';
