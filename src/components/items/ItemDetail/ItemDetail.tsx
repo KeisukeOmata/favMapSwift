@@ -22,7 +22,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
   const placeholderImg = '/product-img-placeholder.svg'
 
   const handleAddItem = useCallback(
-    async (itemIdState: string | number) => {
+    async (itemIdState: string | number): Promise<void> => {
       setLoading(true)
       const nowTime = dayjs().toDate().toString()
       try {

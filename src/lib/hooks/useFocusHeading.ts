@@ -3,7 +3,7 @@ import { useEffect, useCallback } from 'react'
 
 export const useFocusHeading = (): void => {
   const router = useRouter()
-  const handleRouteChange = useCallback(() => {
+  const handleRouteChange = useCallback((): void => {
     const main = document.getElementById('heading')
     main?.focus({ preventScroll: true })
   }, [])
