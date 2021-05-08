@@ -12,7 +12,7 @@ export const useRemoveItem = (): useRemoveItemType => {
   const cartState = getCartState()
 
   const RemoveItem = useCallback(
-    (cartItemId: string) => {
+    (cartItemId: string): void => {
       if (cartState) {
         shopify.checkout
           .removeLineItems(cartState.id, [cartItemId])

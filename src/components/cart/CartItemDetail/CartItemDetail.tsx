@@ -22,7 +22,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
   )
 
   const handleRemoveItem = useCallback(
-    async (cartItemId: string) => {
+    async (cartItemId: string): Promise<void> => {
       setLoading(true)
       try {
         await RemoveItem(cartItemId)
