@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react'
-import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
+import { useRecoilCart } from 'lib/hooks/state'
 import { shopify } from 'lib/shopify'
 import { Cart } from 'lib/Type'
 

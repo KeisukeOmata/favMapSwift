@@ -8,7 +8,7 @@ import {
 } from 'react'
 import { CartItem } from 'components/cart'
 import { Button } from 'components/ui'
-import { useRecoilCart } from 'lib/hooks/state/useRecoilCart'
+import { useRecoilCart } from 'lib/hooks/state'
 import { Cart } from 'lib/Type'
 import s from './CartItems.module.css'
 
