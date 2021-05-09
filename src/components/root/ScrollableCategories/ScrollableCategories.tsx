@@ -1,10 +1,10 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import cn from 'classnames'
 import { categories } from 'lib/categories'
 import { useRecoilCategory } from 'lib/hooks/state'
 import s from './ScrollableCategories.module.css'
 
-export const ScrollableCategories: FC = () => {
+export const ScrollableCategories: FC = memo(() => {
   const { getCategoryState, setCategoryState } = useRecoilCategory()
   const categoryState = getCategoryState()
 
@@ -28,4 +28,6 @@ export const ScrollableCategories: FC = () => {
       </div>
     </>
   )
-}
+})
+
+ScrollableCategories.displayName = 'ScrollableCategories'

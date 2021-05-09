@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react'
+import { FC, memo, useEffect, useRef } from 'react'
 import { Item } from 'components/root'
 import { TypeItem } from 'lib/Type'
 import {
@@ -12,7 +12,7 @@ type Props = {
   items: TypeItem[]
 }
 
-export const ItemsByCategory: FC<Props> = ({ items }) => {
+export const ItemsByCategory: FC<Props> = memo(({ items }) => {
   const { count, setCount } = useCount()
   const ref = useRef<HTMLHeadingElement | null>(null)
   const { getCategoryState } = useRecoilCategory()
@@ -101,4 +101,6 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
       </>
     )
   }
-}
+})
+
+ItemsByCategory.displayName = 'ItemsByCategory'

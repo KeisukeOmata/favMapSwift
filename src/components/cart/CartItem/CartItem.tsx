@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { CartItemImage, CartItemDetail } from 'components/cart'
 import { LineItem } from 'lib/Type'
 import s from './CartItem.module.css'
@@ -7,7 +7,7 @@ type Props = {
   item: LineItem
 }
 
-export const CartItem: FC<Props> = ({ item }) => {
+export const CartItem: FC<Props> = memo(({ item }) => {
   return (
     <>
       {item.variant ? (
@@ -27,4 +27,6 @@ export const CartItem: FC<Props> = ({ item }) => {
       )}
     </>
   )
-}
+})
+
+CartItem.displayName = 'CartItem'

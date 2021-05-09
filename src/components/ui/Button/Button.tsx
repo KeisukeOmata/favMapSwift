@@ -1,4 +1,4 @@
-import { FC, useCallback, ButtonHTMLAttributes, Ref } from 'react'
+import { FC, memo, useCallback, ButtonHTMLAttributes, Ref } from 'react'
 import cn from 'classnames'
 import s from './Button.module.css'
 
@@ -11,100 +11,99 @@ type Props = {
   loading?: boolean
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
-export const Button: FC<Props> = ({
-  forwardRef,
-  className,
-  color,
-  shape,
-  choose,
-  loading,
-  ...rest
-}) => {
-  const getColorClass = useCallback((color: string | undefined): string => {
-    switch (color) {
-      case 'Black':
-        return s.black
-      case 'White':
-        return s.white
-      case 'Brown':
-        return s.brown
-      case 'Charcoal':
-        return s.charcoal
-      case 'Chocolate':
-        return s.chocolate
-      case 'Grey':
-        return s.grey
-      case 'Light Grey':
-        return s.lightGrey
-      case 'Taupe Marl':
-        return s.taupeMarl
-      case 'Ink':
-        return s.ink
-      case 'Light Grey Marl':
-        return s.lightGreyMarl
-      case 'Cadet Green':
-        return s.cadetGreen
-      case 'Cinder Marl':
-        return s.cinderMarl
-      case 'Taupe':
-        return s.taupe
-      case 'Military':
-        return s.military
-      case 'Grey Marl':
-        return s.greyMarl
-      case 'Deep Ocean':
-        return s.deepOcean
-      case 'Vintage Black':
-        return s.vintageBlack
-      case 'Chalk White':
-        return s.chalkWhite
-      case 'Nights':
-        return s.nights
-      case 'Optic White':
-        return s.opticWhite
-      case 'Tempest Blue':
-        return s.tempestBlue
-      case 'Olive Green':
-        return s.oliveGreen
-      case 'Putty':
-        return s.putty
-      case 'Ivory':
-        return s.ivory
-      case 'Red':
-        return s.red
-      case 'Green':
-        return s.green
-      default:
-        return s.default
-    }
-  }, [])
+export const Button: FC<Props> = memo(
+  ({ forwardRef, className, color, shape, choose, loading, ...rest }) => {
+    const getColorClass = useCallback((color: string | undefined): string => {
+      switch (color) {
+        case 'Black':
+          return s.black
+        case 'White':
+          return s.white
+        case 'Brown':
+          return s.brown
+        case 'Charcoal':
+          return s.charcoal
+        case 'Chocolate':
+          return s.chocolate
+        case 'Grey':
+          return s.grey
+        case 'Light Grey':
+          return s.lightGrey
+        case 'Taupe Marl':
+          return s.taupeMarl
+        case 'Ink':
+          return s.ink
+        case 'Light Grey Marl':
+          return s.lightGreyMarl
+        case 'Cadet Green':
+          return s.cadetGreen
+        case 'Cinder Marl':
+          return s.cinderMarl
+        case 'Taupe':
+          return s.taupe
+        case 'Military':
+          return s.military
+        case 'Grey Marl':
+          return s.greyMarl
+        case 'Deep Ocean':
+          return s.deepOcean
+        case 'Vintage Black':
+          return s.vintageBlack
+        case 'Chalk White':
+          return s.chalkWhite
+        case 'Nights':
+          return s.nights
+        case 'Optic White':
+          return s.opticWhite
+        case 'Tempest Blue':
+          return s.tempestBlue
+        case 'Olive Green':
+          return s.oliveGreen
+        case 'Putty':
+          return s.putty
+        case 'Ivory':
+          return s.ivory
+        case 'Red':
+          return s.red
+        case 'Green':
+          return s.green
+        default:
+          return s.default
+      }
+    }, [])
 
-  const getChooseClass = useCallback((choose: boolean | undefined): string => {
-    switch (choose) {
-      case true:
-        return s.choose
-      case false:
-        return s.notChoose
-      default:
-        return s.choose
-    }
-  }, [])
+    const getChooseClass = useCallback(
+      (choose: boolean | undefined): string => {
+        switch (choose) {
+          case true:
+            return s.choose
+          case false:
+            return s.notChoose
+          default:
+            return s.choose
+        }
+      },
+      []
+    )
 
-  const colorClass = getColorClass(color)
-  const chooseClass = getChooseClass(choose)
+    const colorClass = getColorClass(color)
+    const chooseClass = getChooseClass(choose)
 
-  return (
-    <button
-      ref={forwardRef}
-      className={cn(
-        className,
-        colorClass,
-        shape === 'square' ? s.square : s.circle,
-        chooseClass,
-        loading && s.loading
-      )}
-      disabled={loading}
-      {...rest}
-    ></button>
-  )
-}
+    return (
+      <button
+        ref={forwardRef}
+        className={cn(
+          className,
+          colorClass,
+          shape === 'square' ? s.square : s.circle,
+          chooseClass,
+          loading && s.loading
+        )}
+        disabled={loading}
+        {...rest}
+      ></button>
+    )
+  }
+)
+
+Button.displayName = 'Button'
