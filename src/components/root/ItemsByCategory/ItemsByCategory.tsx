@@ -1,7 +1,11 @@
-import { FC, useState, useEffect, useRef } from 'react'
+import { FC, useEffect, useRef } from 'react'
 import { Item } from 'components/root'
 import { TypeItem } from 'lib/Type'
-import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
+import {
+  useCount,
+  useRecoilCategory,
+  useRecoilFocusItem,
+} from 'lib/hooks/state'
 import s from './ItemsByCategory.module.css'
 
 type Props = {
@@ -9,7 +13,7 @@ type Props = {
 }
 
 export const ItemsByCategory: FC<Props> = ({ items }) => {
-  const [count, setCount] = useState(0)
+  const { count, setCount } = useCount()
   const ref = useRef<HTMLHeadingElement | null>(null)
   const { getCategoryState } = useRecoilCategory()
   const { getFocusItemState } = useRecoilFocusItem()

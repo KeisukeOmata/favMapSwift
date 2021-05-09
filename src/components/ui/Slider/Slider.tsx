@@ -1,18 +1,19 @@
-import { Children, FC, isValidElement, useState } from 'react'
+import { Children, FC, isValidElement } from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import cn from 'classnames'
 import s from './Slider.module.css'
+import { useCount, useMounted } from 'lib/hooks/state'
 
 export const Slider: FC = ({ children }) => {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [mounted, setMounted] = useState(false)
+  const { count, setCount } = useCount()
+  const { mounted, setMounted } = useMounted()
 
   const [ref, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slidesPerView: 1,
     mounted: () => setMounted(true),
     slideChanged(s) {
-      setCurrentSlide(s.details().relativeSlide)
+      setCount(s.details().relativeSlide)
     },
   })
 
@@ -56,7 +57,7 @@ export const Slider: FC = ({ children }) => {
                 aria-label={`${idx}枚目の画像を表示する`}
                 key={idx}
                 className={cn(s.positionIndicator, {
-                  [s.positionIndicatorActive]: currentSlide === idx,
+                  [s.positionIndicatorActive]: count === idx,
                 })}
                 onClick={() => {
                   slider.moveToSlideRelative(idx)

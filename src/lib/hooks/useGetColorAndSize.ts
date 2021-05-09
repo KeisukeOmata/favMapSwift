@@ -13,7 +13,7 @@ type useGetColorAndSizeType = {
 export const useGetColorAndSize = (
   detail: TypeItem,
   variants: Sku[],
-  setItemIdState: (itemIdState: string | null) => void,
+  setItemIdState: (itemIdState: string) => void,
   setAvailableState: (availableState: boolean) => void
 ): useGetColorAndSizeType => {
   const colors = detail.options.find((option) => option.name === 'Color')

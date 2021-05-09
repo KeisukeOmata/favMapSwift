@@ -7,7 +7,7 @@ import { TypeItem, Sku } from 'lib/Type'
 type Props = {
   detail: TypeItem
   variants: Sku[]
-  setItemIdState: (itemIdState: string | null) => void
+  setItemIdState: (itemIdState: string) => void
   setAvailableState: (availableState: boolean) => void
 }
 
