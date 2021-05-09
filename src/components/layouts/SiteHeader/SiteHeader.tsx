@@ -1,14 +1,13 @@
 import Link from 'next/link'
 import { FC } from 'react'
+import { CartLink } from './'
 import { ContentWrapper } from 'components/layouts'
 import { DarkMode } from 'components/ui'
-import { useRecoilQuantity, useRecoilFocusItem } from 'lib/hooks/state'
+import { useRecoilFocusItem } from 'lib/hooks/state'
 import { Config } from 'lib/site.config'
 import s from './SiteHeader.module.css'
 
 export const SiteHeader: FC = () => {
-  const { getQuantityState } = useRecoilQuantity()
-  const quantityState = getQuantityState()
   const { setFocusItemState } = useRecoilFocusItem()
 
   return (
@@ -44,14 +43,7 @@ export const SiteHeader: FC = () => {
             <div className={s.slash}>/</div>
             <DarkMode />
           </div>
-          <Link href={'/cart'} passHref>
-            <button
-              aria-label="カートを表示する"
-              onClick={() => setFocusItemState(null)}
-            >
-              BAG({quantityState})
-            </button>
-          </Link>
+          <CartLink />
         </div>
       </ContentWrapper>
     </header>

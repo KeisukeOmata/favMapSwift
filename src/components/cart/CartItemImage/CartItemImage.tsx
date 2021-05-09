@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { LineItem } from 'lib/Type'
 
 type Props = {
   cartItem: LineItem
 }
 
-export const CartItemImage: FC<Props> = ({ cartItem }) => {
+export const CartItemImage: FC<Props> = memo(({ cartItem }) => {
   const placeholderImg = '/product-img-placeholder.svg'
   return (
     <Link href={`/items/${cartItem.variant.product.id}`} passHref>
@@ -22,4 +22,6 @@ export const CartItemImage: FC<Props> = ({ cartItem }) => {
       </button>
     </Link>
   )
-}
+})
+
+CartItemImage.displayName = 'CartItemImage'

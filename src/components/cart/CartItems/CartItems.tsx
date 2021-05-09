@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import {
   FC,
+  memo,
   useRef,
   useCallback,
   forwardRef,
@@ -27,7 +28,7 @@ const RefButton = forwardRef<HTMLButtonElement, RefProps>(
   }
 )
 
-export const CartItems: FC = () => {
+export const CartItems: FC = memo(() => {
   const ref = useRef<HTMLButtonElement>(null)
   const { getCartState } = useRecoilCart()
   const cart = getCartState()
@@ -77,4 +78,6 @@ export const CartItems: FC = () => {
       </>
     )
   )
-}
+})
+
+CartItems.displayName = 'CartItems'

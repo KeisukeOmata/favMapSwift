@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import { FC, memo, useCallback } from 'react'
 import { Button } from 'components/ui'
 import { Minus, Plus } from 'components/icons'
 import { useChangeQuantity, useRemoveItem } from 'lib/hooks/cart'
@@ -10,7 +10,7 @@ type Props = {
   cartItem: LineItem
 }
 
-export const CartItemDetail: FC<Props> = ({ cartItem }) => {
+export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
   const { ChangeQuantity } = useChangeQuantity()
   const { RemoveItem } = useRemoveItem()
   const { loading, setLoading } = useLoading()
@@ -80,4 +80,6 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
       </div>
     </>
   )
-}
+})
+
+CartItemDetail.displayName = 'CartItemDetail'

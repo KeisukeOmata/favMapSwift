@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FC, useCallback } from 'react'
+import { FC, memo, useCallback } from 'react'
 import { toast } from 'react-toastify'
 import dayjs from 'dayjs'
 import ja from 'dayjs/locale/ja'
@@ -15,7 +15,7 @@ type Props = {
   detail: TypeItem
 }
 
-export const ItemDetail: FC<Props> = ({ detail }) => {
+export const ItemDetail: FC<Props> = memo(({ detail }) => {
   const { available, setAvailable } = useAvailable()
   const { id, setId } = useId()
   const { loading, setLoading } = useLoading()
@@ -108,4 +108,6 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
       </div>
     </>
   )
-}
+})
+
+ItemDetail.displayName = 'ItemDetail'

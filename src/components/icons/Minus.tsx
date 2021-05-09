@@ -1,6 +1,6 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
-export const Minus: FC = () => (
+export const Minus: FC = memo(() => (
   <svg
     role="button"
     aria-label="マイナスのアイコン"
@@ -17,4 +17,6 @@ export const Minus: FC = () => (
       strokeLinejoin="round"
     />
   </svg>
-)
+))
+
+Minus.displayName = 'Minus'

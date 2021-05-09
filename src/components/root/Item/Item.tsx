@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { FC, useEffect, useRef } from 'react'
+import { FC, memo, useEffect, useRef } from 'react'
 import { TypeItem } from 'lib/Type'
 import { useRecoilFocusItem } from 'lib/hooks/state'
 
@@ -9,7 +9,7 @@ type Props = {
   focused: boolean
 }
 
-export const Item: FC<Props> = ({ item, focused }) => {
+export const Item: FC<Props> = memo(({ item, focused }) => {
   const ref = useRef<HTMLButtonElement | null>(null)
   const { setFocusItemState } = useRecoilFocusItem()
   const placeholderImg = '/product-img-placeholder.svg'
@@ -45,4 +45,6 @@ export const Item: FC<Props> = ({ item, focused }) => {
       </div>
     </>
   )
-}
+})
+
+Item.displayName = 'Item'
