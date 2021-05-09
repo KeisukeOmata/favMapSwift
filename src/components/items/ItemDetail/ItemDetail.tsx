@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FC, useState, useCallback } from 'react'
+import { FC, useCallback } from 'react'
 import { toast } from 'react-toastify'
 import dayjs from 'dayjs'
 import ja from 'dayjs/locale/ja'
@@ -7,6 +7,7 @@ import { ColorAndSize } from 'components/items'
 import { Button, Slider, Toast } from 'components/ui'
 import { TypeItem, Sku } from 'lib/Type'
 import { useAddItem } from 'lib/hooks/cart'
+import { useAvailable, useId, useLoading } from 'lib/hooks/state'
 import s from './ItemDetail.module.css'
 dayjs.locale(ja)
 
@@ -15,9 +16,9 @@ type Props = {
 }
 
 export const ItemDetail: FC<Props> = ({ detail }) => {
-  const [itemIdState, setItemIdState] = useState<string | null>(null)
-  const [availableState, setAvailableState] = useState<boolean>(true)
-  const [loading, setLoading] = useState<boolean>(false)
+  const { available, setAvailable } = useAvailable()
+  const { id, setId } = useId()
+  const { loading, setLoading } = useLoading()
   const { AddItem } = useAddItem()
   const placeholderImg = '/product-img-placeholder.svg'
 
@@ -36,7 +37,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
         setLoading(false)
       }
     },
-    [AddItem]
+    [AddItem, setLoading]
   )
 
   return (
@@ -74,22 +75,22 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
           <ColorAndSize
             detail={detail}
             variants={detail.variants as Sku[]}
-            setItemIdState={setItemIdState}
-            setAvailableState={setAvailableState}
+            setItemIdState={setId}
+            setAvailableState={setAvailable}
           />
           <div
             dangerouslySetInnerHTML={{
               __html: `${detail.descriptionHtml}`,
             }}
           />
-          {availableState ? (
+          {available ? (
             <Button
               className="mt-5"
               shape="square"
               type="button"
               aria-label="BAGに入れる"
               loading={loading}
-              onClick={() => handleAddItem(itemIdState as string)}
+              onClick={() => handleAddItem(id as string)}
             >
               BAGに入れる
             </Button>

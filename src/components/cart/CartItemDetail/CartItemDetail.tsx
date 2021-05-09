@@ -1,7 +1,8 @@
-import { FC, useState, useCallback } from 'react'
+import { FC, useCallback } from 'react'
 import { Button } from 'components/ui'
 import { Minus, Plus } from 'components/icons'
 import { useChangeQuantity, useRemoveItem } from 'lib/hooks/cart'
+import { useLoading } from 'lib/hooks/state'
 import { LineItem, SelectedOption } from 'lib/Type'
 import s from './CartItemDetail.module.css'
 
@@ -12,7 +13,7 @@ type Props = {
 export const CartItemDetail: FC<Props> = ({ cartItem }) => {
   const { ChangeQuantity } = useChangeQuantity()
   const { RemoveItem } = useRemoveItem()
-  const [loading, setLoading] = useState<boolean>(false)
+  const { loading, setLoading } = useLoading()
 
   const getColorAndSize = useCallback(
     (options: SelectedOption[], name: string): string => {
@@ -33,7 +34,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
         setLoading(false)
       }
     },
-    [RemoveItem]
+    [RemoveItem, setLoading]
   )
 
   return (

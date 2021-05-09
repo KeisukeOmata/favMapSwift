@@ -1,5 +1,6 @@
-import { FC, useState, useEffect, useCallback } from 'react'
+import { FC, useEffect, useCallback } from 'react'
 import { useTheme } from 'next-themes'
+import { useMounted } from 'lib/hooks/state'
 
 type Props = {
   colorState: string | null
@@ -7,10 +8,10 @@ type Props = {
 
 export const CheckMark: FC<Props> = ({ colorState }) => {
   const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { mounted, setMounted } = useMounted()
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [])
+  useEffect(() => setMounted(true), [setMounted])
 
   const getColor = useCallback(
     (theme: string | undefined, colorState: string | null): string => {
