@@ -45,7 +45,7 @@ export const useAddItem = (): useAddItemType => {
   )
 
   const AddItem = useCallback(
-    (itemIdState: string | number, addTime: string): void => {
+    async (itemIdState: string | number, addTime: string): Promise<void> => {
       const lineItemsToAdd = [
         {
           variantId: itemIdState,
@@ -57,13 +57,13 @@ export const useAddItem = (): useAddItemType => {
       if (cartState) {
         const presenceId = presenceCheck(cartState, itemIdState)
         if (presenceId === '') {
-          shopify.checkout
+          await shopify.checkout
             .addLineItems(cartState.id, lineItemsToAdd)
             .then((cart) => setCartState(cart as Cart))
         } else {
           const cartItemId = getCartItemId(cartState, itemIdState)
           const currentQuantity = getCurrentQuantity(cartState, itemIdState)
-          shopify.checkout
+          await shopify.checkout
             .updateLineItems(cartState.id, [
               { id: cartItemId, quantity: currentQuantity + 1 },
             ])
