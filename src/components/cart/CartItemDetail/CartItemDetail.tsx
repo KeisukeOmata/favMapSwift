@@ -27,9 +27,7 @@ export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
       setLoading(true)
       try {
         await RemoveItem(cartItemId)
-        window.setTimeout(() => {
-          setLoading(false)
-        }, 1000)
+        setLoading(false)
       } catch (err) {
         setLoading(false)
       }
