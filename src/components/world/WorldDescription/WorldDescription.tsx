@@ -9,7 +9,7 @@ export const WorldDescription: FC = () => {
       <div className="flex justify-between flex-wrap">
         <div className={s.order1}>
           <Image
-            src="/brand1.jpg"
+            src={Config.image1 as string}
             alt="Brandの画像1"
             quality="85"
             width={500}
@@ -31,7 +31,7 @@ export const WorldDescription: FC = () => {
         ></p>
         <div className={s.order3}>
           <Image
-            src="/brand2.jpg"
+            src={Config.image2 as string}
             alt="Brandの画像2"
             quality="85"
             width={500}
@@ -41,7 +41,7 @@ export const WorldDescription: FC = () => {
         </div>
         <div className={s.order5}>
           <Image
-            src="/brand3.jpg"
+            src={Config.image3 as string}
             alt="Brandの画像3"
             quality="85"
             width={500}
