@@ -1,12 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { WorldDescription } from 'components/world'
 import { PageSEO, ContentWrapper } from 'components/layouts'
-import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
 import { Config } from 'lib/site.config'
 
 export default function World() {
-  useInitializeCart()
-  useFetchCart()
   return (
     <>
       <PageSEO title="World" path="/world" ogImageUrl={Config.defaultOGImage} />

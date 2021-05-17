@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { CartItems } from 'components/cart'
 import { PageSEO, ContentWrapper } from 'components/layouts'
-import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
+import { useInitializeCart } from 'lib/hooks/cart'
 import { Config } from 'lib/site.config'
 
 export default function Cart() {
   useInitializeCart()
-  useFetchCart()
 
   return (
     <>
