@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { FC, memo, useEffect, useRef } from 'react'
-import { TypeItem } from 'lib/Type'
+import { ItemType } from 'lib/Type'
 import { useRecoilFocusItem } from 'lib/hooks/state'
 
 type Props = {
-  item: TypeItem
+  item: ItemType
   focused: boolean
 }
 
@@ -30,7 +30,7 @@ export const Item: FC<Props> = memo(({ item, focused }) => {
             aria-label={`${item.title}のページを表示する`}
           >
             <Image
-              src={item.images[0]?.src || placeholderImg}
+              src={item.images[0] || placeholderImg}
               alt={item.title || 'Item Image'}
               width={500}
               height={500}
@@ -38,7 +38,7 @@ export const Item: FC<Props> = memo(({ item, focused }) => {
             />
             <div className="text-left">
               <p>{item.title}</p>
-              <p>{item.variants[0].price}円</p>
+              <p>{item.price}円</p>
             </div>
           </button>
         </Link>

@@ -1,6 +1,6 @@
 import { FC, memo, useEffect, useRef } from 'react'
 import { Item } from 'components/root'
-import { TypeItem } from 'lib/Type'
+import { ItemType } from 'lib/Type'
 import {
   useCount,
   useRecoilCategory,
@@ -9,7 +9,7 @@ import {
 import s from './ItemsByCategory.module.css'
 
 type Props = {
-  items: TypeItem[]
+  items: ItemType[]
 }
 
 export const ItemsByCategory: FC<Props> = memo(({ items }) => {
