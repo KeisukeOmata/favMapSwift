@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { InferGetStaticPropsType, GetStaticPropsContext } from 'next'
 import { useRouter } from 'next/router'
-import { useCallback } from 'react'
 import { ItemDetail } from 'components/items'
 import { ContentWrapper, PageSEO } from 'components/layouts'
 import { shopify } from 'lib/shopify'
-import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
+import { useInitializeCart } from 'lib/hooks/cart'
+import { Detail, Variant, GetVariant, GetDescriptionHtml } from 'lib/Type'
 
 export async function getStaticPaths() {
   return {
@@ -18,7 +18,47 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   try {
     const id = params?.id
     if (!id) throw new Error('idが取得できません')
-    const detail = await shopify.product.fetch(id as string)
+    const product = await shopify.product.fetch(id as string)
+
+    const getVariants = (productVariants: GetVariant[]): Variant[] => {
+      const variants = productVariants
+        .map((variant) => {
+          const color = variant.selectedOptions.find(
+            (option) => option.name === 'Color'
+          )?.value
+          const size = variant.selectedOptions.find(
+            (option) => option.name === 'Size'
+          )?.value
+
+          if (!color || !size) {
+            return undefined
+          }
+
+          const newVariant: Variant = {
+            id: variant.id as string,
+            available: variant.available,
+            color: color,
+            size: size,
+          }
+          return newVariant
+        })
+        .filter((variant) => variant !== undefined) as Variant[]
+      return variants
+    }
+
+    const getDescriptionHtml = (product: GetDescriptionHtml): string => {
+      return product.descriptionHtml
+    }
+
+    const detail: Detail = {
+      title: product.title,
+      images: product.images.map((image) => image.src),
+      vendor: product.vendor,
+      price: product.variants[0].price,
+      descriptionHtml: getDescriptionHtml(product as GetDescriptionHtml),
+      variants: getVariants(product.variants as GetVariant[]),
+    }
+
     return {
       props: { detail: JSON.parse(JSON.stringify(detail)) },
       revalidate: 200,
@@ -33,13 +73,8 @@ export default function DetailPage({
   errors,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   useInitializeCart()
-  useFetchCart()
   const router = useRouter()
   const placeholderImg = '/product-img-placeholder.svg'
-
-  const getItemPath = useCallback((id: string): string => {
-    return `/items/${encodeURIComponent(id)}`
-  }, [])
 
   if (errors) return <div>error</div>
   if (router.isFallback) {
@@ -49,9 +84,9 @@ export default function DetailPage({
     <>
       <PageSEO
         title={detail.title}
-        path={getItemPath(detail.id)}
+        path={`/items/${encodeURIComponent(detail.id)}`}
         description={detail.description}
-        ogImageUrl={detail.images[0]?.src || placeholderImg}
+        ogImageUrl={detail.images[0] || placeholderImg}
       />
       <div className="pt-2">
         <ContentWrapper>

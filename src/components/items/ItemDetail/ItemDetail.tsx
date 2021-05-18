@@ -5,14 +5,14 @@ import dayjs from 'dayjs'
 import ja from 'dayjs/locale/ja'
 import { ColorAndSize } from 'components/items'
 import { Button, Slider, Toast } from 'components/ui'
-import { TypeItem, Sku } from 'lib/Type'
+import { Detail } from 'lib/Type'
 import { useAddItem } from 'lib/hooks/cart'
 import { useAvailable, useId, useLoading } from 'lib/hooks/state'
 import s from './ItemDetail.module.css'
 dayjs.locale(ja)
 
 type Props = {
-  detail: TypeItem
+  detail: Detail
 }
 
 export const ItemDetail: FC<Props> = memo(({ detail }) => {
@@ -51,9 +51,9 @@ export const ItemDetail: FC<Props> = memo(({ detail }) => {
           <div>
             <Slider>
               {detail.images.map((image, i) => (
-                <div key={image?.src || i}>
+                <div key={image || i}>
                   <Image
-                    src={image?.src || placeholderImg}
+                    src={image || placeholderImg}
                     alt={detail.title || 'Item Image'}
                     width={500}
                     height={500}
@@ -68,12 +68,11 @@ export const ItemDetail: FC<Props> = memo(({ detail }) => {
         <div className={s.item}>
           <p>{detail.vendor}</p>
           <p>{detail.title}</p>
-          <p>{detail.variants[0].price}円</p>
+          <p>{detail.price}円</p>
           <br />
           <ColorAndSize
             detail={detail}
-            variants={detail.variants as Sku[]}
-            setItemIdState={setId}
+            setIdState={setId}
             setAvailableState={setAvailable}
           />
           <div

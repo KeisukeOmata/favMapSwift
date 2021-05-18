@@ -1,45 +1,38 @@
 import { useState, useEffect } from 'react'
-import { TypeItem, Sku, Option } from 'lib/Type'
+import { Detail } from 'lib/Type'
 
 type useGetColorAndSizeType = {
-  colors: Option | undefined
-  sizes: Option | undefined
-  colorState: string | null
-  sizeState: string | null
-  setColorState: (colorState: string | null) => void
-  setSizeState: (colorState: string | null) => void
+  colors: string[]
+  sizes: string[]
+  colorState: string
+  sizeState: string
+  setColorState: (colorState: string) => void
+  setSizeState: (sizeState: string) => void
 }
 
 export const useGetColorAndSize = (
-  detail: TypeItem,
-  variants: Sku[],
-  setItemIdState: (itemIdState: string) => void,
+  detail: Detail,
+  setId: (idState: string) => void,
   setAvailableState: (availableState: boolean) => void
 ): useGetColorAndSizeType => {
-  const colors = detail.options.find((option) => option.name === 'Color')
-  const sizes = detail.options.find((option) => option.name === 'Size')
-  const [colorState, setColorState] = useState<string | null>(
-    colors?.values[0].value
+  const [colorState, setColorState] = useState<string>(
+    detail.variants.map((variant) => variant.color)[0]
   )
-  const [sizeState, setSizeState] = useState<string | null>(
-    sizes?.values[0].value
+  const [sizeState, setSizeState] = useState<string>(
+    detail.variants.map((variant) => variant.size)[0]
   )
 
+  const colors = [...new Set(detail.variants.map((variant) => variant.color))]
+  const sizes = [...new Set(detail.variants.map((variant) => variant.size))]
+
   useEffect(() => {
-    for (const i in variants) {
-      const variant = variants[i]
-      const selectedOptionValues = Object.values(variant.selectedOptions).map(
-        (selectedOption) => selectedOption.value
-      )
-      if (
-        selectedOptionValues.includes(colorState as string) &&
-        selectedOptionValues.includes(sizeState as string)
-      ) {
-        setItemIdState(variant.id)
-        setAvailableState(variant.available)
-      }
-    }
-  }, [colorState, setAvailableState, setItemIdState, sizeState, variants])
+    const variant = detail.variants.filter(
+      (variant) => variant.color === colorState && variant.size === sizeState
+    )[0]
+
+    setId(variant.id)
+    setAvailableState(variant.available)
+  }, [detail.variants, colorState, sizeState, setAvailableState, setId])
 
   return {
     colors,
