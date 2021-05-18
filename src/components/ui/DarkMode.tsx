@@ -6,14 +6,14 @@ import { useMounted } from 'lib/hooks/state'
 
 export const DarkMode: FC = () => {
   const { theme, setTheme } = useTheme()
-  const { mounted, setMounted } = useMounted()
+  const { mountedState, setMountedState } = useMounted()
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [setMounted])
+  useEffect(() => setMountedState(true), [setMountedState])
 
   return (
     <>
-      {mounted ? (
+      {mountedState ? (
         <button
           aria-label="ダークモードとライトモードを入れ替える"
           onClick={() => {

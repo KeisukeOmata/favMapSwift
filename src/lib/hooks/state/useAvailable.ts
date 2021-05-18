@@ -1,19 +1,19 @@
 import { useState, useCallback } from 'react'
 
 type useAvailableType = {
-  available: boolean
-  setAvailable: (available: boolean) => void
+  availableState: boolean
+  setAvailableState: (availableState: boolean) => void
 }
 
 export const useAvailable = (): useAvailableType => {
-  const [available, setAvailableState] = useState<boolean>(true)
+  const [availableState, setAvailable] = useState<boolean>(true)
 
-  const setAvailable = useCallback((available: boolean): void => {
-    setAvailableState(available)
+  const setAvailableState = useCallback((availableState: boolean): void => {
+    setAvailable(availableState)
   }, [])
 
   return {
-    available,
-    setAvailable,
+    availableState,
+    setAvailableState,
   }
 }

@@ -5,15 +5,15 @@ import s from './Slider.module.css'
 import { useCount, useMounted } from 'lib/hooks/state'
 
 export const Slider: FC = ({ children }) => {
-  const { count, setCount } = useCount()
-  const { mounted, setMounted } = useMounted()
+  const { countState, setCountState } = useCount()
+  const { mountedState, setMountedState } = useMounted()
 
   const [ref, slider] = useKeenSlider<HTMLDivElement>({
     loop: true,
     slidesPerView: 1,
-    mounted: () => setMounted(true),
+    mounted: () => setMountedState(true),
     slideChanged(s) {
-      setCount(s.details().relativeSlide)
+      setCountState(s.details().relativeSlide)
     },
   })
 
@@ -32,7 +32,7 @@ export const Slider: FC = ({ children }) => {
       <div
         ref={ref}
         className="keen-slider h-full transition-opacity duration-150"
-        style={{ opacity: mounted ? 1 : 0 }}
+        style={{ opacity: mountedState ? 1 : 0 }}
       >
         {Children.map(children, (child) => {
           if (isValidElement(child)) {
@@ -57,7 +57,7 @@ export const Slider: FC = ({ children }) => {
                 aria-label={`${idx}枚目の画像を表示する`}
                 key={idx}
                 className={cn(s.positionIndicator, {
-                  [s.positionIndicatorActive]: count === idx,
+                  [s.positionIndicatorActive]: countState === idx,
                 })}
                 onClick={() => {
                   slider.moveToSlideRelative(idx)

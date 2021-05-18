@@ -4,7 +4,7 @@ import { shopify } from 'lib/shopify'
 import { Cart } from 'lib/Type'
 
 type useAddItemType = {
-  AddItem: (itemIdState: string | number, addTime: string) => void
+  AddItem: (itemIdState: string, addTime: string) => void
 }
 
 export const useAddItem = (): useAddItemType => {
@@ -12,18 +12,18 @@ export const useAddItem = (): useAddItemType => {
   const cartState = getCartState()
 
   const presenceCheck = useCallback(
-    (cartState: Cart, itemIdState: string | number): string => {
+    (cartState: Cart, itemIdState: string): string => {
       return (
-        cartState.lineItems.find(
+        (cartState.lineItems.find(
           (lineItem) => lineItem.variant.id === itemIdState
-        )?.variant.id ?? ''
+        )?.variant.id as string) ?? ''
       )
     },
     []
   )
 
   const getCartItemId = useCallback(
-    (cartState: Cart, itemIdState: string | number): string => {
+    (cartState: Cart, itemIdState: string): string => {
       return (
         cartState.lineItems.find(
           (lineItem) => lineItem.variant.id === itemIdState
@@ -34,7 +34,7 @@ export const useAddItem = (): useAddItemType => {
   )
 
   const getCurrentQuantity = useCallback(
-    (cartState: Cart, itemIdState: string | number): number => {
+    (cartState: Cart, itemIdState: string): number => {
       return (
         cartState.lineItems.find(
           (lineItem) => lineItem.variant.id === itemIdState
@@ -45,7 +45,7 @@ export const useAddItem = (): useAddItemType => {
   )
 
   const AddItem = useCallback(
-    async (itemIdState: string | number, addTime: string): Promise<void> => {
+    async (itemIdState: string, addTime: string): Promise<void> => {
       const lineItemsToAdd = [
         {
           variantId: itemIdState,

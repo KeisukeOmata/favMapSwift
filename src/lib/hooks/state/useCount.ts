@@ -1,19 +1,19 @@
 import { useState, useCallback } from 'react'
 
 type useCountType = {
-  count: number
-  setCount: (count: number) => void
+  countState: number
+  setCountState: (countState: number) => void
 }
 
 export const useCount = (): useCountType => {
-  const [count, setCountState] = useState<number>(0)
+  const [countState, setCount] = useState<number>(0)
 
-  const setCount = useCallback((count: number): void => {
-    setCountState(count)
+  const setCountState = useCallback((countState: number): void => {
+    setCount(countState)
   }, [])
 
   return {
-    count,
-    setCount,
+    countState,
+    setCountState,
   }
 }

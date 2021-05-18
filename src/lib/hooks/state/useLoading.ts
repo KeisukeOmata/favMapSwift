@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 type useLoadingType = {
-  loading: boolean
-  setLoading: (loading: boolean) => void
+  loadingState: boolean
+  setLoadingState: (loadingState: boolean) => void
 }
 
 export const useLoading = (): useLoadingType => {
-  const [loading, setLoadingState] = useState<boolean>(false)
+  const [loadingState, setLoading] = useState<boolean>(false)
   const mountedRef = useRef(false)
 
   useEffect(() => {
@@ -16,15 +16,15 @@ export const useLoading = (): useLoadingType => {
     }
   })
 
-  const setLoading = useCallback((loading: boolean): void => {
+  const setLoadingState = useCallback((loadingState: boolean): void => {
     // Check to see if it is still mounted
     if (mountedRef.current) {
-      setLoadingState(loading)
+      setLoading(loadingState)
     }
   }, [])
 
   return {
-    loading,
-    setLoading,
+    loadingState,
+    setLoadingState,
   }
 }

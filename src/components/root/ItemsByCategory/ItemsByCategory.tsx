@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const ItemsByCategory: FC<Props> = memo(({ items }) => {
-  const { count, setCount } = useCount()
+  const { countState, setCountState } = useCount()
   const ref = useRef<HTMLHeadingElement | null>(null)
   const { getCategoryState } = useRecoilCategory()
   const { getFocusItemState } = useRecoilFocusItem()
@@ -21,9 +21,9 @@ export const ItemsByCategory: FC<Props> = memo(({ items }) => {
   const focusItemState = getFocusItemState()
 
   useEffect(() => {
-    if (count === 0) {
+    if (countState === 0) {
       // Focus on main when the parent component is rendered.
-      setCount(1)
+      setCountState(1)
     } else {
       // Focus on heading element when the child component is rendered.
       ref.current?.focus()
