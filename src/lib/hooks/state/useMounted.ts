@@ -1,19 +1,19 @@
 import { useState, useCallback } from 'react'
 
 type useMountedType = {
-  mounted: boolean
-  setMounted: (mounted: boolean) => void
+  mountedState: boolean
+  setMountedState: (mountedState: boolean) => void
 }
 
 export const useMounted = (): useMountedType => {
-  const [mounted, setMountedState] = useState<boolean>(false)
+  const [mountedState, setMounted] = useState<boolean>(false)
 
-  const setMounted = useCallback((mounted: boolean): void => {
-    setMountedState(mounted)
+  const setMountedState = useCallback((mountedState: boolean): void => {
+    setMounted(mountedState)
   }, [])
 
   return {
-    mounted,
-    setMounted,
+    mountedState,
+    setMountedState,
   }
 }

@@ -6,8 +6,8 @@ import { Cart } from 'lib/Type'
 export const useInitializeCart = (): void => {
   const { setCartState } = useRecoilCart()
 
-  const setCheckoutId = useCallback((checkoutId: string | number): void => {
-    localStorage.setItem('checkoutId', String(checkoutId))
+  const setCheckoutId = useCallback((checkoutId: string): void => {
+    localStorage.setItem('checkoutId', checkoutId)
   }, [])
 
   const getCheckoutId = useCallback((): string => {
@@ -19,7 +19,7 @@ export const useInitializeCart = (): void => {
     if (checkoutId) return
     shopify.checkout.create().then((cart) => {
       setCartState(cart as Cart)
-      setCheckoutId(cart.id)
+      setCheckoutId(cart.id as string)
     })
   }, [getCheckoutId, setCartState, setCheckoutId])
 }

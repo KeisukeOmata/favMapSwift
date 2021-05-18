@@ -16,26 +16,26 @@ type Props = {
 }
 
 export const ItemDetail: FC<Props> = memo(({ detail }) => {
-  const { available, setAvailable } = useAvailable()
-  const { id, setId } = useId()
-  const { loading, setLoading } = useLoading()
+  const { availableState, setAvailableState } = useAvailable()
+  const { idState, setIdState } = useId()
+  const { loadingState, setLoadingState } = useLoading()
   const { AddItem } = useAddItem()
   const placeholderImg = '/product-img-placeholder.svg'
 
   const handleAddItem = useCallback(
-    async (itemIdState: string | number): Promise<void> => {
-      setLoading(true)
+    async (itemIdState: string): Promise<void> => {
+      setLoadingState(true)
       const nowTime = dayjs().toDate().toString()
       try {
         await AddItem(itemIdState, nowTime)
         // Show toast
         toast('BAGに追加しました')
-        setLoading(false)
+        setLoadingState(false)
       } catch (err) {
-        setLoading(false)
+        setLoadingState(false)
       }
     },
-    [AddItem, setLoading]
+    [AddItem, setLoadingState]
   )
 
   return (
@@ -72,22 +72,22 @@ export const ItemDetail: FC<Props> = memo(({ detail }) => {
           <br />
           <ColorAndSize
             detail={detail}
-            setIdState={setId}
-            setAvailableState={setAvailable}
+            setIdState={setIdState}
+            setAvailableState={setAvailableState}
           />
           <div
             dangerouslySetInnerHTML={{
               __html: `${detail.descriptionHtml}`,
             }}
           />
-          {available ? (
+          {availableState ? (
             <Button
               className="mt-5"
               shape="square"
               type="button"
               aria-label="BAGに入れる"
-              loading={loading}
-              onClick={() => handleAddItem(id as string)}
+              loading={loadingState}
+              onClick={() => handleAddItem(idState as string)}
             >
               BAGに入れる
             </Button>

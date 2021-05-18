@@ -13,7 +13,7 @@ type Props = {
 export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
   const { ChangeQuantity } = useChangeQuantity()
   const { RemoveItem } = useRemoveItem()
-  const { loading, setLoading } = useLoading()
+  const { loadingState, setLoadingState } = useLoading()
 
   const getColorAndSize = useCallback(
     (options: SelectedOption[], name: string): string => {
@@ -24,15 +24,15 @@ export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
 
   const handleRemoveItem = useCallback(
     async (cartItemId: string): Promise<void> => {
-      setLoading(true)
+      setLoadingState(true)
       try {
         await RemoveItem(cartItemId)
-        setLoading(false)
+        setLoadingState(false)
       } catch (err) {
-        setLoading(false)
+        setLoadingState(false)
       }
     },
-    [RemoveItem, setLoading]
+    [RemoveItem, setLoadingState]
   )
 
   return (
@@ -70,7 +70,7 @@ export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
           shape="square"
           type="button"
           aria-label="カートから商品を削除する"
-          loading={loading}
+          loading={loadingState}
           onClick={() => handleRemoveItem(cartItem.id)}
         >
           削除

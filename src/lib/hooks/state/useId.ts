@@ -1,19 +1,19 @@
 import { useState, useCallback } from 'react'
 
 type useIdType = {
-  id: string | null
-  setId: (id: string) => void
+  idState: string | null
+  setIdState: (idState: string) => void
 }
 
 export const useId = (): useIdType => {
-  const [id, setIdState] = useState<string | null>(null)
+  const [idState, setId] = useState<string | null>(null)
 
-  const setId = useCallback((id: string): void => {
-    setIdState(id)
+  const setIdState = useCallback((idState: string): void => {
+    setId(idState)
   }, [])
 
   return {
-    id,
-    setId,
+    idState,
+    setIdState,
   }
 }

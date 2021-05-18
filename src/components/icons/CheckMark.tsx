@@ -3,40 +3,31 @@ import { useTheme } from 'next-themes'
 import { useMounted } from 'lib/hooks/state'
 
 type Props = {
-  colorState: string | null
+  colorState: string
 }
 
 export const CheckMark: FC<Props> = ({ colorState }) => {
   const { theme } = useTheme()
-  const { mounted, setMounted } = useMounted()
+  const { mountedState, setMountedState } = useMounted()
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), [setMounted])
+  useEffect(() => setMountedState(true), [setMountedState])
 
-  const getColor = useCallback(
-    (theme: string | undefined, colorState: string | null): string => {
-      if (theme === 'dark') {
-        if (colorState === 'Black') {
-          return 'white'
-        } else {
-          return 'currentColor'
-        }
-      } else {
-        if (colorState === 'White' || colorState === 'Ivory') {
-          return 'black'
-        } else {
-          return 'currentColor'
-        }
-      }
-    },
-    []
-  )
+  const getColor = useCallback((theme: string, colorState: string): string => {
+    if (theme === 'dark') {
+      return colorState === 'Black' ? 'white' : 'currentColor'
+    } else {
+      return colorState === 'White' || colorState === 'Ivory'
+        ? 'black'
+        : 'currentColor'
+    }
+  }, [])
 
-  const color = getColor(theme, colorState)
+  const color = getColor(theme as string, colorState)
 
   return (
     <>
-      {mounted && (
+      {mountedState && (
         <svg
           width="24"
           height="24"
