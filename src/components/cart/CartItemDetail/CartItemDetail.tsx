@@ -22,6 +22,19 @@ export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
     []
   )
 
+  const handleChangeQuantity = useCallback(
+    async (cartItemId: string, cartItemQuantity): Promise<void> => {
+      setLoadingState(true)
+      try {
+        await ChangeQuantity(cartItemId, cartItemQuantity)
+        setLoadingState(false)
+      } catch (err) {
+        setLoadingState(false)
+      }
+    },
+    [ChangeQuantity, setLoadingState]
+  )
+
   const handleRemoveItem = useCallback(
     async (cartItemId: string): Promise<void> => {
       setLoadingState(true)
@@ -51,14 +64,20 @@ export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
         <p>個数：</p>
         <button
           aria-label="個数を1つ減らす"
-          onClick={() => ChangeQuantity(cartItem.id, cartItem.quantity - 1)}
+          disabled={loadingState}
+          onClick={() =>
+            handleChangeQuantity(cartItem.id, cartItem.quantity - 1)
+          }
         >
           <Minus />
         </button>
         <div className={s.quantity}>{cartItem.quantity}</div>
         <button
           aria-label="個数を1つ増やす"
-          onClick={() => ChangeQuantity(cartItem.id, cartItem.quantity + 1)}
+          disabled={loadingState}
+          onClick={() =>
+            handleChangeQuantity(cartItem.id, cartItem.quantity + 1)
+          }
         >
           <Plus />
         </button>
