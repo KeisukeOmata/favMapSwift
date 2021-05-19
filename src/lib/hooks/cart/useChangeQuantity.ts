@@ -12,9 +12,9 @@ export const useChangeQuantity = (): useChangeQuantityType => {
   const cartState = getCartState()
 
   const ChangeQuantity = useCallback(
-    (cartItemId: string, quantity: number): void => {
+    async (cartItemId: string, quantity: number): Promise<void> => {
       if (cartState) {
-        shopify.checkout
+        await shopify.checkout
           .updateLineItems(cartState.id, [
             { id: cartItemId, quantity: quantity },
           ])
