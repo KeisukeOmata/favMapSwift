@@ -14,9 +14,9 @@ export const useAddItem = (): useAddItemType => {
   const presenceCheck = useCallback(
     (cartState: Cart, itemIdState: string): string => {
       return (
-        (cartState.lineItems.find(
+        cartState.lineItems.find(
           (lineItem) => lineItem.variant.id === itemIdState
-        )?.variant.id as string) ?? ''
+        )?.variant.id ?? ''
       )
     },
     []

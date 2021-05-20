@@ -23,7 +23,8 @@ export const ItemDetail: FC<Props> = memo(({ detail }) => {
   const placeholderImg = '/product-img-placeholder.svg'
 
   const handleAddItem = useCallback(
-    async (itemIdState: string): Promise<void> => {
+    async (itemIdState: string | null): Promise<void> => {
+      if (!itemIdState) return
       setLoadingState(true)
       const nowTime = dayjs().toDate().toString()
       try {
@@ -87,7 +88,7 @@ export const ItemDetail: FC<Props> = memo(({ detail }) => {
               type="button"
               aria-label="BAGに入れる"
               loading={loadingState}
-              onClick={() => handleAddItem(idState as string)}
+              onClick={() => handleAddItem(idState)}
             >
               BAGに入れる
             </Button>
