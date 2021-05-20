@@ -13,17 +13,20 @@ export const CheckMark: FC<Props> = ({ colorState }) => {
   // When mounted on client, now we can show the UI
   useEffect(() => setMountedState(true), [setMountedState])
 
-  const getColor = useCallback((theme: string, colorState: string): string => {
-    if (theme === 'dark') {
-      return colorState === 'Black' ? 'white' : 'currentColor'
-    } else {
-      return colorState === 'White' || colorState === 'Ivory'
-        ? 'black'
-        : 'currentColor'
-    }
-  }, [])
+  const getColor = useCallback(
+    (theme: string | undefined, colorState: string): string => {
+      if (theme === 'dark') {
+        return colorState === 'Black' ? 'white' : 'currentColor'
+      } else {
+        return colorState === 'White' || colorState === 'Ivory'
+          ? 'black'
+          : 'currentColor'
+      }
+    },
+    []
+  )
 
-  const color = getColor(theme as string, colorState)
+  const color = getColor(theme, colorState)
 
   return (
     <>
