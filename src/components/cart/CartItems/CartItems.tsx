@@ -57,7 +57,7 @@ export const CartItems: FC = memo(() => {
               </h2>
             </div>
             {cart.lineItems.map((item, i) => (
-              <CartItem item={item} key={i} />
+              <CartItem item={item} key={`cart-item-${i}`} />
             ))}
             <p className={s.total}>合計: {cart.subtotalPrice}円</p>
             <div className="flex flex-col justify-center">
