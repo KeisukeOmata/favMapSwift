@@ -1,7 +1,7 @@
 .siteHeader {
-  @apply py-5 sticky top-0 z-50;
+  @apply py-5 sticky top-0 z-50 backdrop-filter backdrop-blur-lg bg-opacity-30;
 
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
 }
 
 .slash {
