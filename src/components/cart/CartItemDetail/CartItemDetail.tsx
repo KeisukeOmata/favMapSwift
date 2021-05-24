@@ -1,102 +1,68 @@
-import { FC, memo, useCallback } from 'react'
+import { FC } from 'react'
 import { Button } from 'components/ui'
 import { Minus, Plus } from 'components/icons'
-import { useChangeQuantity, useRemoveItem } from 'lib/hooks/cart'
-import { useLoading } from 'lib/hooks/state'
 import { LineItem, SelectedOption } from 'lib/Type'
 import s from './CartItemDetail.module.css'
 
 type Props = {
   cartItem: LineItem
+  loadingState: boolean
+  getColorAndSize(options: SelectedOption[], name: string): string
+  handleChangeQuantity(
+    cartItemId: string,
+    cartItemQuantity: number
+  ): Promise<void>
+  handleRemoveItem(cartItemId: string): Promise<void>
 }
 
-export const CartItemDetail: FC<Props> = memo(({ cartItem }) => {
-  const { ChangeQuantity } = useChangeQuantity()
-  const { RemoveItem } = useRemoveItem()
-  const { loadingState, setLoadingState } = useLoading()
-
-  const getColorAndSize = useCallback(
-    (options: SelectedOption[], name: string): string => {
-      return options.find((option) => option.name === name)?.value ?? ''
-    },
-    []
-  )
-
-  const handleChangeQuantity = useCallback(
-    async (cartItemId: string, cartItemQuantity): Promise<void> => {
-      setLoadingState(true)
-      try {
-        await ChangeQuantity(cartItemId, cartItemQuantity)
-        setLoadingState(false)
-      } catch (err) {
-        setLoadingState(false)
-      }
-    },
-    [ChangeQuantity, setLoadingState]
-  )
-
-  const handleRemoveItem = useCallback(
-    async (cartItemId: string): Promise<void> => {
-      setLoadingState(true)
-      try {
-        await RemoveItem(cartItemId)
-        setLoadingState(false)
-      } catch (err) {
-        setLoadingState(false)
-      }
-    },
-    [RemoveItem, setLoadingState]
-  )
-
-  return (
-    <>
-      <p>{cartItem.title}</p>
-      <div>
-        {/* Color:{' '} */}
-        {getColorAndSize(cartItem.variant.selectedOptions, 'Color')}
-      </div>
-      <div>
-        {/* Size:{' '} */}
-        {getColorAndSize(cartItem.variant.selectedOptions, 'Size')}
-      </div>
-      <p>{cartItem.variant.price}円</p>
-      <div className="flex">
-        <p>個数：</p>
-        <button
-          aria-label="個数を1つ減らす"
-          disabled={loadingState}
-          onClick={() =>
-            handleChangeQuantity(cartItem.id, cartItem.quantity - 1)
-          }
-        >
-          <Minus />
-        </button>
-        <div className={s.quantity}>{cartItem.quantity}</div>
-        <button
-          aria-label="個数を1つ増やす"
-          disabled={loadingState}
-          onClick={() =>
-            handleChangeQuantity(cartItem.id, cartItem.quantity + 1)
-          }
-        >
-          <Plus />
-        </button>
-      </div>
-      <p>小計： {parseInt(cartItem.variant.price) * cartItem.quantity}円</p>
-      <br></br>
-      <div>
-        <Button
-          shape="square"
-          type="button"
-          aria-label="カートから商品を削除する"
-          loading={loadingState}
-          onClick={() => handleRemoveItem(cartItem.id)}
-        >
-          削除
-        </Button>
-      </div>
-    </>
-  )
-})
-
-CartItemDetail.displayName = 'CartItemDetail'
+export const CartItemDetail: FC<Props> = ({
+  cartItem,
+  loadingState,
+  getColorAndSize,
+  handleChangeQuantity,
+  handleRemoveItem,
+}) => (
+  <>
+    <p>{cartItem.title}</p>
+    <div>
+      {/* Color:{' '} */}
+      {getColorAndSize(cartItem.variant.selectedOptions, 'Color')}
+    </div>
+    <div>
+      {/* Size:{' '} */}
+      {getColorAndSize(cartItem.variant.selectedOptions, 'Size')}
+    </div>
+    <p>{cartItem.variant.price}円</p>
+    <div className="flex">
+      <p>個数：</p>
+      <button
+        aria-label="個数を1つ減らす"
+        disabled={loadingState}
+        onClick={() => handleChangeQuantity(cartItem.id, cartItem.quantity - 1)}
+      >
+        <Minus />
+      </button>
+      <div className={s.quantity}>{cartItem.quantity}</div>
+      <button
+        aria-label="個数を1つ増やす"
+        disabled={loadingState}
+        onClick={() => handleChangeQuantity(cartItem.id, cartItem.quantity + 1)}
+      >
+        <Plus />
+      </button>
+    </div>
+    <p>小計： {parseInt(cartItem.variant.price) * cartItem.quantity}円</p>
+    <br></br>
+    <div>
+      <Button
+        aria-label="カートから商品を削除する"
+        loading={loadingState}
+        shape="square"
+        type="button"
+        onClick={() => handleRemoveItem(cartItem.id)}
+      >
+        削除
+      </Button>
+    </div>
+  </>
+)

@@ -1,6 +1,6 @@
-import { FC, memo } from 'react'
+import { FC } from 'react'
 
-export const Plus: FC = memo(() => (
+export const Plus: FC = () => (
   <svg
     role="button"
     aria-label="プラスのアイコン"
@@ -24,6 +24,4 @@ export const Plus: FC = memo(() => (
       strokeLinejoin="round"
     />
   </svg>
-))
-
-Plus.displayName = 'Plus'
+)

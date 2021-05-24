@@ -25,5 +25,3 @@ export const Sun: FC = () => (
     <path d="M18.36 5.64l1.42-1.42" />
   </svg>
 )
-
-export default Sun

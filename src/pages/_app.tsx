@@ -5,13 +5,12 @@ import { ThemeProvider } from 'next-themes'
 import { NextSeo } from 'next-seo'
 import { SiteHeader, SiteFooter, Maintenance } from 'components/layouts'
 import { Config } from 'lib/site.config'
-import { useFocusHeading } from 'lib/hooks/useFocusHeading'
+import { useFocusHead } from 'lib/hooks/useFocusHead'
 import 'styles/main.css'
 import 'keen-slider/keen-slider.min.css'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  useFocusHeading()
-
+  useFocusHead()
   return (
     <>
       <NextSeo {...Config} />
