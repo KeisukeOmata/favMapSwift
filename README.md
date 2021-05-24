@@ -2,7 +2,6 @@
 
 ## Demo
 
-https://e-commerce-keisukeomata.vercel.app/
 https://next-e-commerce-keisukeomata.vercel.app/
 
 ## Development
