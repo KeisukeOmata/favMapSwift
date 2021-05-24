@@ -17,7 +17,6 @@ export const PageSEO: FC<Props> = ({
 }) => {
   const pageUrl = `${Config.siteRoot}${path || ''}`
   const placeholderImg = '/product-img-placeholder.svg'
-
   return (
     <NextSeo
       title={title}

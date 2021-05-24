@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { FC } from 'react'
-import { Twitter, Instagram, Github } from 'components/icons'
 import { ContentWrapper } from 'components/layouts'
+import { Twitter, Instagram, Github } from 'components/icons'
 import { Config } from 'lib/site.config'
 import s from './SiteFooter.module.css'
 

@@ -1,14 +1,22 @@
 import Link from 'next/link'
 import { FC } from 'react'
-import { CartLink } from './'
-import { ContentWrapper } from 'components/layouts'
+import { useTheme } from 'next-themes'
+import { ContentWrapper, CartLink } from 'components/layouts'
 import { DarkMode } from 'components/ui'
-import { useRecoilFocusItem } from 'lib/hooks/state'
 import { Config } from 'lib/site.config'
+import {
+  useMounted,
+  useRecoilFocusItem,
+  useRecoilQuantity,
+} from 'lib/hooks/state'
 import s from './SiteHeader.module.css'
 
 export const SiteHeader: FC = () => {
+  const { mountedState, setMountedState } = useMounted()
   const { setFocusItemState } = useRecoilFocusItem()
+  const { getQuantityState } = useRecoilQuantity()
+  const quantityState = getQuantityState()
+  const { theme, setTheme } = useTheme()
 
   return (
     <header className={s.siteHeader}>
@@ -41,9 +49,17 @@ export const SiteHeader: FC = () => {
               </button>
             </Link>
             <div className={s.slash}>/</div>
-            <DarkMode />
+            <DarkMode
+              mountedState={mountedState}
+              theme={theme}
+              setMountedState={setMountedState}
+              setTheme={setTheme}
+            />
           </div>
-          <CartLink />
+          <CartLink
+            quantityState={quantityState}
+            setFocusItemState={setFocusItemState}
+          />
         </div>
       </ContentWrapper>
     </header>

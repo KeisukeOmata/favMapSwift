@@ -34,9 +34,9 @@ export type Cart = {
 export type ItemType = {
   id: string
   images: string[]
-  title: string
   price: string
   productType: string
+  title: string
 }
 
 export type GetItem = {
@@ -45,19 +45,19 @@ export type GetItem = {
 
 // item([id].tsx)
 export type Detail = {
-  title: string
-  images: string[]
-  vendor: string
-  price: string
   descriptionHtml: string
+  images: string[]
+  price: string
+  title: string
   variants: Variant[]
+  vendor: string
 }
 
 export type Variant = {
-  id: string
-  color: string
-  size: string
   available: boolean
+  color: string
+  id: string
+  size: string
 }
 
 export type GetDescriptionHtml = {

@@ -1,0 +1,3 @@
+.item {
+  @apply w-1/2 pt-5 flex flex-col sm:w-full;
+}

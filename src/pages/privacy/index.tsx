@@ -1,8 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Config } from 'lib/site.config'
+import { useFetchCart } from 'lib/hooks/cart'
 
 export default function Privacy() {
+  useFetchCart()
+
   return (
     <>
       <PageSEO
@@ -13,7 +16,7 @@ export default function Privacy() {
       <div className="pt-2">
         <ContentWrapper>
           <div className="under-line flex py-1.5">
-            <h2 id="heading" tabIndex={-1}>
+            <h2 id="head" tabIndex={-1}>
               プライバシーポリシー
             </h2>
           </div>

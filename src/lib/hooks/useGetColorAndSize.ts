@@ -3,8 +3,8 @@ import { Detail } from 'lib/Type'
 
 type useGetColorAndSizeType = {
   colors: string[]
-  sizes: string[]
   colorState: string
+  sizes: string[]
   sizeState: string
   setColorState: (colorState: string) => void
   setSizeState: (sizeState: string) => void
@@ -12,8 +12,8 @@ type useGetColorAndSizeType = {
 
 export const useGetColorAndSize = (
   detail: Detail,
-  setId: (idState: string) => void,
-  setAvailableState: (availableState: boolean) => void
+  setAvailableState: (availableState: boolean) => void,
+  setId: (idState: string) => void
 ): useGetColorAndSizeType => {
   const [colorState, setColorState] = useState<string>(
     detail.variants.map((variant) => variant.color)[0]

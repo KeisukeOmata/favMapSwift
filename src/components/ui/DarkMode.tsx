@@ -1,13 +1,20 @@
 import { FC, useEffect } from 'react'
-import { useTheme } from 'next-themes'
 import { Moon, Sun } from 'components/icons'
 import { Skeleton } from 'components/ui'
-import { useMounted } from 'lib/hooks/state'
 
-export const DarkMode: FC = () => {
-  const { theme, setTheme } = useTheme()
-  const { mountedState, setMountedState } = useMounted()
+type Props = {
+  mountedState: boolean
+  theme: string | undefined
+  setMountedState: (mountedState: boolean) => void
+  setTheme: (theme: string) => void
+}
 
+export const DarkMode: FC<Props> = ({
+  mountedState,
+  theme,
+  setMountedState,
+  setTheme,
+}) => {
   // When mounted on client, now we can show the UI
   useEffect(() => setMountedState(true), [setMountedState])
 

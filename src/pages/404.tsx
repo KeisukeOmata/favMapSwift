@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { ContentWrapper, PageSEO } from 'components/layouts'
 import { Button } from 'components/ui'
+import { useFetchCart } from 'lib/hooks/cart'
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export default function Custom404() {
+  useFetchCart()
   return (
     <>
       <PageSEO title="404 not found" />

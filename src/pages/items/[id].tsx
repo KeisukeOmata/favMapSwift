@@ -1,10 +1,18 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { InferGetStaticPropsType, GetStaticPropsContext } from 'next'
 import { useRouter } from 'next/router'
-import { ItemDetail } from 'components/items'
+import { useTheme } from 'next-themes'
+import { toast } from 'react-toastify'
+import dayjs from 'dayjs'
+import ja from 'dayjs/locale/ja'
+dayjs.locale(ja)
 import { ContentWrapper, PageSEO } from 'components/layouts'
+import { ItemDetail, ItemImage } from 'components/items'
+import { Toast } from 'components/ui'
 import { shopify } from 'lib/shopify'
-import { useInitializeCart } from 'lib/hooks/cart'
+import { useAvailable, useId, useLoading, useMounted } from 'lib/hooks/state'
+import { useInitializeCart, useFetchCart, useAddItem } from 'lib/hooks/cart'
+import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
 import { Detail, Variant, GetVariant, GetDescriptionHtml } from 'lib/Type'
 
 export async function getStaticPaths() {
@@ -16,10 +24,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
   try {
-    const id = params?.id
-    if (!id) throw new Error('idが取得できません')
-    const product = await shopify.product.fetch(id as string)
-
     const getVariants = (productVariants: GetVariant[]): Variant[] => {
       const variants = productVariants
         .map((variant) => {
@@ -50,13 +54,16 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
       return product.descriptionHtml
     }
 
+    const id = params?.id
+    if (!id) throw new Error('idが取得できません')
+    const product = await shopify.product.fetch(id as string)
     const detail: Detail = {
-      title: product.title,
-      images: product.images.map((image) => image.src),
-      vendor: product.vendor,
-      price: product.variants[0].price,
       descriptionHtml: getDescriptionHtml(product as GetDescriptionHtml),
+      images: product.images.map((image) => image.src),
+      price: product.variants[0].price,
+      title: product.title,
       variants: getVariants(product.variants as GetVariant[]),
+      vendor: product.vendor,
     }
 
     return {
@@ -72,9 +79,32 @@ export default function DetailPage({
   detail,
   errors,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  useInitializeCart()
-  const router = useRouter()
   const placeholderImg = '/product-img-placeholder.svg'
+  const { AddItem } = useAddItem()
+  const { availableState, setAvailableState } = useAvailable()
+  const { idState, setIdState } = useId()
+  const { colors, colorState, sizes, sizeState, setColorState, setSizeState } =
+    useGetColorAndSize(detail, setAvailableState, setIdState)
+  const { loadingState, setLoadingState } = useLoading()
+  const { mountedState, setMountedState } = useMounted()
+  const router = useRouter()
+  const { theme } = useTheme()
+  useInitializeCart()
+  useFetchCart()
+
+  const handleAddItem = async (itemIdState: string | null): Promise<void> => {
+    if (!itemIdState) return
+    setLoadingState(true)
+    const nowTime = dayjs().toDate().toString()
+    try {
+      await AddItem(itemIdState, nowTime)
+      // Show toast
+      toast('BAGに追加しました')
+      setLoadingState(false)
+    } catch (err) {
+      setLoadingState(false)
+    }
+  }
 
   if (errors) return <div>error</div>
   if (router.isFallback) {
@@ -90,7 +120,31 @@ export default function DetailPage({
       />
       <div className="pt-2">
         <ContentWrapper>
-          <ItemDetail detail={detail} />
+          <Toast theme={theme} />
+          <div className="under-line flex py-1.5">
+            <h2 id="head" tabIndex={-1}>
+              {detail.title}
+            </h2>
+          </div>
+          <div className="flex justify-between flex-wrap">
+            <ItemImage detail={detail} />
+            <ItemDetail
+              detail={detail}
+              availableState={availableState}
+              colors={colors}
+              colorState={colorState}
+              idState={idState}
+              loadingState={loadingState}
+              mountedState={mountedState}
+              sizes={sizes}
+              sizeState={sizeState}
+              theme={theme}
+              handleAddItem={handleAddItem}
+              setColorState={setColorState}
+              setMountedState={setMountedState}
+              setSizeState={setSizeState}
+            />
+          </div>
         </ContentWrapper>
       </div>
     </>
