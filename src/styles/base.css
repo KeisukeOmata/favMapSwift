@@ -117,6 +117,11 @@ select {
   transform: scale(0.8);
 }
 
+/* Fix background color when using autocomplete in forms */
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px var(--primary) inset;
+}
+
 .under-line {
   border-bottom: solid 1px var(--secondary-2);
 }
