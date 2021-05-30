@@ -1,18 +1,11 @@
-import { FC, useEffect } from 'react'
+import { FC, useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 
 type Props = {
   colorState: string
-  mountedState: boolean
-  theme: string | undefined
-  setMountedState: (mountedState: boolean) => void
 }
 
-export const CheckMark: FC<Props> = ({
-  colorState,
-  mountedState,
-  theme,
-  setMountedState,
-}) => {
+export const CheckMark: FC<Props> = ({ colorState }) => {
   const getColor = (theme: string | undefined, colorState: string): string => {
     if (theme === 'dark') {
       return colorState === 'Black' ? 'white' : 'currentColor'
@@ -23,6 +16,8 @@ export const CheckMark: FC<Props> = ({
     }
   }
 
+  const { theme } = useTheme()
+  const [mountedState, setMountedState] = useState<boolean>(false)
   const color = getColor(theme, colorState)
 
   // When mounted on client, now we can show the UI

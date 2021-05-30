@@ -8,8 +8,7 @@ type useRemoveItemType = {
 }
 
 export const useRemoveItem = (): useRemoveItemType => {
-  const { setCartState, getCartState } = useRecoilCart()
-  const cartState = getCartState()
+  const { cartState, setCartState } = useRecoilCart()
 
   const RemoveItem = useCallback(
     async (cartItemId: string): Promise<void> => {

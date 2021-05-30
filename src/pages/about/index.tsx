@@ -1,22 +1,22 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { WorldDescription } from 'components/world'
+import { Description } from 'components/about'
 import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Config } from 'lib/site.config'
 import { useFetchCart } from 'lib/hooks/cart'
 
-export default function World() {
+export default function About() {
   useFetchCart()
   return (
     <>
-      <PageSEO title="World" path="/world" ogImageUrl={Config.defaultOGImage} />
+      <PageSEO title="About" path="/about" ogImageUrl={Config.defaultOGImage} />
       <div className="pt-2">
         <ContentWrapper>
-          <div className="under-line flex py-1.5">
+          <div className="flex py-1.5 under-line">
             <h2 id="head" tabIndex={-1}>
-              World
+              About
             </h2>
           </div>
-          <WorldDescription />
+          <Description />
         </ContentWrapper>
       </div>
     </>

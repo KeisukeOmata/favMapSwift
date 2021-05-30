@@ -1,25 +1,17 @@
-import { FC, useEffect, useRef } from 'react'
+import { FC, useState, useEffect, useRef } from 'react'
 import { Item } from 'components/root'
+import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
 import { ItemType } from 'lib/Type'
 import s from './ItemsByCategory.module.css'
 
 type Props = {
   items: ItemType[]
-  categoryState: string
-  countState: number
-  focusItemState: string | null
-  setCountState: (countState: number) => void
-  setFocusItemState: (focusItemState: string | null) => void
 }
 
-export const ItemsByCategory: FC<Props> = ({
-  items,
-  categoryState,
-  countState,
-  focusItemState,
-  setCountState,
-  setFocusItemState,
-}) => {
+export const ItemsByCategory: FC<Props> = ({ items }) => {
+  const [countState, setCountState] = useState<number>(0)
+  const { categoryState } = useRecoilCategory()
+  const { focusItemState } = useRecoilFocusItem()
   const ref = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
@@ -37,7 +29,7 @@ export const ItemsByCategory: FC<Props> = ({
     case 'ALL':
       return (
         <>
-          <div className="under-line flex py-1.5">
+          <div className="flex py-1.5 under-line">
             <h2 ref={ref} tabIndex={-1}>
               ALL
             </h2>
@@ -51,7 +43,6 @@ export const ItemsByCategory: FC<Props> = ({
                   key={`post-item-${i}`}
                   item={item}
                   focused={focusItemState === item.id}
-                  setFocusItemState={setFocusItemState}
                 />
               ))}
           </div>
@@ -60,7 +51,7 @@ export const ItemsByCategory: FC<Props> = ({
     case 'NEW ARRIVAL':
       return (
         <>
-          <div className="under-line flex py-1.5">
+          <div className="flex py-1.5 under-line">
             <h2 ref={ref} tabIndex={-1}>
               NEW ARRIVAL
             </h2>
@@ -74,7 +65,6 @@ export const ItemsByCategory: FC<Props> = ({
                   key={`post-item-${i}`}
                   item={item}
                   focused={focusItemState === item.id}
-                  setFocusItemState={setFocusItemState}
                 />
               ))}
           </div>
@@ -83,7 +73,7 @@ export const ItemsByCategory: FC<Props> = ({
     default:
       return (
         <>
-          <div className="under-line flex py-1.5">
+          <div className="flex py-1.5 under-line">
             <h2 ref={ref} tabIndex={-1}>
               {categoryState}
             </h2>
@@ -99,7 +89,6 @@ export const ItemsByCategory: FC<Props> = ({
                       key={`post-item-${i}`}
                       item={item}
                       focused={focusItemState === item.id}
-                      setFocusItemState={setFocusItemState}
                     />
                   )
               )}

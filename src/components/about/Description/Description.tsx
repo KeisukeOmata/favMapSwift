@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import { FC } from 'react'
 import { Config } from 'lib/site.config'
-import s from './WorldDescription.module.css'
+import s from './Description.module.css'
 
-export const WorldDescription: FC = () => (
+export const Description: FC = () => (
   <>
-    <div className="flex justify-between flex-wrap">
+    <div className="flex flex-wrap justify-between">
       <div className={s.order1}>
         <Image
           src={Config.image1}
