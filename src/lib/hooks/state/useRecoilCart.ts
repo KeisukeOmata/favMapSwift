@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
-import { atom, useRecoilValue, useSetRecoilState } from 'recoil'
+import { atom, useRecoilState } from 'recoil'
 import { Cart } from 'lib/Type'
 
 type useRecoilCartType = {
-  getCartState: () => Cart | null
+  cartState: Cart | null
   setCartState: (cart: Cart | null) => void
 }
 
@@ -13,12 +13,7 @@ export const cartAtom = atom<Cart | null>({
 })
 
 export const useRecoilCart = (): useRecoilCartType => {
-  const cartState = useRecoilValue(cartAtom)
-  const setCartStateToRecoil = useSetRecoilState(cartAtom)
-
-  const getCartState = useCallback((): Cart | null => {
-    return cartState
-  }, [cartState])
+  const [cartState, setCartStateToRecoil] = useRecoilState(cartAtom)
 
   const setCartState = useCallback(
     (cart: Cart | null): void => {
@@ -40,7 +35,7 @@ export const useRecoilCart = (): useRecoilCartType => {
   )
 
   return {
-    getCartState,
+    cartState,
     setCartState,
   }
 }

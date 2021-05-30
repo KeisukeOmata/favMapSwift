@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { InferGetStaticPropsType } from 'next'
 import { PageSEO, ContentWrapper } from 'components/layouts'
-import { ScrollableCategories, ItemsByCategory } from 'components/root'
-import {
-  useCount,
-  useRecoilCategory,
-  useRecoilFocusItem,
-} from 'lib/hooks/state'
+import { Categories, ItemsByCategory } from 'components/root'
 import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
 import { Config } from 'lib/site.config'
@@ -41,11 +36,6 @@ export async function getStaticProps() {
 export default function Home({
   items,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const { countState, setCountState } = useCount()
-  const { getCategoryState, setCategoryState } = useRecoilCategory()
-  const categoryState = getCategoryState()
-  const { getFocusItemState, setFocusItemState } = useRecoilFocusItem()
-  const focusItemState = getFocusItemState()
   useFetchCart()
   useInitializeCart()
 
@@ -59,24 +49,14 @@ export default function Home({
       />
       <div className="pt-2">
         <ContentWrapper>
-          <div className="under-line flex py-1.5 justify-between">
+          <div className="flex justify-between py-1.5 under-line">
             <h2 id="head" tabIndex={-1}>
               Items
             </h2>
             <h2>Scroll→</h2>
           </div>
-          <ScrollableCategories
-            categoryState={categoryState}
-            setCategoryState={setCategoryState}
-          />
-          <ItemsByCategory
-            items={items}
-            categoryState={categoryState}
-            countState={countState}
-            focusItemState={focusItemState}
-            setCountState={setCountState}
-            setFocusItemState={setFocusItemState}
-          />
+          <Categories />
+          <ItemsByCategory items={items} />
         </ContentWrapper>
       </div>
     </>

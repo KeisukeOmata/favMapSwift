@@ -8,8 +8,7 @@ type useChangeQuantityType = {
 }
 
 export const useChangeQuantity = (): useChangeQuantityType => {
-  const { setCartState, getCartState } = useRecoilCart()
-  const cartState = getCartState()
+  const { cartState, setCartState } = useRecoilCart()
 
   const ChangeQuantity = useCallback(
     async (cartItemId: string, quantity: number): Promise<void> => {

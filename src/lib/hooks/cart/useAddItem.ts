@@ -8,8 +8,7 @@ type useAddItemType = {
 }
 
 export const useAddItem = (): useAddItemType => {
-  const { setCartState, getCartState } = useRecoilCart()
-  const cartState = getCartState()
+  const { cartState, setCartState } = useRecoilCart()
 
   const presenceCheck = useCallback(
     (cartState: Cart, itemIdState: string): string => {

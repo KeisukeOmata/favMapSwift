@@ -2,15 +2,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { FC, useEffect, useRef } from 'react'
 import { ItemType } from 'lib/Type'
+import { useRecoilFocusItem } from 'lib/hooks/state'
 
 type Props = {
   item: ItemType
   focused: boolean
-  setFocusItemState: (focusItemState: string | null) => void
 }
 
-export const Item: FC<Props> = ({ item, focused, setFocusItemState }) => {
+export const Item: FC<Props> = ({ item, focused }) => {
   const placeholderImg = '/product-img-placeholder.svg'
+  const { setFocusItemState } = useRecoilFocusItem()
   const ref = useRef<HTMLButtonElement | null>(null)
 
   useEffect(() => {
@@ -21,7 +22,7 @@ export const Item: FC<Props> = ({ item, focused, setFocusItemState }) => {
 
   return (
     <>
-      <div className="w-1/2 p-4 sm:w-full">
+      <div className="p-4 w-1/2 sm:w-full">
         <Link key={`items-${item.id}`} href={`/items/${item.id}`} passHref>
           <button
             aria-label={`${item.title}のページを表示する`}

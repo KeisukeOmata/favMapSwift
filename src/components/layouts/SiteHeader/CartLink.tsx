@@ -1,18 +1,15 @@
 import Link from 'next/link'
 import { FC } from 'react'
+import { useRecoilQuantity } from 'lib/hooks/state'
+import { useFetchCart } from 'lib/hooks/cart'
 
-type Props = {
-  quantityState: number
-  setFocusItemState: (focusItemState: string | null) => void
+export const CartLink: FC = () => {
+  const { quantityState } = useRecoilQuantity()
+  useFetchCart()
+
+  return (
+    <Link href={'/cart'} passHref>
+      <button aria-label="カートを表示する">BAG({quantityState})</button>
+    </Link>
+  )
 }
-
-export const CartLink: FC<Props> = ({ quantityState, setFocusItemState }) => (
-  <Link href={'/cart'} passHref>
-    <button
-      aria-label="カートを表示する"
-      onClick={() => setFocusItemState(null)}
-    >
-      BAG({quantityState})
-    </button>
-  </Link>
-)

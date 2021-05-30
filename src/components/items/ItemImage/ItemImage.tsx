@@ -10,6 +10,7 @@ type Props = {
 
 export const ItemImage: FC<Props> = ({ detail }) => {
   const placeholderImg = '/product-img-placeholder.svg'
+
   return (
     <>
       <div className={s.item}>

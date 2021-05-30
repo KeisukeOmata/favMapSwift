@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { Button } from 'components/ui'
 import { Minus, Plus } from 'components/icons'
+import { Button } from 'components/ui'
 import { LineItem, SelectedOption } from 'lib/Type'
 import s from './CartItemDetail.module.css'
 

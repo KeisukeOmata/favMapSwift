@@ -13,7 +13,7 @@ type useGetColorAndSizeType = {
 export const useGetColorAndSize = (
   detail: Detail,
   setAvailableState: (availableState: boolean) => void,
-  setId: (idState: string) => void
+  setVariantIdState: (variantIdState: string) => void
 ): useGetColorAndSizeType => {
   const [colorState, setColorState] = useState<string>(
     detail.variants.map((variant) => variant.color)[0]
@@ -30,9 +30,15 @@ export const useGetColorAndSize = (
       (variant) => variant.color === colorState && variant.size === sizeState
     )[0]
 
-    setId(variant.id)
     setAvailableState(variant.available)
-  }, [detail.variants, colorState, sizeState, setAvailableState, setId])
+    setVariantIdState(variant.id)
+  }, [
+    detail.variants,
+    colorState,
+    sizeState,
+    setAvailableState,
+    setVariantIdState,
+  ])
 
   return {
     colors,

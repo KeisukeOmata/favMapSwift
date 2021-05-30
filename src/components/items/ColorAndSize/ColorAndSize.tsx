@@ -1,63 +1,49 @@
 import { FC } from 'react'
 import { CheckMark } from 'components/icons'
 import { Button } from 'components/ui'
+import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
+import { Detail } from 'lib/Type'
 
 type Props = {
-  colors: string[]
-  colorState: string
-  mountedState: boolean
-  sizes: string[]
-  sizeState: string
-  theme: string | undefined
-  setColorState: (colorState: string) => void
-  setMountedState: (mountedState: boolean) => void
-  setSizeState: (sizeState: string) => void
+  detail: Detail
+  setVariantIdState: (variantIdState: string) => void
+  setAvailableState: (availableState: boolean) => void
 }
 
 export const ColorAndSize: FC<Props> = ({
-  colors,
-  mountedState,
-  colorState,
-  sizes,
-  sizeState,
-  theme,
-  setColorState,
-  setMountedState,
-  setSizeState,
+  detail,
+  setVariantIdState,
+  setAvailableState,
 }) => {
+  const { colors, colorState, sizes, sizeState, setColorState, setSizeState } =
+    useGetColorAndSize(detail, setAvailableState, setVariantIdState)
+
   return (
     <>
       <div>Color</div>
-      <div className="flex upper-line py-4">
+      <div className="flex py-4 upper-line">
         {colors.map((color, i) => (
           <Button
             aria-label={`${color}色を選択する`}
             key={`colors-${i}`}
-            className="mb-1.5 mr-1.5"
+            className="mr-1.5 mb-1.5"
             color={color}
             shape="circle"
             type="button"
             onClick={() => setColorState(color)}
           >
-            {colorState === color && (
-              <CheckMark
-                colorState={colorState}
-                mountedState={mountedState}
-                setMountedState={setMountedState}
-                theme={theme}
-              />
-            )}
+            {colorState === color && <CheckMark colorState={colorState} />}
           </Button>
         ))}
       </div>
       <div>Size</div>
-      <div className="flex upper-line py-4">
+      <div className="flex py-4 upper-line">
         {sizes.map((size, i) => (
           <Button
             aria-label={`${size}サイズを選択する`}
             key={`sizes-${i}`}
             choose={sizeState === size ? true : false}
-            className="mb-1.5 mr-1.5"
+            className="mr-1.5 mb-1.5"
             shape="circle"
             type="button"
             onClick={() => setSizeState(size)}

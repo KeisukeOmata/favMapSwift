@@ -1,22 +1,13 @@
 import Link from 'next/link'
 import { FC } from 'react'
-import { useTheme } from 'next-themes'
 import { ContentWrapper, CartLink } from 'components/layouts'
 import { DarkMode } from 'components/ui'
 import { Config } from 'lib/site.config'
-import {
-  useMounted,
-  useRecoilFocusItem,
-  useRecoilQuantity,
-} from 'lib/hooks/state'
+import { useRecoilFocusItem } from 'lib/hooks/state'
 import s from './SiteHeader.module.css'
 
 export const SiteHeader: FC = () => {
-  const { mountedState, setMountedState } = useMounted()
   const { setFocusItemState } = useRecoilFocusItem()
-  const { getQuantityState } = useRecoilQuantity()
-  const quantityState = getQuantityState()
-  const { theme, setTheme } = useTheme()
 
   return (
     <header className={s.siteHeader}>
@@ -40,26 +31,13 @@ export const SiteHeader: FC = () => {
               </button>
             </Link>
             <div className={s.slash}>/</div>
-            <Link href={'/world'} passHref>
-              <button
-                aria-label="about usを表示する"
-                onClick={() => setFocusItemState(null)}
-              >
-                World
-              </button>
+            <Link href={'/about'} passHref>
+              <button aria-label="about usを表示する">About</button>
             </Link>
             <div className={s.slash}>/</div>
-            <DarkMode
-              mountedState={mountedState}
-              theme={theme}
-              setMountedState={setMountedState}
-              setTheme={setTheme}
-            />
+            <DarkMode />
           </div>
-          <CartLink
-            quantityState={quantityState}
-            setFocusItemState={setFocusItemState}
-          />
+          <CartLink />
         </div>
       </ContentWrapper>
     </header>

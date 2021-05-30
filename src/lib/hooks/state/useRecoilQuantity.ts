@@ -1,9 +1,8 @@
-import { useCallback } from 'react'
 import { selector, useRecoilValue } from 'recoil'
 import { cartAtom } from './useRecoilCart'
 
 type useRecoilQuantityType = {
-  getQuantityState: () => number
+  quantityState: number
 }
 
 const quantityAtom = selector({
@@ -18,11 +17,8 @@ const quantityAtom = selector({
 
 export const useRecoilQuantity = (): useRecoilQuantityType => {
   const quantityState = useRecoilValue(quantityAtom)
-  const getQuantityState = useCallback((): number => {
-    return quantityState
-  }, [quantityState])
 
   return {
-    getQuantityState,
+    quantityState,
   }
 }

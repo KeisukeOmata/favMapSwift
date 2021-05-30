@@ -1,1 +1,0 @@
-export { WorldDescription } from './WorldDescription'
