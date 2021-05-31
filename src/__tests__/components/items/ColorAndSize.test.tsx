@@ -16,8 +16,8 @@ type Props = {
 
 describe('ColorAndSize', () => {
   test('should render correctly', async () => {
+    // Arrange
     const mockProduct: Detail = {
-      // Arrange
       title: '商品名',
       images: [
         'https://cdn.shopify.com/s/files/1/1312/0893/products/001_425d2f71-9606-4ac7-90d5-6b90b8ea33c4.jpg?v=1491851061',
