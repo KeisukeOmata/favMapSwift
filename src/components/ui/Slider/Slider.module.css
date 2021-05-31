@@ -11,7 +11,7 @@
 
 .leftControl:hover,
 .rightControl:hover {
-  @apply bg-hover-2 outline-none shadow-outline-blue;
+  @apply bg-hover-2 outline-none;
 }
 
 .leftControl {
@@ -55,14 +55,6 @@
 
 .positionIndicator:hover .dot {
   @apply bg-hover-2;
-}
-
-.positionIndicator:focus {
-  @apply outline-none;
-}
-
-.positionIndicator:focus .dot {
-  @apply shadow-outline-blue;
 }
 
 .positionIndicatorActive .dot {

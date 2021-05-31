@@ -10,7 +10,7 @@ export default function Terms() {
       <PageSEO title="terms" path="/terms" ogImageUrl={Config.defaultOGImage} />
       <div className="pt-2">
         <ContentWrapper>
-          <div className="under-line flex py-1.5">
+          <div className="flex py-1.5 under-line">
             <h2 id="head" tabIndex={-1}>
               利用規約
             </h2>
