@@ -8,7 +8,7 @@ import s from './SiteFooter.module.css'
 export const SiteFooter: FC = () => (
   <footer className={s.siteFooter}>
     <ContentWrapper>
-      <div className="text-center text-sm flex justify-between flex-wrap upper-line">
+      <div className="flex flex-wrap justify-between text-sm text-center upper-line">
         <div className={s.icons}>
           <a
             href={Config.siteURL.twitter}
@@ -66,7 +66,7 @@ export const SiteFooter: FC = () => (
           </Link>
         </div>
       </div>
-      <div className="w-full text-center text-sm">
+      <div className="w-full text-sm text-center">
         <p>© {Config.copyright}</p>
       </div>
     </ContentWrapper>

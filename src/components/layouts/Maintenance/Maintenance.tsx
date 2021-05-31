@@ -5,9 +5,9 @@ import { Config } from 'lib/site.config'
 
 export const Maintenance: FC = () => (
   <>
-    <div className="text-center py-12">
+    <div className="py-12 text-center">
       <ContentWrapper>
-        <p className="leading-tight font-bold text-8xl">メンテナンス中</p>
+        <p className="text-8xl font-bold leading-tight">メンテナンス中</p>
         <h1 className="pb-12">詳細はTwitterをご確認ください。</h1>
         <a
           href={Config.siteURL.twitter}

@@ -13,7 +13,7 @@
 }
 
 .circle {
-  @apply rounded-full h-15 w-15 flex items-center justify-center border border-secondary text-secondary;
+  @apply rounded-full h-14 w-14 flex items-center justify-center border border-secondary text-secondary;
 }
 
 .circle:focus {

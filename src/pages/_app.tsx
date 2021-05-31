@@ -52,7 +52,7 @@ export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
         <meta name="theme-color" content="#ffffff" />
       </NextHead>
       <ThemeProvider>
-        <div className="min-h-screen flex-col flex">
+        <div className="flex flex-col min-h-screen">
           <RecoilRoot>
             <SiteHeader />
             <main aria-label="メイン">

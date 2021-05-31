@@ -77,7 +77,6 @@ export default function CartPage() {
           {cartState && (
             <>
               {cartState.lineItems.length === 0 ? (
-                // eslint-disable-next-line tailwindcss/no-custom-classname
                 <div className="flex py-1.5 under-line">
                   <h2 id="head" tabIndex={-1}>
                     BAGが空です
@@ -85,7 +84,6 @@ export default function CartPage() {
                 </div>
               ) : (
                 <>
-                  {/* eslint-disable-next-line tailwindcss/no-custom-classname */}
                   <div className="flex py-1.5 under-line">
                     <h2 id="head" tabIndex={-1}>
                       BAG

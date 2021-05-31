@@ -9,9 +9,9 @@ export default function Custom404() {
   return (
     <>
       <PageSEO title="404 not found" />
-      <div className="text-center py-12">
+      <div className="py-12 text-center">
         <ContentWrapper>
-          <p className="leading-tight font-bold text-9xl">404</p>
+          <p className="text-9xl font-bold leading-tight">404</p>
           <h1 className="pb-12">Page not found...</h1>
           <Link href="/" passHref>
             <Button shape="square" type="button" aria-label="Topページに戻る">

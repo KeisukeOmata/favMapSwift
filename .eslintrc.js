@@ -9,7 +9,13 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:jsx-a11y/strict',
   ],
-  plugins: ['@typescript-eslint', 'react', 'jsx-a11y', 'react-hooks'],
+  plugins: [
+    '@typescript-eslint',
+    'react',
+    'jsx-a11y',
+    'react-hooks',
+    'tailwindcss',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
@@ -33,5 +39,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'tailwindcss/classnames-order': 'warn',
+    'tailwindcss/no-custom-classname': 'off',
+    'tailwindcss/no-contradicting-classname': 'error',
   },
 }

@@ -22,7 +22,7 @@ export const CartItem: FC<Props> = ({
   handleRemoveItem,
 }) => (
   <>
-    <div className="flex justify-between flex-wrap">
+    <div className="flex flex-wrap justify-between">
       <div className={s.item}>
         <CartItemImage cartItem={item} />
       </div>

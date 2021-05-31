@@ -15,7 +15,7 @@ export default function Privacy() {
       />
       <div className="pt-2">
         <ContentWrapper>
-          <div className="under-line flex py-1.5">
+          <div className="flex py-1.5 under-line">
             <h2 id="head" tabIndex={-1}>
               プライバシーポリシー
             </h2>
