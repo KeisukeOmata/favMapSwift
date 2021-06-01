@@ -6,7 +6,6 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { RecoilRoot } from 'recoil'
 import { Categories } from 'components/root'
-// import { categories } from 'lib/categories'
 
 describe('Categories', () => {
   test('should render correctly', async () => {
