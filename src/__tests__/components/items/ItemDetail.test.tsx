@@ -12,8 +12,6 @@ import { RecoilRoot } from 'recoil'
 
 type Props = {
   detail: Detail
-  loadingState: boolean
-  handleAddItem: (variantIdState: string | null) => Promise<void>
 }
 
 jest.mock('next/image', () => {
@@ -54,17 +52,9 @@ describe('ItemDetail', () => {
         },
       ],
     }
-    const mockLoadingState = true
-    const mockHandleAddItem = () => {
-      return new Promise<void>((resolve) => {
-        resolve()
-      })
-    }
 
     const mock: Props = {
       detail: mockProduct,
-      loadingState: mockLoadingState,
-      handleAddItem: mockHandleAddItem,
     }
 
     // Act

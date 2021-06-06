@@ -2,26 +2,13 @@
 import { InferGetStaticPropsType } from 'next'
 import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Categories, ItemsByCategory } from 'components/root'
+import { getItems } from 'lib/helper/root'
 import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
 import { Config } from 'lib/site.config'
-import { ItemType, GetItem } from 'lib/Type'
+import { GetItem } from 'lib/Type'
 
 export async function getStaticProps() {
-  const getItems = (products: GetItem[]): ItemType[] => {
-    const items = products.map((product) => {
-      const newItem: ItemType = {
-        id: product.id as string,
-        images: product.images.map((image) => image.src),
-        price: product.variants[0].price,
-        productType: product.productType,
-        title: product.title,
-      }
-      return newItem
-    })
-    return items
-  }
-
   const products = await shopify.product.fetchAll()
   const items = getItems(products as GetItem[])
 

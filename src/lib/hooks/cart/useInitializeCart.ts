@@ -1,18 +1,11 @@
-import { useEffect, useCallback } from 'react'
+import { useEffect } from 'react'
+import { getCheckoutId, setCheckoutId } from 'lib/helper/hooks'
 import { useRecoilCart } from 'lib/hooks/state'
 import { shopify } from 'lib/shopify'
 import { Cart } from 'lib/Type'
 
 export const useInitializeCart = (): void => {
   const { setCartState } = useRecoilCart()
-
-  const setCheckoutId = useCallback((checkoutId: string): void => {
-    localStorage.setItem('checkoutId', checkoutId)
-  }, [])
-
-  const getCheckoutId = useCallback((): string => {
-    return localStorage.getItem('checkoutId') ?? ''
-  }, [])
 
   useEffect(() => {
     const checkoutId = getCheckoutId()
@@ -21,5 +14,5 @@ export const useInitializeCart = (): void => {
       setCartState(cart as Cart)
       setCheckoutId(cart.id as string)
     })
-  }, [getCheckoutId, setCartState, setCheckoutId])
+  }, [setCartState])
 }

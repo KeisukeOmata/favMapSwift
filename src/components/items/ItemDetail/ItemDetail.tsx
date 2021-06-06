@@ -1,20 +1,18 @@
 import { FC, useState } from 'react'
 import { ColorAndSize } from 'components/items'
 import { Button } from 'components/ui'
+import { useHandleAddItem } from 'lib/hooks/cart'
+import { useLoading } from 'lib/hooks/state'
 import { Detail } from 'lib/Type'
 import s from './ItemDetail.module.css'
 
 type Props = {
   detail: Detail
-  loadingState: boolean
-  handleAddItem: (variantIdState: string | null) => Promise<void>
 }
 
-export const ItemDetail: FC<Props> = ({
-  detail,
-  loadingState,
-  handleAddItem,
-}) => {
+export const ItemDetail: FC<Props> = ({ detail }) => {
+  const { handleAddItem } = useHandleAddItem()
+  const { loadingState, setLoadingState } = useLoading()
   const [availableState, setAvailableState] = useState<boolean>(true)
   const [variantIdState, setVariantIdState] = useState<string | null>(null)
 
@@ -42,7 +40,7 @@ export const ItemDetail: FC<Props> = ({
             loading={loadingState}
             shape="square"
             type="button"
-            onClick={() => handleAddItem(variantIdState)}
+            onClick={() => handleAddItem(variantIdState, setLoadingState)}
           >
             BAGに入れる
           </Button>

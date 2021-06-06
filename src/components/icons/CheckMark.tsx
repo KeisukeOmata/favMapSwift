@@ -1,21 +1,12 @@
 import { FC, useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
+import { getColor } from 'lib/helper/components'
 
 type Props = {
   colorState: string
 }
 
 export const CheckMark: FC<Props> = ({ colorState }) => {
-  const getColor = (theme: string | undefined, colorState: string): string => {
-    if (theme === 'dark') {
-      return colorState === 'Black' ? 'white' : 'currentColor'
-    } else {
-      return colorState === 'White' || colorState === 'Ivory'
-        ? 'black'
-        : 'currentColor'
-    }
-  }
-
   const { theme } = useTheme()
   const [mountedState, setMountedState] = useState<boolean>(false)
   const color = getColor(theme, colorState)
