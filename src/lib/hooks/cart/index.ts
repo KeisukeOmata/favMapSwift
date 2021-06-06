@@ -1,5 +1,8 @@
 export { useAddItem } from './useAddItem'
 export { useChangeQuantity } from './useChangeQuantity'
 export { useFetchCart } from './useFetchCart'
+export { useHandleAddItem } from './useHandleAddItem'
+export { useHandleChangeQuantity } from './useHandleChangeQuantity'
+export { useHandleRemoveItem } from './useHandleRemoveItem'
 export { useInitializeCart } from './useInitializeCart'
 export { useRemoveItem } from './useRemoveItem'

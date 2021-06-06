@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { FC, Ref, forwardRef, ButtonHTMLAttributes } from 'react'
 import { Button } from 'components/ui'
+import { moveToShopify } from 'lib/helper/cart'
 import { Cart } from 'lib/Type'
 import s from './CartCheckout.module.css'
 
 type Props = {
   cart: Cart
   buttonRef: Ref<HTMLButtonElement>
-  moveToShopify: (cart: Cart) => void
 }
 
 type RefProps = {
@@ -21,7 +21,7 @@ const RefButton = forwardRef<HTMLButtonElement, RefProps>(
   }
 )
 
-export const CartCheckout: FC<Props> = ({ cart, buttonRef, moveToShopify }) => {
+export const CartCheckout: FC<Props> = ({ cart, buttonRef }) => {
   return (
     <>
       <p className={s.total}>合計: {cart.subtotalPrice}円</p>

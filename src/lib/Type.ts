@@ -60,6 +60,11 @@ export type Variant = {
   size: string
 }
 
+export type GetDetail = {
+  descriptionHtml: string
+  selectedOptions: SelectedOption[]
+} & Product
+
 export type GetDescriptionHtml = {
   descriptionHtml: string
 } & Product
