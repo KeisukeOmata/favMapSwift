@@ -14,11 +14,6 @@
     "storybook": "start-storybook -p 6006 -c .storybook",
     "find:unused": "next-unused"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "yarn lint --fix"
