@@ -6,13 +6,13 @@
     "dev": "next dev",
     "build": "next build && next-sitemap --config sitemap.config.js",
     "start": "next start",
-    "prepare": "husky install",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore .",
     "test": "jest src/__tests__/.*/*.test.tsx?$",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "storybook": "start-storybook -p 6006 -c .storybook",
-    "find:unused": "next-unused"
+    "find:unused": "next-unused",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
