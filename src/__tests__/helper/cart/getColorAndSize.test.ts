@@ -17,8 +17,8 @@ describe('getColorAndSize', () => {
     const size = getColorAndSize(option, 'Size')
     expect(size).toBe('S')
   })
-  test('Other', () => {
-    const other = getColorAndSize(option, '')
+  test('Other case', () => {
+    const other = getColorAndSize(option, 'Other')
     expect(other).toBe('')
   })
 })

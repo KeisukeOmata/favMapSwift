@@ -14,6 +14,10 @@ describe('getColor', () => {
       const color = getColor('dark', 'Ivory')
       expect(color).toBe('currentColor')
     })
+    test('Other case', () => {
+      const other = getColor('dark', 'other')
+      expect(other).toBe('currentColor')
+    })
   })
 
   describe('theme is light', () => {
@@ -28,6 +32,25 @@ describe('getColor', () => {
     test('colorState is Ivory', () => {
       const color = getColor('light', 'Ivory')
       expect(color).toBe('black')
+    })
+    test('Other case', () => {
+      const other = getColor('light', 'other')
+      expect(other).toBe('currentColor')
+    })
+  })
+
+  describe('Other case', () => {
+    test('colorState is Black', () => {
+      const color = getColor('other', 'Black')
+      expect(color).toBe('currentColor')
+    })
+    test('colorState is White', () => {
+      const other = getColor('other', 'White')
+      expect(other).toBe('black')
+    })
+    test('Other case', () => {
+      const other = getColor('other', 'other')
+      expect(other).toBe('currentColor')
     })
   })
 })
