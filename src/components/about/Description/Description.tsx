@@ -1,12 +1,11 @@
 import Image from 'next/image'
 import { FC } from 'react'
 import { Config } from 'lib/site.config'
-import s from './Description.module.css'
 
 export const Description: FC = () => (
   <>
     <div className="flex flex-wrap justify-between">
-      <div className={s.order1}>
+      <div className="flex flex-col sm:order-1 justify-center pt-6 w-1/2 sm:w-full">
         <Image
           src={Config.image1}
           alt="Brandの画像1"
@@ -17,18 +16,18 @@ export const Description: FC = () => (
         />
       </div>
       <p
-        className={s.order2}
+        className="flex flex-col sm:order-2 justify-center pt-6 w-1/2 sm:w-full"
         dangerouslySetInnerHTML={{
           __html: `${Config.description1}`,
         }}
       ></p>
       <p
-        className={s.order4}
+        className="flex flex-col sm:order-4 justify-center pt-6 w-1/2 sm:w-full"
         dangerouslySetInnerHTML={{
           __html: `${Config.description2}`,
         }}
       ></p>
-      <div className={s.order3}>
+      <div className="flex flex-col sm:order-3 justify-center pt-6 w-1/2 sm:w-full">
         <Image
           src={Config.image2}
           alt="Brandの画像2"
@@ -38,7 +37,7 @@ export const Description: FC = () => (
           tabIndex={0}
         />
       </div>
-      <div className={s.order5}>
+      <div className="flex flex-col sm:order-5 justify-center pt-6 w-1/2 sm:w-full">
         <Image
           src={Config.image3}
           alt="Brandの画像3"
@@ -49,7 +48,7 @@ export const Description: FC = () => (
         />
       </div>
       <p
-        className={s.order6}
+        className="flex flex-col sm:order-6 justify-center pt-6 w-1/2 sm:w-full"
         dangerouslySetInnerHTML={{
           __html: `${Config.description3}`,
         }}
