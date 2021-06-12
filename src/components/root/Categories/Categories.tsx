@@ -23,7 +23,7 @@ export const Categories: FC = () => {
     categoriesRef.current.scrollLeft =
       // 24px margin for the first category
       selectedCategory.offsetLeft - categoriesRef.current.offsetLeft - 24
-  }, [])
+  }, [categoryState])
 
   return (
     <>
