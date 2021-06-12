@@ -2,7 +2,6 @@ import { FC, useState, useEffect, useRef } from 'react'
 import { Item } from 'components/root'
 import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
 import { ItemType } from 'lib/Type'
-import s from './ItemsByCategory.module.css'
 
 type Props = {
   items: ItemType[]
@@ -34,7 +33,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               ALL
             </h2>
           </div>
-          <div className={s.items}>
+          <div className="flex flex-wrap justify-between pt-1">
             {items
               .slice(0)
               .reverse()
@@ -56,7 +55,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               NEW ARRIVAL
             </h2>
           </div>
-          <div className={s.items}>
+          <div className="flex flex-wrap justify-between pt-1">
             {items
               .slice(-10)
               .reverse()
@@ -78,7 +77,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               {categoryState}
             </h2>
           </div>
-          <div className={s.items}>
+          <div className="flex flex-wrap justify-between pt-1">
             {items
               .slice(0)
               .reverse()
