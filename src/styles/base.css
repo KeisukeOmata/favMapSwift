@@ -81,10 +81,8 @@ html {
 
 html,
 body {
-  /* stylelint-disable */
   font-family: arial, sans-serif, -apple-system, system-ui, blinkmacsystemfont,
     'Helvetica Neue', 'Helvetica';
-  /* stylelint-enable */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
