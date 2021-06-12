@@ -119,3 +119,12 @@ select {
 input:-webkit-autofill {
   box-shadow: 0 0 0 1000px var(--primary) inset;
 }
+
+/* Do not show focus on smartphones. */
+@screen sm {
+  main,
+  h2,
+  button:focus {
+    @apply outline-none;
+  }
+}

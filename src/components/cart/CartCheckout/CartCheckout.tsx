@@ -3,7 +3,6 @@ import { FC, Ref, forwardRef, ButtonHTMLAttributes } from 'react'
 import { Button } from 'components/ui'
 import { moveToShopify } from 'lib/helper/cart'
 import { Cart } from 'lib/Type'
-import s from './CartCheckout.module.css'
 
 type Props = {
   cart: Cart
@@ -24,7 +23,9 @@ const RefButton = forwardRef<HTMLButtonElement, RefProps>(
 export const CartCheckout: FC<Props> = ({ cart, buttonRef }) => {
   return (
     <>
-      <p className={s.total}>合計: {cart.subtotalPrice}円</p>
+      <p className="flex flex-col justify-center py-5 text-center">
+        合計: {cart.subtotalPrice}円
+      </p>
       <div className="flex flex-col justify-center">
         <Link href="/" passHref>
           <RefButton

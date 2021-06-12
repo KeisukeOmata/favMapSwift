@@ -5,7 +5,6 @@ import { getColorAndSize } from 'lib/helper/cart'
 import { useHandleChangeQuantity, useHandleRemoveItem } from 'lib/hooks/cart'
 import { useLoading } from 'lib/hooks/state'
 import { LineItem } from 'lib/Type'
-import s from './CartItemDetail.module.css'
 
 type Props = {
   cartItem: LineItem
@@ -43,7 +42,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
         >
           <Minus />
         </button>
-        <div className={s.quantity}>{cartItem.quantity}</div>
+        <div className="px-3">{cartItem.quantity}</div>
         <button
           aria-label="個数を1つ増やす"
           disabled={loadingState}

@@ -5,15 +5,6 @@
 @import 'styles/components.css';
 
 @layer utilities {
-  /* Do not show focus on smartphones. */
-  @screen sm {
-    main,
-    h2,
-    button:focus {
-      @apply outline-none;
-    }
-  }
-
   .under-line {
     border-bottom: solid 1px var(--secondary-2);
   }
