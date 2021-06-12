@@ -1,8 +1,5 @@
 module.exports = {
   mode: 'jit',
-  future: {
-    purgeLayersByDefault: true,
-  },
   purge: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
