@@ -4,7 +4,6 @@ import { Button } from 'components/ui'
 import { useHandleAddItem } from 'lib/hooks/cart'
 import { useLoading } from 'lib/hooks/state'
 import { Detail } from 'lib/Type'
-import s from './ItemDetail.module.css'
 
 type Props = {
   detail: Detail
@@ -18,7 +17,7 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
 
   return (
     <>
-      <div className={s.item}>
+      <div className="flex flex-col pt-5 w-1/2 sm:w-full">
         <p>{detail.vendor}</p>
         <p>{detail.title}</p>
         <p>{detail.price}円</p>

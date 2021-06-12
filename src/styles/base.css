@@ -81,10 +81,8 @@ html {
 
 html,
 body {
-  /* stylelint-disable */
   font-family: arial, sans-serif, -apple-system, system-ui, blinkmacsystemfont,
     'Helvetica Neue', 'Helvetica';
-  /* stylelint-enable */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -120,4 +118,13 @@ select {
 /* Fix background color when using autocomplete in forms */
 input:-webkit-autofill {
   box-shadow: 0 0 0 1000px var(--primary) inset;
+}
+
+/* Do not show focus on smartphones. */
+@screen sm {
+  main,
+  h2,
+  button:focus {
+    @apply outline-none;
+  }
 }

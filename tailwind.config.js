@@ -1,13 +1,9 @@
 module.exports = {
+  mode: 'jit',
   future: {
     purgeLayersByDefault: true,
   },
-  purge: {
-    content: [
-      './src/pages/**/*.{js,ts,jsx,tsx}',
-      './src/components/**/*.{js,ts,jsx,tsx}',
-    ],
-  },
+  purge: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
       sm: { max: '500px' },

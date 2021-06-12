@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { FC } from 'react'
 import { Slider } from 'components/ui'
 import { Detail } from 'lib/Type'
-import s from './ItemImage.module.css'
 
 type Props = {
   detail: Detail
@@ -13,7 +12,7 @@ export const ItemImage: FC<Props> = ({ detail }) => {
 
   return (
     <>
-      <div className={s.item}>
+      <div className="flex flex-col pt-5 w-1/2 sm:w-full">
         <div>
           <Slider>
             {detail.images.map((image, i) => (
