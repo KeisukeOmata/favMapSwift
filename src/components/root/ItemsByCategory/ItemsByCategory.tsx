@@ -14,13 +14,11 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
   const ref = useRef<HTMLHeadingElement | null>(null)
 
   useEffect(() => {
-    if (countState === 0) {
-      // Focus on main when the parent component is rendered.
-      setCountState(1)
-    } else {
-      // Focus on head element when the child component is rendered.
-      ref.current?.focus()
-    }
+    countState === 0
+      ? // Focus on main when the parent component is rendered.
+        setCountState(1)
+      : // Focus on head element when the child component is rendered.
+        ref.current?.focus()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryState])
 

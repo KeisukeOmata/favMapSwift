@@ -11,13 +11,13 @@ export const Categories: FC = () => {
   categoryStateRef.current = categoryState
 
   useEffect(() => {
-    if (categoriesRef.current == null || categoryStateRef.current == null) {
+    if (!categoriesRef.current || !categoryStateRef.current) {
       return
     }
     const selectedCategory = categoriesRef.current.getElementsByClassName(
       `category-${categoryStateRef.current}`
     )[0] as HTMLElement
-    if (selectedCategory == null) {
+    if (!selectedCategory) {
       return
     }
     categoriesRef.current.scrollLeft =
