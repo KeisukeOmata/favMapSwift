@@ -7,8 +7,9 @@
 @layer utilities {
   /* Do not show focus on smartphones. */
   @screen sm {
-    main,
-    h2,
+    main:focus,
+    h2:focus,
+    a:focus,
     button:focus {
       @apply outline-none;
     }
