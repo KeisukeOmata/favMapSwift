@@ -13,9 +13,7 @@ const config = {
   measurementId: 'G-R79HM0MRNW',
 }
 
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(config)
-}
+firebase.apps.length === 0 && firebase.initializeApp(config)
 
 const auth = firebase.auth()
 export { auth }

@@ -18,9 +18,7 @@ export const useLoading = (): useLoadingType => {
 
   const setLoadingState = useCallback((loadingState: boolean): void => {
     // Check to see if it is still mounted
-    if (mountedRef.current) {
-      setLoading(loadingState)
-    }
+    mountedRef.current && setLoading(loadingState)
   }, [])
 
   return {
