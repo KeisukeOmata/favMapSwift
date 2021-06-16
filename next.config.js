@@ -20,6 +20,9 @@ module.exports = withBundleAnalyzer(
     future: {
       strictPostcssConfiguration: true,
     },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
     async headers() {
       return [
         {
