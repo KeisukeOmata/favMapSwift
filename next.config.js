@@ -18,7 +18,6 @@ module.exports = withBundleAnalyzer(
       domains: ['cdn.shopify.com'],
     },
     future: {
-      webpack5: true,
       strictPostcssConfiguration: true,
     },
     async headers() {

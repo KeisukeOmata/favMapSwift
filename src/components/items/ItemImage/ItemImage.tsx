@@ -24,6 +24,8 @@ export const ItemImage: FC<Props> = ({ detail }) => {
                   height={500}
                   priority={i === 0}
                   quality="85"
+                  blurDataURL={image || placeholderImg}
+                  placeholder="blur"
                 />
               </div>
             ))}

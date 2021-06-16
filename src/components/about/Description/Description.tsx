@@ -13,6 +13,8 @@ export const Description: FC = () => (
           width={500}
           height={500}
           tabIndex={0}
+          blurDataURL={Config.image1}
+          placeholder="blur"
         />
       </div>
       <p
@@ -35,6 +37,8 @@ export const Description: FC = () => (
           width={500}
           height={500}
           tabIndex={0}
+          blurDataURL={Config.image2}
+          placeholder="blur"
         />
       </div>
       <div className="flex flex-col sm:order-5 justify-center pt-6 w-1/2 sm:w-full">
@@ -45,6 +49,8 @@ export const Description: FC = () => (
           width={500}
           height={500}
           tabIndex={0}
+          blurDataURL={Config.image3}
+          placeholder="blur"
         />
       </div>
       <p
