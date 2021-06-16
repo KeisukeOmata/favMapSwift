@@ -18,8 +18,10 @@ module.exports = withBundleAnalyzer(
       domains: ['cdn.shopify.com'],
     },
     future: {
-      webpack5: true,
       strictPostcssConfiguration: true,
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
     },
     async headers() {
       return [

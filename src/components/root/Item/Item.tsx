@@ -35,6 +35,8 @@ export const Item: FC<Props> = ({ item, focused }) => {
               width={500}
               height={500}
               quality="85"
+              blurDataURL={item.images[0] || placeholderImg}
+              placeholder="blur"
             />
             <div className="text-left">
               <p>{item.title}</p>

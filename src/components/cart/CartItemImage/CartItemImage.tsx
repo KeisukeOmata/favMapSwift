@@ -18,6 +18,8 @@ export const CartItemImage: FC<Props> = ({ cartItem }) => {
           width={500}
           height={500}
           quality="85"
+          blurDataURL={cartItem.variant.image?.src || placeholderImg}
+          placeholder={'blur'}
         />
       </button>
     </Link>
