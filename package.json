@@ -10,6 +10,8 @@
     "test": "jest src/__tests__/.*/*.test.tsx?$",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
     "storybook": "start-storybook -p 6006 -c .storybook",
     "find:unused": "next-unused",
     "prepare": "husky install"
