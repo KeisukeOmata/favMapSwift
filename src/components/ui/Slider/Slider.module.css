@@ -6,7 +6,7 @@
 
 .leftControl,
 .rightControl {
-  @apply z-20 w-16 h-16 block absolute bottom-[45%] -translate-x-1/2 items-center justify-center bg-hover-1 rounded-full;
+  @apply z-20 w-16 h-16 block absolute bottom-[45%] items-center justify-center bg-hover-1 rounded-full;
 }
 
 .leftControl:hover,
