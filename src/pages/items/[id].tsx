@@ -3,7 +3,7 @@ import { InferGetStaticPropsType, GetStaticPropsContext } from 'next'
 import { useRouter } from 'next/router'
 import { ItemDetail, ItemImage } from 'components/items'
 import { ContentWrapper, PageSEO } from 'components/layouts'
-import { Toast } from 'components/ui'
+import { Head, Toast } from 'components/ui'
 import { getDetail } from 'lib/helper/items'
 import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
@@ -56,11 +56,7 @@ export default function DetailPage({
       <div className="pt-2">
         <ContentWrapper>
           <Toast />
-          <div className="flex py-1.5 under-line">
-            <h2 id="head" tabIndex={-1}>
-              {detail.title}
-            </h2>
-          </div>
+          <Head id={'head'} head={detail.title} />
           <div className="flex flex-wrap justify-between">
             <ItemImage detail={detail} />
             <ItemDetail detail={detail} />

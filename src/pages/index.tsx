@@ -2,6 +2,7 @@
 import { InferGetStaticPropsType } from 'next'
 import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Categories, ItemsByCategory } from 'components/root'
+import { Head } from 'components/ui'
 import { getItems } from 'lib/helper/root'
 import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
@@ -36,12 +37,12 @@ export default function Home({
       />
       <div className="pt-2">
         <ContentWrapper>
-          <div className="flex justify-between py-1.5 under-line">
-            <h2 id="head" tabIndex={-1}>
-              Items
-            </h2>
-            <h2>Scroll→</h2>
-          </div>
+          <Head
+            id={'head'}
+            head={'Items'}
+            option={'Scroll→'}
+            optionClassName={'justify-between'}
+          />
           <Categories />
           <ItemsByCategory items={items} />
         </ContentWrapper>
