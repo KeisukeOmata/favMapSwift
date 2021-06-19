@@ -2,11 +2,8 @@
 import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Head } from 'components/ui'
 import { Config } from 'lib/site.config'
-import { useFetchCart } from 'lib/hooks/cart'
 
 export default function Privacy() {
-  useFetchCart()
-
   return (
     <>
       <PageSEO

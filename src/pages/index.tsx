@@ -4,7 +4,6 @@ import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Categories, ItemsByCategory } from 'components/root'
 import { Head } from 'components/ui'
 import { getItems } from 'lib/helper/root'
-import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
 import { Config } from 'lib/site.config'
 import { GetItem } from 'lib/Type'
@@ -24,9 +23,6 @@ export async function getStaticProps() {
 export default function Home({
   items,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  useFetchCart()
-  useInitializeCart()
-
   return (
     <>
       <PageSEO

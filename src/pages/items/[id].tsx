@@ -5,7 +5,6 @@ import { ItemDetail, ItemImage } from 'components/items'
 import { ContentWrapper, PageSEO } from 'components/layouts'
 import { Head, Toast } from 'components/ui'
 import { getDetail } from 'lib/helper/items'
-import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
 import { GetDetail } from 'lib/Type'
 
@@ -38,8 +37,6 @@ export default function DetailPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const placeholderImg = '/product-img-placeholder.svg'
   const router = useRouter()
-  useInitializeCart()
-  useFetchCart()
 
   if (errors) return <div>error</div>
   if (router.isFallback) {

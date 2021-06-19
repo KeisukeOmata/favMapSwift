@@ -5,14 +5,11 @@ import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Head } from 'components/ui'
 import { resetCheckoutId } from 'lib/helper/cart'
 import { useRecoilCart } from 'lib/hooks/state'
-import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
 import { Config } from 'lib/site.config'
 
 export default function CartPage() {
   const { cartState } = useRecoilCart()
   const buttonRef = useRef<HTMLButtonElement>(null)
-  useFetchCart()
-  useInitializeCart()
 
   return (
     <>
