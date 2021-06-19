@@ -12,6 +12,7 @@ module.exports = withBundleAnalyzer(
   withPWA({
     pwa: {
       dest: 'public',
+      disable: process.env.NEXT_PUBLIC_NODE_ENV === 'develop',
     },
     // next/image
     images: {
