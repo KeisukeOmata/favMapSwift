@@ -1,4 +1,5 @@
 import { FC, useState, useEffect, useRef } from 'react'
+import { Head } from 'components/ui'
 import { Item } from 'components/root'
 import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
 import { ItemType } from 'lib/Type'
@@ -26,11 +27,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
     case 'ALL':
       return (
         <>
-          <div className="flex py-1.5 under-line">
-            <h2 ref={ref} tabIndex={-1}>
-              ALL
-            </h2>
-          </div>
+          <Head head={'ALL'} headRef={ref} />
           <div className="flex flex-wrap justify-between pt-1">
             {items
               .slice(0)
@@ -48,11 +45,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
     case 'NEW ARRIVAL':
       return (
         <>
-          <div className="flex py-1.5 under-line">
-            <h2 ref={ref} tabIndex={-1}>
-              NEW ARRIVAL
-            </h2>
-          </div>
+          <Head head={'NEW ARRIVAL'} headRef={ref} />
           <div className="flex flex-wrap justify-between pt-1">
             {items
               .slice(-10)
@@ -70,11 +63,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
     default:
       return (
         <>
-          <div className="flex py-1.5 under-line">
-            <h2 ref={ref} tabIndex={-1}>
-              {categoryState}
-            </h2>
-          </div>
+          <Head head={categoryState} headRef={ref} />
           <div className="flex flex-wrap justify-between pt-1">
             {items
               .slice(0)

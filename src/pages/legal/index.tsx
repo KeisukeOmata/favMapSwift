@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { PageSEO, ContentWrapper } from 'components/layouts'
+import { Head } from 'components/ui'
 import { Config } from 'lib/site.config'
 import { useFetchCart } from 'lib/hooks/cart'
 
@@ -10,11 +11,7 @@ export default function Legal() {
       <PageSEO title="legal" path="/legal" ogImageUrl={Config.defaultOGImage} />
       <div className="pt-2">
         <ContentWrapper>
-          <div className="flex py-1.5 under-line">
-            <h2 id="head" tabIndex={-1}>
-              特定商取引法に基づく表示
-            </h2>
-          </div>
+          <Head id={'head'} head={'特定商取引法に基づく表示'} />
           <div className="pt-5">
             <p>・販売者の名称</p>
             <p>{Config.name}</p>

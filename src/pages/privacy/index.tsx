@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { PageSEO, ContentWrapper } from 'components/layouts'
+import { Head } from 'components/ui'
 import { Config } from 'lib/site.config'
 import { useFetchCart } from 'lib/hooks/cart'
 
@@ -15,11 +16,7 @@ export default function Privacy() {
       />
       <div className="pt-2">
         <ContentWrapper>
-          <div className="flex py-1.5 under-line">
-            <h2 id="head" tabIndex={-1}>
-              プライバシーポリシー
-            </h2>
-          </div>
+          <Head id={'head'} head={'プライバシーポリシー'} />
           <div className="pt-5">
             <p>
               お客様が、当ウェブサイトを利用する場合または商品の購入をする場合、下記「お客様情報の取扱規定（プライバシーポリシー）」を熟読のうえ、内容に同意していただく必要があります。

@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useRef } from 'react'
-import { CartItem } from 'components/cart'
+import { CartItem, CartCheckout } from 'components/cart'
 import { PageSEO, ContentWrapper } from 'components/layouts'
-import { CartCheckout } from 'components/cart/CartCheckout'
+import { Head } from 'components/ui'
 import { resetCheckoutId } from 'lib/helper/cart'
 import { useRecoilCart } from 'lib/hooks/state'
 import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
@@ -22,18 +22,10 @@ export default function CartPage() {
           {cartState && (
             <>
               {cartState.lineItems.length === 0 ? (
-                <div className="flex py-1.5 under-line">
-                  <h2 id="head" tabIndex={-1}>
-                    BAGが空です
-                  </h2>
-                </div>
+                <Head id={'head'} head={'BAGが空です'} />
               ) : (
                 <>
-                  <div className="flex py-1.5 under-line">
-                    <h2 id="head" tabIndex={-1}>
-                      BAG
-                    </h2>
-                  </div>
+                  <Head id={'head'} head={'BAG'} />
                   {cartState.lineItems.map((item, i) =>
                     item.variant ? (
                       <CartItem key={`cart-item-${i}`} item={item} />
