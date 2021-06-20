@@ -10,15 +10,16 @@
     "test": "jest src/__tests__/.*/*.test.tsx?$",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cy:run:chrome": "cypress run --browser chrome",
-    "cy:run:firefox": "cypress run --browser firefox",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "cypress:run:firefox": "cypress run --browser firefox",
     "storybook": "start-storybook -p 6006 -c .storybook",
     "find:unused": "next-unused",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn lint --fix"
+      "yarn lint --fix",
+      "yarn test"
     ]
   },
   "next-unused": {
@@ -68,6 +69,7 @@
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@typescript-eslint/parser": "^4.25.0",
     "cypress": "^7.4.0",
+    "cypress-localstorage-commands": "^1.4.5",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
