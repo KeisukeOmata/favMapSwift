@@ -7,6 +7,7 @@ import { getItems } from 'lib/helper/root'
 import { shopify } from 'lib/shopify'
 import { Config } from 'lib/site.config'
 import { GetItem } from 'lib/Type'
+import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
 
 export async function getStaticProps() {
   const products = await shopify.product.fetchAll()
@@ -23,6 +24,9 @@ export async function getStaticProps() {
 export default function Home({
   items,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  useFetchCart()
+  useInitializeCart()
+
   return (
     <>
       <PageSEO
