@@ -1,5 +1,5 @@
 import { Cart } from 'lib/Type'
-import { getCheckoutId } from 'lib/helper/hooks'
+import { getCheckoutId, setCheckoutId } from 'lib/helper/hooks'
 import { useRecoilCart } from 'lib/hooks/state'
 import { shopify } from 'lib/shopify'
 import { useEffect } from 'react'
@@ -9,7 +9,11 @@ export const useFetchCart = (): void => {
 
   useEffect(() => {
     const checkoutId = getCheckoutId()
-    if (!checkoutId) return
-    shopify.checkout.fetch(checkoutId).then((cart) => setCartState(cart as Cart))
+    checkoutId
+      ? shopify.checkout.fetch(checkoutId).then((cart) => setCartState(cart as Cart))
+      : shopify.checkout.create().then((cart) => {
+          setCartState(cart as Cart)
+          setCheckoutId(cart.id as string)
+        })
   }, [setCartState])
 }

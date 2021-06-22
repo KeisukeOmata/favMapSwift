@@ -4,7 +4,7 @@ import { Categories, ItemsByCategory } from 'components/root'
 import { Head } from 'components/ui'
 import { GetItem } from 'lib/Type'
 import { getItems } from 'lib/helper/root'
-import { useFetchCart, useInitializeCart } from 'lib/hooks/cart'
+import { useFetchCart } from 'lib/hooks/cart'
 import { shopify } from 'lib/shopify'
 import { Config } from 'lib/site.config'
 import { InferGetStaticPropsType } from 'next'
@@ -23,8 +23,6 @@ export async function getStaticProps() {
 
 export default function Home({ items }: InferGetStaticPropsType<typeof getStaticProps>) {
   useFetchCart()
-  useInitializeCart()
-
   return (
     <>
       <PageSEO title={Config.title} path="/" description={Config.description} ogImageUrl={Config.defaultOGImage} />
