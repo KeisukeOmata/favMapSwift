@@ -1,6 +1,5 @@
+import { cartAtom } from 'lib/hooks/state/useRecoilCart'
 import { selector, useRecoilValue } from 'recoil'
-
-import { cartAtom } from './useRecoilCart'
 
 type useRecoilQuantityType = {
   quantityState: number

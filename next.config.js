@@ -18,6 +18,9 @@ module.exports = withBundleAnalyzer(
     images: {
       domains: ['cdn.shopify.com'],
     },
+    future: {
+      strictPostcssConfiguration: true,
+    },
     reactStrictMode: true,
     async headers() {
       return [
