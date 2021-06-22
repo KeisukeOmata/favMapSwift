@@ -1,5 +1,5 @@
-import { FC } from 'react'
 import { useInitializeCart, useFetchCart } from 'lib/hooks/cart'
+import { FC } from 'react'
 
 export const Context: FC = ({ children }) => {
   useFetchCart()

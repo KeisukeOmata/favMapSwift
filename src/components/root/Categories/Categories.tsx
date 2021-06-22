@@ -1,7 +1,8 @@
-import { FC, useRef, useEffect } from 'react'
 import cn from 'classnames'
 import { categories } from 'lib/categories'
 import { useRecoilCategory } from 'lib/hooks/state'
+import { FC, useRef, useEffect } from 'react'
+
 import s from './Categories.module.css'
 
 export const Categories: FC = () => {
@@ -29,10 +30,7 @@ export const Categories: FC = () => {
     <>
       <div className={s.categories} ref={categoriesRef}>
         {categories.map((category, i) => (
-          <div
-            key={`category-${i}`}
-            className={[s.category, `category-${category.name}`].join(' ')}
-          >
+          <div key={`category-${i}`} className={[s.category, `category-${category.name}`].join(' ')}>
             <button
               className={cn(
                 'block pt-2 text-sm whitespace-nowrap',

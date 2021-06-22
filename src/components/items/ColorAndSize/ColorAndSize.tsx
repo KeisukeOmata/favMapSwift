@@ -1,8 +1,8 @@
-import { FC } from 'react'
 import { CheckMark } from 'components/icons'
 import { Button } from 'components/ui'
-import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
 import { Detail } from 'lib/Type'
+import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
+import { FC } from 'react'
 
 type Props = {
   detail: Detail
@@ -10,13 +10,12 @@ type Props = {
   setAvailableState: (availableState: boolean) => void
 }
 
-export const ColorAndSize: FC<Props> = ({
-  detail,
-  setVariantIdState,
-  setAvailableState,
-}) => {
-  const { colors, colorState, sizes, sizeState, setColorState, setSizeState } =
-    useGetColorAndSize(detail, setAvailableState, setVariantIdState)
+export const ColorAndSize: FC<Props> = ({ detail, setVariantIdState, setAvailableState }) => {
+  const { colors, colorState, sizes, sizeState, setColorState, setSizeState } = useGetColorAndSize(
+    detail,
+    setAvailableState,
+    setVariantIdState
+  )
 
   return (
     <>

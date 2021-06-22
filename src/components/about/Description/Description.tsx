@@ -1,6 +1,6 @@
+import { Config } from 'lib/site.config'
 import Image from 'next/image'
 import { FC } from 'react'
-import { Config } from 'lib/site.config'
 
 export const Description: FC = () => (
   <>

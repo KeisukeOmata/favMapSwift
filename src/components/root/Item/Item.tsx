@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { FC, useEffect, useRef } from 'react'
 import { ItemType } from 'lib/Type'
 import { useRecoilFocusItem } from 'lib/hooks/state'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC, useEffect, useRef } from 'react'
 
 type Props = {
   item: ItemType
@@ -24,11 +24,7 @@ export const Item: FC<Props> = ({ item, focused }) => {
     <>
       <div className="p-4 w-1/2 sm:w-full">
         <Link key={`items-${item.id}`} href={`/items/${item.id}`} passHref>
-          <button
-            aria-label={`${item.title}のページを表示する`}
-            ref={ref}
-            onClick={() => setFocusItemState(item.id)}
-          >
+          <button aria-label={`${item.title}のページを表示する`} ref={ref} onClick={() => setFocusItemState(item.id)}>
             <Image
               src={item.images[0] || placeholderImg}
               alt={item.title || 'Item Image'}

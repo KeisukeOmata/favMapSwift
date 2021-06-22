@@ -1,6 +1,6 @@
-import { FC } from 'react'
 import { CartItemImage, CartItemDetail } from 'components/cart'
 import { LineItem } from 'lib/Type'
+import { FC } from 'react'
 
 type Props = {
   item: LineItem

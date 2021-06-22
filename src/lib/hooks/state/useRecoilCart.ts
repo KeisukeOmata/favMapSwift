@@ -1,6 +1,6 @@
+import { Cart } from 'lib/Type'
 import { useCallback } from 'react'
 import { atom, useRecoilState } from 'recoil'
-import { Cart } from 'lib/Type'
 
 type useRecoilCartType = {
   cartState: Cart | null

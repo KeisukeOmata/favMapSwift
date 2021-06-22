@@ -19,13 +19,9 @@ describe('Header testing', () => {
   it('Dark mode test', () => {
     cy.visit('/')
     cy.getLocalStorage('theme').should('equal', null)
-    cy.get('header')
-      .get('[aria-label="ダークモードとライトモードを入れ替える"]')
-      .click()
+    cy.get('header').get('[aria-label="ダークモードとライトモードを入れ替える"]').click()
     cy.getLocalStorage('theme').should('equal', 'dark')
-    cy.get('header')
-      .get('[aria-label="ダークモードとライトモードを入れ替える"]')
-      .click()
+    cy.get('header').get('[aria-label="ダークモードとライトモードを入れ替える"]').click()
     cy.getLocalStorage('theme').should('equal', 'light')
   })
   it('BAG test', () => {

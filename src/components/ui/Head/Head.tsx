@@ -1,5 +1,5 @@
-import { FC, Ref } from 'react'
 import cn from 'classnames'
+import { FC, Ref } from 'react'
 
 type Props = {
   id?: string
@@ -9,13 +9,7 @@ type Props = {
   optionClassName?: string
 }
 
-export const Head: FC<Props> = ({
-  id,
-  head,
-  headRef,
-  option,
-  optionClassName,
-}) => {
+export const Head: FC<Props> = ({ id, head, headRef, option, optionClassName }) => {
   return (
     <div className={cn('flex py-1.5 under-line', optionClassName)}>
       <h2 id={id} ref={headRef} tabIndex={-1}>

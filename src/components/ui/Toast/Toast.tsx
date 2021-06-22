@@ -1,5 +1,5 @@
-import { FC } from 'react'
 import { useTheme } from 'next-themes'
+import { FC } from 'react'
 import { ToastContainer, Flip } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 

@@ -1,5 +1,5 @@
-import { getDescriptionHtml, getVariants } from 'lib/helper/items'
 import { Detail, GetDetail, GetVariant } from 'lib/Type'
+import { getDescriptionHtml, getVariants } from 'lib/helper/items'
 
 export const getDetail = (product: GetDetail): Detail => {
   const item: Detail = {

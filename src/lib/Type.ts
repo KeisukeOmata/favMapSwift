@@ -1,9 +1,4 @@
-import {
-  ProductVariant,
-  Product,
-  Cart as SdkCart,
-  CustomAttribute,
-} from 'shopify-buy'
+import { ProductVariant, Product, Cart as SdkCart, CustomAttribute } from 'shopify-buy'
 
 // cart
 export type Sku = {

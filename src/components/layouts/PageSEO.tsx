@@ -1,6 +1,6 @@
+import { Config } from 'lib/site.config'
 import { NextSeo } from 'next-seo'
 import { FC } from 'react'
-import { Config } from 'lib/site.config'
 
 type Props = {
   title: string
@@ -9,12 +9,7 @@ type Props = {
   ogImageUrl?: string
 }
 
-export const PageSEO: FC<Props> = ({
-  path,
-  title,
-  description,
-  ogImageUrl,
-}) => {
+export const PageSEO: FC<Props> = ({ path, title, description, ogImageUrl }) => {
   const pageUrl = `${Config.siteRoot}${path || ''}`
   const placeholderImg = '/product-img-placeholder.svg'
   return (

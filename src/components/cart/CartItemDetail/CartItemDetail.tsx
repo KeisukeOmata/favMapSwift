@@ -1,10 +1,10 @@
-import { FC } from 'react'
 import { Minus, Plus } from 'components/icons'
 import { Button } from 'components/ui'
+import { LineItem } from 'lib/Type'
 import { getColorAndSize } from 'lib/helper/cart'
 import { useHandleChangeQuantity, useHandleRemoveItem } from 'lib/hooks/cart'
 import { useLoading } from 'lib/hooks/state'
-import { LineItem } from 'lib/Type'
+import { FC } from 'react'
 
 type Props = {
   cartItem: LineItem
@@ -32,13 +32,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
         <button
           aria-label="個数を1つ減らす"
           disabled={loadingState}
-          onClick={() =>
-            handleChangeQuantity(
-              cartItem.id,
-              cartItem.quantity - 1,
-              setLoadingState
-            )
-          }
+          onClick={() => handleChangeQuantity(cartItem.id, cartItem.quantity - 1, setLoadingState)}
         >
           <Minus />
         </button>
@@ -46,13 +40,7 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
         <button
           aria-label="個数を1つ増やす"
           disabled={loadingState}
-          onClick={() =>
-            handleChangeQuantity(
-              cartItem.id,
-              cartItem.quantity + 1,
-              setLoadingState
-            )
-          }
+          onClick={() => handleChangeQuantity(cartItem.id, cartItem.quantity + 1, setLoadingState)}
         >
           <Plus />
         </button>

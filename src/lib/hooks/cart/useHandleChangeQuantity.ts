@@ -1,5 +1,5 @@
-import { useCallback } from 'react'
 import { useChangeQuantity } from 'lib/hooks/cart'
+import { useCallback } from 'react'
 
 type useHandleChangeQuantityType = {
   handleChangeQuantity: (
