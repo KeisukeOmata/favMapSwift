@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import { FC } from 'react'
 import { Slider } from 'components/ui'
 import { Detail } from 'lib/Type'
+import Image from 'next/image'
+import { FC } from 'react'
 
 type Props = {
   detail: Detail

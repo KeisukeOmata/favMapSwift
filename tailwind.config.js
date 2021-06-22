@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx}'],
+  purge: ['./pages/**/*.{js,jsx,ts,tsx}', './public/**/*.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
       sm: { max: '500px' },
@@ -65,8 +65,7 @@ module.exports = {
       },
       boxShadow: {
         'outline-2': '0 0 0 2px var(--accents-2)',
-        magical:
-          'rgba(0, 0, 0, 0.02) 0px 30px 30px, rgba(0, 0, 0, 0.03) 0px 0px 8px, rgba(0, 0, 0, 0.05) 0px 1px 0px',
+        magical: 'rgba(0, 0, 0, 0.02) 0px 30px 30px, rgba(0, 0, 0, 0.03) 0px 0px 8px, rgba(0, 0, 0, 0.05) 0px 1px 0px',
       },
       lineHeight: {
         'extra-loose': '2.2',
@@ -76,4 +75,8 @@ module.exports = {
       },
     },
   },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
 }

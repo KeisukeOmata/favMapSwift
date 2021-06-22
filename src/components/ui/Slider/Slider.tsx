@@ -1,6 +1,7 @@
-import { Children, FC, isValidElement, useState } from 'react'
-import { useKeenSlider } from 'keen-slider/react'
 import cn from 'classnames'
+import { useKeenSlider } from 'keen-slider/react'
+import { Children, FC, isValidElement, useState } from 'react'
+
 import s from './Slider.module.css'
 
 export const Slider: FC = ({ children }) => {
@@ -18,16 +19,8 @@ export const Slider: FC = ({ children }) => {
 
   return (
     <div className={s.root}>
-      <button
-        className={cn(s.leftControl, s.control)}
-        onClick={slider?.prev}
-        aria-label="前の画像を表示する"
-      />
-      <button
-        className={cn(s.rightControl, s.control)}
-        onClick={slider?.next}
-        aria-label="次の画像を表示する"
-      />
+      <button className={cn(s.leftControl, s.control)} onClick={slider?.prev} aria-label="前の画像を表示する" />
+      <button className={cn(s.rightControl, s.control)} onClick={slider?.next} aria-label="次の画像を表示する" />
       <div
         ref={ref}
         className="h-full transition-opacity duration-150 keen-slider"
@@ -39,9 +32,7 @@ export const Slider: FC = ({ children }) => {
               ...child,
               props: {
                 ...child.props,
-                className: `${
-                  child.props.className ? `${child.props.className} ` : ''
-                }keen-slider__slide`,
+                className: `${child.props.className ? `${child.props.className} ` : ''}keen-slider__slide`,
               },
             }
           }

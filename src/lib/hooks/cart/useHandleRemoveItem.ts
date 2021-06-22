@@ -1,21 +1,15 @@
-import { useCallback } from 'react'
 import { useRemoveItem } from 'lib/hooks/cart'
+import { useCallback } from 'react'
 
 type useHandleRemoveItemType = {
-  handleRemoveItem: (
-    cartItemId: string,
-    setLoadingState: (loadingState: boolean) => void
-  ) => Promise<void>
+  handleRemoveItem: (cartItemId: string, setLoadingState: (loadingState: boolean) => void) => Promise<void>
 }
 
 export const useHandleRemoveItem = (): useHandleRemoveItemType => {
   const { RemoveItem } = useRemoveItem()
 
   const handleRemoveItem = useCallback(
-    async (
-      cartItemId: string,
-      setLoadingState: (loadingState: boolean) => void
-    ): Promise<void> => {
+    async (cartItemId: string, setLoadingState: (loadingState: boolean) => void): Promise<void> => {
       setLoadingState(true)
       try {
         await RemoveItem(cartItemId)

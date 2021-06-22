@@ -1,19 +1,20 @@
 module.exports = {
-  ignorePatterns: ['!.eslintrc.js', '!.prettierrc.js'],
+  env: {
+    browser: true,
+    node: true,
+    es6: true,
+    jest: true,
+  },
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/strict',
-  ],
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'jsx-a11y',
-    'react-hooks',
-    'tailwindcss',
+    'plugin:import/typescript',
+    'plugin:@next/next/recommended',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -21,25 +22,55 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-  },
-  env: {
-    browser: true,
-    node: true,
-    es6: true,
-    jest: true,
+    ecmaVersion: 2021,
   },
   settings: {
     react: {
       version: 'detect',
     },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.ts', '.tsx'],
+      },
+    },
   },
+  plugins: ['jsx-a11y', 'import', 'tailwindcss'],
   rules: {
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        semi: false,
+        arrowParens: 'always',
+        singleQuote: true,
+        trailingComma: 'es5',
+        tabWidth: 2,
+        printWidth: 120,
+      },
+    ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
     'tailwindcss/classnames-order': 'warn',
     'tailwindcss/no-custom-classname': 'off',
     'tailwindcss/no-contradicting-classname': 'error',
+    'import/order': [
+      'error',
+      {
+        pathGroups: [
+          {
+            pattern: '~/**',
+            group: 'external',
+            position: 'after',
+          },
+        ],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: false,
+        },
+      },
+    ],
   },
 }

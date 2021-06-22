@@ -24,10 +24,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
   },
   "exclude": [
     "node_modules",
+    ".next",
     "cypress"
 
   ],
@@ -35,6 +36,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js",
+    "**/*.js",
+    "**/*.jsx",
   ]
 }

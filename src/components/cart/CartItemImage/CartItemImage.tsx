@@ -1,7 +1,7 @@
+import { LineItem } from 'lib/Type'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC } from 'react'
-import { LineItem } from 'lib/Type'
 
 type Props = {
   cartItem: LineItem

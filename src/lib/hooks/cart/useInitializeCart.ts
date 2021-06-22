@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
+import { Cart } from 'lib/Type'
 import { getCheckoutId, setCheckoutId } from 'lib/helper/hooks'
 import { useRecoilCart } from 'lib/hooks/state'
 import { shopify } from 'lib/shopify'
-import { Cart } from 'lib/Type'
+import { useEffect } from 'react'
 
 export const useInitializeCart = (): void => {
   const { setCartState } = useRecoilCart()

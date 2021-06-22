@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import { FC } from 'react'
 import { ContentWrapper, CartLink } from 'components/layouts'
 import { DarkMode } from 'components/ui'
-import { Config } from 'lib/site.config'
 import { useRecoilFocusItem } from 'lib/hooks/state'
+import { Config } from 'lib/site.config'
+import Link from 'next/link'
+import { FC } from 'react'
 
 export const SiteHeader: FC = () => {
   const { setFocusItemState } = useRecoilFocusItem()
@@ -13,19 +13,13 @@ export const SiteHeader: FC = () => {
       <ContentWrapper>
         <div className="flex justify-between">
           <Link href="/" passHref>
-            <button
-              aria-label="このサイトの名前"
-              onClick={() => setFocusItemState(null)}
-            >
+            <button aria-label="このサイトの名前" onClick={() => setFocusItemState(null)}>
               {Config.brandName}
             </button>
           </Link>
           <div className="flex">
             <Link href={'/'} passHref>
-              <button
-                aria-label="アイテム一覧を表示する"
-                onClick={() => setFocusItemState(null)}
-              >
+              <button aria-label="アイテム一覧を表示する" onClick={() => setFocusItemState(null)}>
                 Items
               </button>
             </Link>

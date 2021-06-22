@@ -1,10 +1,10 @@
 /* eslint-disable
   @typescript-eslint/no-var-requires
 */
-const withPWA = require('next-pwa')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+const withPWA = require('next-pwa')
 
 // If you need more plugins, use next-compose-plugin
 // ANALYZE=true yarn build
@@ -18,12 +18,7 @@ module.exports = withBundleAnalyzer(
     images: {
       domains: ['cdn.shopify.com'],
     },
-    future: {
-      strictPostcssConfiguration: true,
-    },
-    eslint: {
-      ignoreDuringBuilds: true,
-    },
+    reactStrictMode: true,
     async headers() {
       return [
         {

@@ -1,8 +1,8 @@
-import { FC, useState, useEffect, useRef } from 'react'
-import { Head } from 'components/ui'
 import { Item } from 'components/root'
-import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
+import { Head } from 'components/ui'
 import { ItemType } from 'lib/Type'
+import { useRecoilCategory, useRecoilFocusItem } from 'lib/hooks/state'
+import { FC, useState, useEffect, useRef } from 'react'
 
 type Props = {
   items: ItemType[]
@@ -33,11 +33,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               .slice(0)
               .reverse()
               .map((item, i) => (
-                <Item
-                  key={`post-item-${i}`}
-                  item={item}
-                  focused={focusItemState === item.id}
-                />
+                <Item key={`post-item-${i}`} item={item} focused={focusItemState === item.id} />
               ))}
           </div>
         </>
@@ -51,11 +47,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               .slice(-10)
               .reverse()
               .map((item, i) => (
-                <Item
-                  key={`post-item-${i}`}
-                  item={item}
-                  focused={focusItemState === item.id}
-                />
+                <Item key={`post-item-${i}`} item={item} focused={focusItemState === item.id} />
               ))}
           </div>
         </>
@@ -71,11 +63,7 @@ export const ItemsByCategory: FC<Props> = ({ items }) => {
               .map(
                 (item, i) =>
                   item.productType === categoryState && (
-                    <Item
-                      key={`post-item-${i}`}
-                      item={item}
-                      focused={focusItemState === item.id}
-                    />
+                    <Item key={`post-item-${i}`} item={item} focused={focusItemState === item.id} />
                   )
               )}
           </div>
