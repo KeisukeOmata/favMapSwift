@@ -30,3 +30,21 @@ describe('Header testing', () => {
     cy.url().should('include', '/cart')
   })
 })
+
+describe('Footer testing', () => {
+  it('Terms test', () => {
+    cy.visit('/')
+    cy.get('footer').contains('利用規約').click()
+    cy.url().should('include', '/terms')
+  })
+  it('Privacy test', () => {
+    cy.visit('/')
+    cy.get('footer').contains('プライバシーポリシー').click()
+    cy.url().should('include', '/privacy')
+  })
+  it('Legal test', () => {
+    cy.visit('/')
+    cy.get('footer').contains('特定商取引法に基づく表示').click()
+    cy.url().should('include', '/legal')
+  })
+})
