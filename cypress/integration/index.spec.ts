@@ -1,4 +1,5 @@
 import 'cypress-localstorage-commands'
+import { categories } from '../../src/lib/categories'
 
 beforeEach(() => {
   cy.visit('/')
@@ -31,6 +32,37 @@ describe('Header testing', () => {
     cy.get('header').contains('BAG').click()
     cy.url().should('include', '/cart')
     cy.focused().should('have.id', 'head')
+  })
+})
+
+describe('Main testing', () => {
+  it('Categories test', () => {
+    cy.get('main').get(`[aria-label="${categories[0].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[0].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[1].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[1].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[2].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[2].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[3].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[3].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[4].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[4].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[5].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[5].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[6].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[6].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[7].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[7].name}`)
+
+    cy.get('main').get(`[aria-label="${categories[8].name}を表示する"]`).click()
+    cy.focused().should('have.text', `${categories[8].name}`)
   })
 })
 
