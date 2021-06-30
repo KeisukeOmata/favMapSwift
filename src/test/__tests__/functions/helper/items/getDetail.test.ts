@@ -1,7 +1,7 @@
 import { GetDetail } from 'lib/Type'
 import { getDetail } from 'lib/helper/items'
 
-import { item } from '../../../mock/item'
+import { item } from '../../../../mock/item'
 
 describe('getDetail', () => {
   test('return item', () => {
