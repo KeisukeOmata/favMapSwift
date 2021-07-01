@@ -44,7 +44,7 @@ export const SiteFooter: FC = () => (
         </div>
       </div>
       <div className="w-full text-sm text-center">
-        <p>© {Config.copyright}</p>
+        <p>{Config.copyright}</p>
       </div>
     </ContentWrapper>
   </footer>

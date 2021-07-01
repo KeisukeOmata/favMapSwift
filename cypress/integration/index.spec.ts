@@ -1,5 +1,6 @@
 import 'cypress-localstorage-commands'
 import { categories } from '../../src/lib/categories'
+import { Config } from '../../src/lib/site.config'
 
 beforeEach(() => {
   cy.visit('/')
@@ -81,5 +82,8 @@ describe('Footer testing', () => {
     cy.get('footer').contains('特定商取引法に基づく表示').click()
     cy.url().should('include', '/legal')
     cy.focused().should('have.id', 'head')
+  })
+  it('Copyright test', () => {
+    cy.get('footer').should('include', `${Config.copyright}`)
   })
 })
