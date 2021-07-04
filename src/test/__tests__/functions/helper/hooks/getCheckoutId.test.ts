@@ -35,7 +35,8 @@ describe('getCheckoutId', () => {
   })
 
   test('checkoutId', () => {
-    const value = getCheckoutId()
-    expect(value).toBe('')
+    localStorage.setItem('checkoutId', 'test')
+    const checkoutId = getCheckoutId()
+    expect(checkoutId).toBe('test')
   })
 })
