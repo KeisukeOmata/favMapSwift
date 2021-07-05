@@ -26,6 +26,9 @@ module.exports = {
     },
   },
   plugins: ['jsx-a11y', 'import', 'tailwindcss'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+  },
   rules: {
     'prettier/prettier': [
       'error',
