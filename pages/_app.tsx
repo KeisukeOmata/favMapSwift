@@ -3,11 +3,15 @@ import { useFocusHead } from 'lib/hooks/useFocusHead'
 import { Config } from 'lib/site.config'
 import { NextSeo } from 'next-seo'
 import { ThemeProvider } from 'next-themes'
-import type { AppProps } from 'next/app'
+import type { AppProps, NextWebVitalsMetric } from 'next/app'
 import NextHead from 'next/head'
 import { RecoilRoot } from 'recoil'
 import 'styles/main.css'
 import 'keen-slider/keen-slider.min.css'
+
+export const reportWebVital = (metric: NextWebVitalsMetric): void => {
+  process.env.NEXT_PUBLIC_NODE_ENV === 'production' && console.log(metric)
+}
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   useFocusHead()
