@@ -9,8 +9,8 @@ import { RecoilRoot } from 'recoil'
 import 'styles/main.css'
 import 'keen-slider/keen-slider.min.css'
 
-export const reportWebVital = (metric: NextWebVitalsMetric): void => {
-  process.env.NEXT_PUBLIC_NODE_ENV === 'production' && console.log(metric)
+export function reportWebVitals(metric: NextWebVitalsMetric): void {
+  console.log(metric)
 }
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
