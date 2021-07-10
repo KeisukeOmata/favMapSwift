@@ -46,9 +46,7 @@ export const ColorAndSize: FC<Props> = ({ detail, setVariantIdState, setAvailabl
             shape="circle"
             type="button"
             onClick={() => setSizeState(size)}
-          >
-            {' '}
-          </Button>
+          ></Button>
         ))}
       </div>
     </>
