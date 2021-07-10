@@ -49,14 +49,13 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
       <br></br>
       <div>
         <Button
+          text="削除"
           aria-label="カートから商品を削除する"
           loading={loadingState}
           shape="square"
           type="button"
           onClick={() => handleRemoveItem(cartItem.id, setLoadingState)}
-        >
-          削除
-        </Button>
+        ></Button>
       </div>
     </>
   )

@@ -1,4 +1,3 @@
-import { CheckMark } from 'components/icons'
 import { Button } from 'components/ui'
 import { Detail } from 'lib/Type'
 import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
@@ -29,16 +28,17 @@ export const ColorAndSize: FC<Props> = ({ detail, setVariantIdState, setAvailabl
             color={color}
             shape="circle"
             type="button"
+            checkMark={colorState === color}
+            colorState={colorState}
             onClick={() => setColorState(color)}
-          >
-            {colorState === color && <CheckMark colorState={colorState} />}
-          </Button>
+          ></Button>
         ))}
       </div>
       <div>Size</div>
       <div className="flex py-4 upper-line">
         {sizes.map((size, i) => (
           <Button
+            text={`${size}`}
             aria-label={`${size}サイズを選択する`}
             key={`sizes-${i}`}
             choose={sizeState === size ? true : false}
@@ -47,7 +47,7 @@ export const ColorAndSize: FC<Props> = ({ detail, setVariantIdState, setAvailabl
             type="button"
             onClick={() => setSizeState(size)}
           >
-            {size}
+            {' '}
           </Button>
         ))}
       </div>

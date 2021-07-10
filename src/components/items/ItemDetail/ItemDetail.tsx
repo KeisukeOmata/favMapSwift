@@ -30,19 +30,22 @@ export const ItemDetail: FC<Props> = ({ detail }) => {
         />
         {availableState ? (
           <Button
+            text="BAGに入れる"
             className="mt-5"
             aria-label="BAGに入れる"
             loading={loadingState}
             shape="square"
             type="button"
             onClick={() => handleAddItem(variantIdState, setLoadingState)}
-          >
-            BAGに入れる
-          </Button>
+          ></Button>
         ) : (
-          <Button className="mt-5" aria-label="この組み合わせは売り切れです" shape="square" type="button">
-            この組み合わせは売り切れです
-          </Button>
+          <Button
+            text="この組み合わせは売り切れです"
+            className="mt-5"
+            aria-label="この組み合わせは売り切れです"
+            shape="square"
+            type="button"
+          ></Button>
         )}
       </div>
     </>
