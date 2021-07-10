@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes'
 import { FC } from 'react'
 
 type Props = {
-  colorState: string
+  colorState: string | undefined
 }
 
 export const CheckMark: FC<Props> = ({ colorState }) => {

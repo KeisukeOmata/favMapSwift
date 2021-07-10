@@ -12,9 +12,7 @@ export default function Custom404() {
           <p className="text-9xl font-bold leading-tight">404</p>
           <h1 className="pb-12">Page not found...</h1>
           <Link href="/" passHref>
-            <Button shape="square" type="button" aria-label="Topページに戻る">
-              Topへ
-            </Button>
+            <Button text="Topへ" shape="square" type="button" aria-label="Topページに戻る"></Button>
           </Link>
         </ContentWrapper>
       </div>

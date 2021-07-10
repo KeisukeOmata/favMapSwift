@@ -1,6 +1,7 @@
 export { Button } from './Button'
 export { DarkMode } from './DarkMode'
 export { Head } from './Head'
+export { Loading } from './Loading'
 export { Skeleton } from './Skeleton'
 export { Slider } from './Slider'
 export { Toast } from './Toast'
