@@ -10,12 +10,13 @@ type Props = {
 }
 
 type RefProps = {
+  text: string
   shape: 'square' | 'circle'
 } & ButtonHTMLAttributes<HTMLButtonElement>
 
 // eslint-disable-next-line react/display-name
 const RefButton = forwardRef<HTMLButtonElement, RefProps>(({ ...props }, ref) => {
-  return <Button {...props} forwardRef={ref} />
+  return <Button {...props} forwardRef={ref}></Button>
 })
 
 export const CartCheckout: FC<Props> = ({ cart, buttonRef }) => {
@@ -25,14 +26,13 @@ export const CartCheckout: FC<Props> = ({ cart, buttonRef }) => {
       <div className="flex flex-col justify-center">
         <Link href="/" passHref>
           <RefButton
+            text="購入する"
             aria-label="お会計に進む"
             type="button"
             ref={buttonRef}
             shape="square"
             onClick={() => moveToShopify(cart)}
-          >
-            購入する
-          </RefButton>
+          ></RefButton>
         </Link>
       </div>
     </>
