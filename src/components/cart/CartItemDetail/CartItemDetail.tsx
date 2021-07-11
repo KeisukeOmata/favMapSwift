@@ -1,8 +1,7 @@
 import { Minus, Plus } from 'components/icons'
-import { Button } from 'components/ui'
 import { LineItem } from 'lib/Type'
 import { getColorAndSize } from 'lib/helper/cart'
-import { useHandleChangeQuantity, useHandleRemoveItem } from 'lib/hooks/cart'
+import { useHandleChangeQuantity } from 'lib/hooks/cart'
 import { useLoading } from 'lib/hooks/state'
 import { FC } from 'react'
 
@@ -12,7 +11,6 @@ type Props = {
 
 export const CartItemDetail: FC<Props> = ({ cartItem }) => {
   const { handleChangeQuantity } = useHandleChangeQuantity()
-  const { handleRemoveItem } = useHandleRemoveItem()
   const { loadingState, setLoadingState } = useLoading()
 
   return (
@@ -47,16 +45,6 @@ export const CartItemDetail: FC<Props> = ({ cartItem }) => {
       </div>
       <p>小計： {parseInt(cartItem.variant.price) * cartItem.quantity}円</p>
       <br></br>
-      <div>
-        <Button
-          text="削除"
-          aria-label="カートから商品を削除する"
-          loading={loadingState}
-          shape="square"
-          type="button"
-          onClick={() => handleRemoveItem(cartItem.id, setLoadingState)}
-        ></Button>
-      </div>
     </>
   )
 }
