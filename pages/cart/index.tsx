@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { CartItem, CartCheckout } from 'components/cart'
+import { CartItemImage, CartItemDetail, CartCheckout, CartItemRemove } from 'components/cart'
 import { PageSEO, ContentWrapper } from 'components/layouts'
 import { Head } from 'components/ui'
 import { resetCheckoutId } from 'lib/helper/cart'
@@ -23,9 +23,17 @@ export default function CartPage() {
               ) : (
                 <>
                   <Head id={'head'} head={'BAG'} />
-                  {cartState.lineItems.map((item, i) =>
+                  {cartState.lineItems.map((item) =>
                     item.variant ? (
-                      <CartItem key={`cart-item-${i}`} item={item} />
+                      <div className="flex flex-wrap justify-between">
+                        <div className="flex flex-col justify-center pt-5 w-1/2 sm:w-full">
+                          <CartItemImage cartItem={item} />
+                        </div>
+                        <div className="flex flex-col justify-center pt-5 w-1/2 sm:w-full">
+                          <CartItemDetail cartItem={item} />
+                          <CartItemRemove cartItemId={item.id} />
+                        </div>
+                      </div>
                     ) : (
                       // Reset cart because product information is outdated
                       resetCheckoutId()
