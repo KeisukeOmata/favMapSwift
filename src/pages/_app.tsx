@@ -1,5 +1,6 @@
 import { Context, SiteHeader, SiteFooter, Maintenance } from 'components/layouts'
-import { useFocusHead } from 'lib/hooks/useFocusHead'
+import { useGooleAnalytics } from 'lib/hooks'
+import { useFocusHead } from 'lib/hooks'
 import { Config } from 'lib/site.config'
 import { NextSeo } from 'next-seo'
 import { ThemeProvider } from 'next-themes'
@@ -10,7 +11,9 @@ import 'styles/main.css'
 import 'keen-slider/keen-slider.min.css'
 
 export default function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+  useGooleAnalytics()
   useFocusHead()
+
   return (
     <>
       <NextSeo {...Config} />
