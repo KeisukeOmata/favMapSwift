@@ -7,8 +7,7 @@
     "build": "next build && next-sitemap --config sitemap.config.js",
     "start": "next start",
     "test": "jest src/test/__tests__/*",
-    "fix": "prettier --write './**/*.{js,jsx,ts,tsx}'",
-    "lint": "next lint . --cache --fix",
+    "lint": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx}' && next lint . --cache --fix --dir src",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "cypress:run:chrome": "cypress run --browser chrome",
@@ -19,7 +18,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "yarn fix",
       "yarn lint",
       "yarn test"
     ]
