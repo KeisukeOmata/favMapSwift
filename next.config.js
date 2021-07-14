@@ -39,7 +39,7 @@ module.exports = withBundleAnalyzer(
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' https://unpkg.com/pwacompat https://www.googletagmanager.com https://ssl.google-analytics.com;
+  script-src-elem 'self' 'unsafe-eval' 'unsafe-inline' https://unpkg.com/pwacompat https://www.google-analytics.com/analytics.js;
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.instagram.com *.shopify.com;
   worker-src 'self' 'unsafe-eval' 'unsafe-inline';
   child-src *.youtube.com *.google.com *.twitter.com *.instagram.com *.shopify.com;
@@ -77,6 +77,6 @@ const securityHeaders = [
   },
   {
     key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+    value: 'camera=(), microphone=(), geolocation=()',
   },
 ]
