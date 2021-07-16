@@ -1,6 +1,6 @@
 import { Button } from 'components/ui'
 import { Detail } from 'lib/Type'
-import { useGetColorAndSize } from 'lib/hooks/useGetColorAndSize'
+import { useGetColorAndSize } from 'lib/hooks'
 import { FC } from 'react'
 
 type Props = {
